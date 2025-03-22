@@ -1,4 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentList>
+    <!-- Blade Ward -->
+	<content contentuid="h60442a32g02d3g436eg9868g6017ab4102c5" version="1">Take only half the damage from Bludgeoning, Piercing, and Slashing attacks. The duration of Blade Ward is reduced by 1 turn whenever Bludgeoning, Piercing, or Slashing damage is taken.</content>
+	<content contentuid="hf3d9a553gad9bg4878ga30cg5da8e854cfbf" version="1">Has Resistance against Bludgeoning, Piercing, and Slashing damage. The duration of Blade Ward is reduced by 1 turn whenever Bludgeoning, Piercing, or Slashing damage is taken.</content>
+    <!-- Bone Chill (now Chill touch) -->
+	<content contentuid="h2e9c2b10g1ebdg47c7gaa08g2dcf6667cbbd" version="1">Chill Touch</content>
+	<content contentuid="h1eae12c3g5f79g491fgaa61g1af469829dc7" version="1">Chill of the Grave</content>
 
+
+
+
+
+
+    <!--  -->
+    <!--  -->
+	<content contentuid="" version="1"></content>
+	<content contentuid="" version="1"></content>
+	<content contentuid="" version="1"></content>
+	<content contentuid="" version="1"></content>
 </contentList>

@@ -1,14 +1,146 @@
-// Acid Splash 
-// still vanilla 
+// ==================================== Acid Splash ====================================
+// 2024 change: Swapped school from Conjuration to Evocation.
 
-// Blade Ward 
-// Rebalance - Cantrips: using with no conflicts
+new entry "Projectile_AcidSplash"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_AcidSplash"
+// data "SpellSchool" "Conjuration"
+data "SpellSchool" "Evocation"
 
-// Bone Chill
-// Rebalance - Cantrips: overwriting to make vanilla
+// ==================================== Blade Ward ====================================
+// Casting Blade Ward is now a bonus action, whenever you take damage from a Bludgeoning, Piercing, or Slashing, the duration of Blade Ward is reduced by 1 turn.
+
+new entry "Shout_BladeWard"
+type "SpellData"
+using "Shout_BladeWard"
+// Take only half the damage from Bludgeoning, Piercing, and Slashing attacks.
+// data "Description" "h44d589a1g7e6dg4975g9ebcgaa2e193d44e1;6"
+// Take only half the damage from Bludgeoning, Piercing, and Slashing attacks. The duration of Blade Ward is reduced by 1 turn whenever Bludgeoning, Piercing, or Slashing damage is taken. 
+data "Description" "h60442a32g02d3g436eg9868g6017ab4102c5;1"
+// data "SpellProperties" "ApplyStatus(BLADE_WARD,100,2)"
+data "SpellProperties" "ApplyStatus(GOON_BLADE_WARD_SPELL,100,3)"
+// data "TooltipStatusApply" "ApplyStatus(BLADE_WARD,100,2)"
+data "TooltipStatusApply" "ApplyStatus(GOON_BLADE_WARD_SPELL,100,3)"
+// data "UseCosts" "ActionPoint:1"
+data "UseCosts" "BonusActionPoint:1"
+
+new entry "GOON_BLADE_WARD_SPELL"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BLADE_WARD"
+// Has Resistance against Bludgeoning, Piercing, and Slashing damage.
+// data "Description" "hbaec3368g3f8bg4577g8a7fg6c16b2059f18;4"
+// Has Resistance against Bludgeoning, Piercing, and Slashing damage. The duration of Blade Ward is reduced by 1 turn whenever Bludgeoning, Piercing, or Slashing damage is taken.
+data "Description" "hf3d9a553gad9bg4878ga30cg5da8e854cfbf;1"
+data "Passives" "Goon_Blade_Ward_Spell"
+
+new entry "Goon_Blade_Ward_Spell"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnDamaged"
+data "Conditions" "HasDamageEffectFlag(DamageFlags.Hit) and IsDamageTypeBludgeoning() or IsDamageTypePiercing() or IsDamageTypeSlashing()"
+data "StatsFunctors" "SetStatusDuration(GOON_BLADE_WARD_SPELL,-1,Add)"
+
+// ==================================== Bone Chill ====================================
+// "Bone Chill" is now named "Chill Touch" and deals both Necrotic and Cold damage. The status effect is now named "Chill of the Grave" instead of "Bone Chilled".
+
 new entry "Target_ChillTouch"
 type "SpellData"
 data "SpellType" "Target"
 using "Target_ChillTouch"
-data "SpellSuccess" "ApplyStatus(CHILL_TOUCH,100,1);DealDamage(LevelMapValue(D8Cantrip), Necrotic,Magical)"
-data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip), Necrotic)"
+// data "SpellSuccess" "ApplyStatus(CHILL_TOUCH,100,1);DealDamage(LevelMapValue(D8Cantrip), Necrotic,Magical)"
+data "SpellSuccess" "ApplyStatus(CHILL_TOUCH,100,1);DealDamage(LevelMapValue(D4Cantrip), Necrotic,Magical);DealDamage(LevelMapValue(D4Cantrip), Cold,Magical)"
+// Bone Chill
+// data "DisplayName" "h9dd6c9edgef86g4aacg8d3dg172606a7be3f;1"
+// Chill Touch
+data "DisplayName" "h2e9c2b10g1ebdg47c7gaa08g2dcf6667cbbd;1"
+// data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip), Necrotic)"
+data "TooltipDamageList" "DealDamage(LevelMapValue(D4Cantrip), Necrotic);DealDamage(LevelMapValue(D4Cantrip), Cold)"
+
+new entry "CHILL_TOUCH"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CHILL_TOUCH"
+// Bone Chilled
+// data "DisplayName" "hb2bd1a66gcbfcg4f2dg8b57g847b24ac7e01;1"
+// Chill of the Grave
+data "DisplayName" "h1eae12c3g5f79g491fgaa61g1af469829dc7;1"
+
+// ==================================== Dancing Lights ====================================
+// Make Dancing Lights copst a bonus action. Remove the concentration requirement. Make it last until long rest. Only one summon allowed at a time.
+
+new entry "Target_DancingLights"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_DancingLights"
+// data "SpellProperties" "GROUND:Summon(2064328c-a090-454f-b3b8-b488bbe64567, 10,,,,DANCING_LIGHTS)"
+data "SpellProperties" "GROUND:Summon(2064328c-a090-454f-b3b8-b488bbe64567, -1,,,,DANCING_LIGHTS)"
+data "AIFlags" "UseAsSupportingActionOnly"
+// data "TooltipStatusApply" "ApplyStatus(DANCING_LIGHTS,100,10)"
+data "TooltipStatusApply" "ApplyStatus(DANCING_LIGHTS,100,-1)"
+// data "UseCosts" "ActionPoint:1"
+data "UseCosts" "BonusActionPoint:1"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell;HasHighGroundRangeExtension;CannotTargetItems"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;CannotTargetItems"
+data "HitAnimationType" "None"
+
+new entry "DANCING_LIGHTS"
+type "StatusData"
+data "StatusType" "BOOST"
+using "DANCING_LIGHTS"
+data "IsUnique" "1"
+
+// ==================================== Eldritch Blast ====================================
+// Repelling Blast's toggle actually works. Adjustable push targetting implemented. (Grasp of Hadar support does not need to be added to base entry.)
+
+new entry "Projectile_EldritchBlast"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_EldritchBlast"
+// data "SpellSuccess" "DealDamage(1d10,Force,Magical);IF(HasPassive('RepellingBlast',context.Source)):Force(4.5)"
+data "SpellSuccess" "DealDamage(1d10,Force,Magical);IF(HasStatus('REPELLING_BLAST_TRIGGER',context.Source)):Force(4.5,OriginToTarget,Aggressive)"
+
+// ==================================== Fire Bolt ====================================
+// Only create a surface if the caster targets the surface directly, or if the target is standing on a flammable surface.
+
+new entry "Projectile_FireBolt"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_FireBolt"
+// data "SpellProperties" "GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt)"
+data "SpellProperties" "ApplyStatus(SELF,GOON_SURFACE_CHECK,100,0);GROUND:IF(not HasStatus('GOON_SURFACE_CHECK',context.Source)):SurfaceChange(Ignite);TARGET:IF(InSurface('SurfaceAlcohol') or InSurface('SurfaceOil') or InSurface('SurfaceGrease')):SurfaceChange(Ignite);GROUND:IF(not HasStatus('GOON_SURFACE_CHECK',context.Source)):SurfaceChange(Melt);TARGET:IF(InSurface('SurfaceAlcohol') or InSurface('SurfaceOil') or InSurface('SurfaceGrease')):SurfaceChange(Melt)"
+
+// ==================================== Friends ====================================
+// No changes.
+
+// ==================================== Guidance ====================================
+// Lasts until long rest, still requires concentration. This makes it more effective for non-dialogue checks while exploring, as you don't have to cast it constantly. Also increase the range to 9m and remove the Melee spell property.
+
+new entry "Target_Guidance"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Guidance"
+// data "SpellProperties" "ApplyStatus(GUIDANCE, 100, 10)"
+data "SpellProperties" "ApplyStatus(GUIDANCE, 100, -1)"
+// data "TargetRadius" "1.5"
+data "TargetRadius" "9"
+// data "TooltipStatusApply" "ApplyStatus(GUIDANCE, 100, 10)"
+data "TooltipStatusApply" "ApplyStatus(GUIDANCE, 100, -1)"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsConcentration;IsMelee"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsConcentration"
+
+// ==================================== Light ====================================
+// Make it a bonus action.
+// TODO: Revisit this for a more elegant solution, with regards to AI making use of the spell.
+// TODO: Also revisit it regarding wild shape.
+
+new entry "Target_Light"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Light"
+// data "UseCosts" "ActionPoint:1"
+data "UseCosts" "BonusActionPoint:1"
+
+// ==================================== Mage Hand ====================================
+
