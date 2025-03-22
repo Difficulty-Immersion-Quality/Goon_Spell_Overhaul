@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="319"/>
+    <region id="TooltipUpcastDescriptions">
+        <node id="root">
+            <children>
+				<node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Ray of Sickness"/>
+                    <attribute id="Text" type="TranslatedString" handle="h7bb211eegcb19g40f5gb993g456355099ea9" version="1"/>
+                    <attribute id="UUID" type="guid" value="5fbb7287-b50a-48bf-812e-74e030681c90"/>
+                </node>
+				<node id="TooltipUpcastDescriptions">
+					<attribute id="Name" type="FixedString" value="Dice Size Increase"/>
+                    <attribute id="Text" type="TranslatedString" handle="he5ccc995g8aa6g4c6dga1abgd490216be695" version="1"/>
+                    <attribute id="UUID" type="guid" value="5c7149f2-8492-478b-89d6-51d5914a1d27"/>
+                </node>
+				<node id="TooltipUpcastDescriptions">
+					<attribute id="Name" type="FixedString" value="Elemental Weapon"/>
+                    <attribute id="Text" type="TranslatedString" handle="h0f739f18gcf73g4fd9g9702gc6f7a6e75127" version="1"/>
+                    <attribute id="UUID" type="guid" value="3c7aed71-c882-4772-a3d7-e7be35f5ef2d"/>
+                </node>
+                <node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Blight"/>
+                    <attribute id="Text" type="TranslatedString" handle="h6c840cf3gf56bg40f9gb75cgee99661d20c0" version="1"/>
+                    <attribute id="UUID" type="guid" value="c9226a75-87d1-490d-93d0-59cd238a5920"/>
+                </node>
+                <node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Cure Wounds, Mass"/>
+                    <attribute id="Text" type="TranslatedString" handle="hdaaca89dgb611g48f0g8003g0dcfe0b4f668" version="2"/>
+                    <attribute id="UUID" type="guid" value="63632edd-c02e-4ca3-9975-e299e557b547"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

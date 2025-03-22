@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<contentList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <content contentuid="5e162ddc-dba6-47e9-acd2-c4ae685063fc" version="1">Inspire three creatures. They receive an additional bonus action and reaction per turn.</content>
+  <content contentuid="c650e67b-aeb8-4c48-ba16-65a1a8d692ad" version="1">This creature is under the influence of Pillar of Confidence, and receives an additional bonus action and reaction per turn.</content>
+  <content contentuid="94bb0d53-0b5e-4b0e-a68c-c120bed5d200" version="1">Strike out at a target with a debilitating mental whip. Deal 2d8 psychic damage, and your enemy must make an Intelligence saving throw or suffer reduced movement speed, disadvantage on attacks, and anyone attacking the target will have advantage for 1 turn.</content>
+  <content contentuid="a51fcd1b-5b1b-4fff-8920-bb46965415c9" version="1">Afflicted by an ego whip mental attack. Suffering from reduced movement speed, disadvantage on attacks, and anyone attacking this creature will has advantage.</content>
+</contentList>

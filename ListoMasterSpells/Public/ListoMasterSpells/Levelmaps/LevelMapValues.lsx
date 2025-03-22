@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="0" revision="8" build="612"/>
+    <region id="LevelMapValues">
+        <node id="root">
+            <children>
+                <node id="LevelMapSeries">
+                    <attribute id="Level1" type="LSString" value="2d6"/>
+                    <attribute id="Level2" type="LSString" value="2d6"/>
+                    <attribute id="Level3" type="LSString" value="2d6"/>
+                    <attribute id="Level4" type="LSString" value="3d6"/>
+                    <attribute id="Level5" type="LSString" value="3d6"/>
+                    <attribute id="Level6" type="LSString" value="3d6"/>
+                    <attribute id="Level7" type="LSString" value="4d6"/>
+                    <attribute id="Level8" type="LSString" value="4d6"/>
+                    <attribute id="Level9" type="LSString" value="4d6"/>
+                    <attribute id="Level10" type="LSString" value="5d6"/>
+                    <attribute id="Level11" type="LSString" value="5d6"/>
+                    <attribute id="Level12" type="LSString" value="5d6"/>
+                    <attribute id="Name" type="FixedString" value="Val_Witchbolt"/>
+                    <attribute id="UUID" type="guid" value="c12b9647-0705-4d19-abdc-ff277b379bd7"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

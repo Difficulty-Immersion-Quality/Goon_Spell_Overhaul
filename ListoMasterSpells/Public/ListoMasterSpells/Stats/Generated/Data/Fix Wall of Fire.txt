@@ -1,0 +1,32 @@
+new entry "WALLOFFIRE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "WALLOFFIRE"
+data "Boosts" "IF(MainDamageTypeIs(DamageType.Fire) and HasPassive('ElementalAdept_Fire', GetSummoner(context.Source))):MinimumRollResult(Damage,2);IF(HasPassive('ElementalAdept_Fire', GetSummoner(context.Source))):IgnoreResistance(Fire,Resistant)"
+
+new entry "WALLOFFIRE_AURA"
+type "StatusData"
+data "StatusType" "BOOST"
+using "WALLOFFIRE_AURA"
+data "OnApplyRoll" "WallOfFireCheck(Ability.Dexterity,CalculateSpellDC(context.PreferredCastingAbility, GetSummoner(context.Source)))"
+data "OnTickRoll" "WallOfFireCheck(Ability.Dexterity,CalculateSpellDC(context.PreferredCastingAbility, GetSummoner(context.Source)))"
+
+new entry "Projectile_Wall_Of_Ice_Explode"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_Wall_Of_Ice_Explode"
+data "SpellRoll" "not SavingThrow(Ability.Dexterity, CalculateSpellDC(context.PreferredCastingAbility, GetSummoner(context.Source)))"
+
+new entry "WALLOFICE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "WALLOFICE"
+data "Boosts" "IF(MainDamageTypeIs(DamageType.Cold) and HasPassive('ElementalAdept_Cold', GetSummoner(context.Source))):MinimumRollResult(Damage,2);IF(HasPassive('ElementalAdept_Cold', GetSummoner(context.Source))):IgnoreResistance(Cold,Resistant)"
+
+new entry "ICECLOUD"
+type "StatusData"
+data "StatusType" "BOOST"
+using "ICECLOUD"
+data "OnApplyRoll" "not SavingThrow(Ability.Constitution,20)"
+
+

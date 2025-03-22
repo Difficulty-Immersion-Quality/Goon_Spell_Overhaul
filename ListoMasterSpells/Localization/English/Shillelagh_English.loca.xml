@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentList>
+	<content contentuid="ShillelaghSpellDescription" version="1">Your Clubs, Glaives, Greatclubs, Warhammers, Javelins, Maces, Morningstars, Pikes, Quarterstaffs, Sickles, Spears or Tridents becomes magical: they deal [1], and use your &amp;lt;LSTag Tooltip="SpellcastingAbilityModifier"&amp;gt;Spellcasting Ability&amp;lt;/LSTag&amp;gt; for &amp;lt;LSTag Tooltip="AttackRoll"&amp;gt;Attack Rolls&amp;lt;/LSTag&amp;gt;.</content>
+	<content contentuid="ShillelaghSpellDescription2" version="1">Your Clubs, Glaives, Greatclubs, Warhammers, Javelins, Maces, Morningstars, Pikes, Quarterstaffs, Sickles, Spears or Tridents becomes magical: they deal [1], and add your &amp;lt;LSTag Tooltip="SpellcastingAbilityModifier"&amp;gt;Spellcasting Ability&amp;lt;/LSTag&amp;gt; for &amp;lt;LSTag Tooltip="AttackRoll"&amp;gt;Attack Rolls&amp;lt;/LSTag&amp;gt;.</content>
+	<content contentuid="ShillelaghSpellDescription3" version="1">Creature's weapon is magical and deals [1]. &amp;lt;LSTag Tooltip="AttackRoll"&amp;gt;Attack Rolls&amp;lt;/LSTag&amp;gt; add the wielder's &amp;lt;LSTag Tooltip="SpellcastingAbilityModifier"&amp;gt;Spellcasting Ability Modifier&amp;lt;/LSTag&amp;gt;.</content>
+	<content contentuid="ShillelaghSpellExDescription" version="1">Cast again to remove effect.</content>
+</contentList>

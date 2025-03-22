@@ -1,0 +1,14 @@
+// Acid Splash 
+// still vanilla 
+
+// Blade Ward 
+// Rebalance - Cantrips: using with no conflicts
+
+// Bone Chill
+// Rebalance - Cantrips: overwriting to make vanilla
+new entry "Target_ChillTouch"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_ChillTouch"
+data "SpellSuccess" "ApplyStatus(CHILL_TOUCH,100,1);DealDamage(LevelMapValue(D8Cantrip), Necrotic,Magical)"
+data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip), Necrotic)"
