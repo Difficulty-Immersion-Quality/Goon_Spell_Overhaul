@@ -1,0 +1,42 @@
+// ==================================== Other summons ====================================
+// TODO: Figure out a way of making the summon death place a technical on the summoner, to determine cooldown.
+
+new entry "Target_FindFamiliar"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_FindFamiliar"
+// data "Cooldown" "OncePerShortRest"
+data "Cooldown" "OncePerCombat"
+
+new entry "Target_FindFamiliar_Boo"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_FindFamiliar_Boo"
+// data "Cooldown" "OncePerShortRest"
+data "Cooldown" ""
+data "Requirements" "!Combat"
+
+new entry "Target_FindFamiliar_Dog"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_FindFamiliar_Dog"
+// data "Cooldown" "OncePerShortRest"
+data "Cooldown" ""
+// data "SpellProperties" "GROUND:Summon(b5deaa14-03b5-41c6-8372-7a9d758b4dfb, Permanent,,,'FindFamiliarStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
+data "SpellProperties" "GROUND:Summon(b5deaa14-03b5-41c6-8372-7a9d758b4dfb, Permanent,,,'ScratchStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
+data "Requirements" "!Combat"
+
+new entry "Target_ConjureIntellectDevour"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_ConjureIntellectDevour"
+// data "Cooldown" "OncePerShortRest"
+data "Cooldown" ""
+data "Requirements" "!Combat"
+
+new entry "Target_RangersCompanion"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_RangersCompanion"
+// data "Cooldown" "OncePerShortRest"
+data "Cooldown" "OncePerCombat"

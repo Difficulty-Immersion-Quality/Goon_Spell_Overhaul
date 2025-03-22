@@ -132,9 +132,9 @@ data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsConcentratio
 
 // ==================================== Light ====================================
 // Make it a bonus action.
-// TODO: Revisit this for a more elegant solution, with regards to AI making use of the spell.
-// TODO: Also revisit it regarding wild shape.
+// TODO: Revisit this for a more elegant solution, with regards to AI making use of the spell, and it being functional in Wild shape.
 
+// Druid QOL overwrites this entry's SpellProperties
 new entry "Target_Light"
 type "SpellData"
 data "SpellType" "Target"
@@ -142,5 +142,67 @@ using "Target_Light"
 // data "UseCosts" "ActionPoint:1"
 data "UseCosts" "BonusActionPoint:1"
 
-// ==================================== Mage Hand ====================================
+// ==================================== Mage Hand + Summons ====================================
+// Remove arbitary summon cooldowns, replace with per combat, or remove the cooldown entirely.
 
+// Rogue's Extra overwrites this entry's SpellProperties
+new entry "Target_MageHand"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_MageHand"
+// data "Cooldown" "OncePerRest"
+data "Cooldown" ""
+
+new entry "Target_MageHand_GithyankiPsionics"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_MageHand_GithyankiPsionics"
+// data "Cooldown" "OncePerRest"
+data "Cooldown" ""
+
+// ==================================== Minor Illusion ====================================
+// Costs a bonus action, illusions last until long rest.
+
+new entry "Target_MinorIllusion"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_MinorIllusion"
+// data "SpellProperties" "GROUND:Summon(a4d03902-0382-4f88-866d-3bb2225a69a3, 10,,,'MinorIllusionStack',MINOR_ILLUSION)"
+data "SpellProperties" "GROUND:Summon(a4d03902-0382-4f88-866d-3bb2225a69a3, -1,,,'MinorIllusionStack',MINOR_ILLUSION)"
+// data "TooltipStatusApply" "ApplyStatus(MINOR_ILLUSION,100,10)"
+data "TooltipStatusApply" "ApplyStatus(MINOR_ILLUSION,100,-1)"
+// data "UseCosts" "ActionPoint:1"
+data "UseCosts" "BonusActionPoint:1"
+
+// ==================================== Poison Spray ====================================
+
+
+new entry "Projectile_PoisonSpray"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_PoisonSpray"
+// data "SpellSchool" "Conjuration"
+data "SpellSchool" "Necromancy"
+// data "TargetRadius" "3"
+data "TargetRadius" "9"
+
+data "SpellRoll" "Attack(AttackType.RangedSpellAttack)"
+
+data "SpellFail" "EMPTY"
+
+data "TooltipAttackSave" "RangedSpellAttack"
+
+
+
+
+
+
+
+
+new entry "Shout_Shillelagh"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Shillelagh"
+data "Description" "h3a0db35cgcf52g48f4g94f8gd0a8fde57538;1"
+data "SpellProperties" "IF(IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs|Maces|Javelins|Spears|Tridents', GetItemInEquipmentSlot(EquipmentSlot.MeleeMainHand))):ApplyEquipmentStatus(MainHand, SHILLELAGH, 100, 10);IF(IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs|Maces|Javelins|Spears|Tridents', GetItemInEquipmentSlot(EquipmentSlot.MeleeOffHand))):ApplyEquipmentStatus(OffHand, SHILLELAGH, 100, 10);AI_ONLY:IF(not HasStatus('SHILLELAGH',GetActiveWeapon())):ApplyStatus(AI_HELPER_SHILLELAGH,100,-1)"
+data "RequirementConditions" "IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs|Maces|Javelins|Spears|Tridents', GetItemInEquipmentSlot(EquipmentSlot.MeleeMainHand)) or IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs|Maces|Javelins|Spears|Tridents', GetItemInEquipmentSlot(EquipmentSlot.MeleeOffHand))"
