@@ -1,0 +1,8 @@
+new entry "Target_Jump_Githyanki"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Jump_Githyanki"
+data "Level" "0"
+data "SpellSchool" "None"
+data "Cooldown" "OncePerShortRest"
+data "SpellFlags" "IsMelee"

@@ -1,0 +1,7 @@
+new entry "Target_MistyStep_Githyanki"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_MistyStep_Githyanki"
+data "SpellSchool" "None"
+data "Cooldown" "OncePerShortRest"
+data "SpellFlags" "HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold"

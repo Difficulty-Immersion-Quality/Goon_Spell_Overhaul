@@ -300,7 +300,7 @@ data "TargetEffect" "41c997d7-a298-482c-befb-bdedc4c78d3e"
 data "SpellFlags" "HasSomaticComponent;HasVerbalComponent;IsSpell;IsHarmful;CanAreaDamageEvade"
 
 // ==================================== Produce Flame ====================================
-// Summoning costs a bonus action, and dismissing is free. There is no longer a free hurl on the turn you summon the flame. Hurling the flame does not dismiss the status. Added cantrip scaling to the tooltip. Interacts with surfaces and applies burning same as Fire Bolt. Damage increased to 1d10 from 1d8. Targetting corpses allowed.
+// Summoning costs a bonus action, and dismissing is free. There is no longer a free hurl on the turn you summon the flame. Hurling the flame does not dismiss the status. Added cantrip scaling to the tooltip. Interacts with surfaces and applies burning same as Fire Bolt. In addition, creates its own fire surface if targetting the ground. Damage increased to 1d10 from 1d8. Targetting corpses allowed.
 
 new entry "Shout_ProduceFlame"
 type "SpellData"
@@ -309,7 +309,7 @@ using "Shout_ProduceFlame"
 // data "SpellProperties" "ApplyStatus(PRODUCE_FLAME,100,-1);ApplyStatus(PRODUCE_FLAME_HURL_FREE,100,1)"
 data "SpellProperties" "ApplyStatus(PRODUCE_FLAME,100,-1);ApplyStatus(PRODUCE_FLAME_HURL,100,-1)"
 // data "DescriptionParams" "Distance(9);DealDamage(1d8,Fire)"
-data "DescriptionParams" "Distance(18);DealDamage(LevelMapValue(D8Cantrip),Fire)"
+data "DescriptionParams" "Distance(18);DealDamage(LevelMapValue(D10Cantrip),Fire)"
 // data "TooltipStatusApply" "ApplyStatus(PRODUCE_FLAME,100,-1)"
 data "TooltipStatusApply" "ApplyStatus(PRODUCE_FLAME,100,-1);ApplyStatus(PRODUCE_FLAME_HURL,100,-1)"
 // data "UseCosts" "ActionPoint:1"
@@ -327,7 +327,7 @@ type "SpellData"
 data "SpellType" "Projectile"
 using "Projectile_ProduceFlame_Hurl"
 // data "SpellProperties" "GROUND:RemoveStatus(SELF,PRODUCE_FLAME);GROUND:RemoveStatus(SELF,PRODUCE_FLAME_HURL);GROUND:RemoveStatus(SELF,PRODUCE_FLAME_HURL_FREE);GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt)"
-data "SpellProperties" "ApplyStatus(SELF,GOON_SURFACE_CHECK,100,0);GROUND:IF(not HasStatus('GOON_SURFACE_CHECK',context.Source)):SurfaceChange(Ignite);TARGET:IF(InSurface('SurfaceAlcohol') or InSurface('SurfaceOil') or InSurface('SurfaceGrease') or InSurface('BloodExploding')):SurfaceChange(Ignite);GROUND:IF(not HasStatus('GOON_SURFACE_CHECK',context.Source)):SurfaceChange(Melt);TARGET:IF(InSurface('SurfaceWaterFrozen') or InSurface('SurfaceBloodFrozen')):SurfaceChange(Melt)"
+data "SpellProperties" "ApplyStatus(SELF,GOON_SURFACE_CHECK,100,0);GROUND:IF(not HasStatus('GOON_SURFACE_CHECK',context.Source)):SurfaceChange(Ignite);TARGET:IF(InSurface('SurfaceAlcohol') or InSurface('SurfaceOil') or InSurface('SurfaceGrease') or InSurface('BloodExploding')):SurfaceChange(Ignite);GROUND:IF(not HasStatus('GOON_SURFACE_CHECK',context.Source)):SurfaceChange(Melt);TARGET:IF(InSurface('SurfaceWaterFrozen') or InSurface('SurfaceBloodFrozen')):SurfaceChange(Melt);GROUND:IF(not HasStatus('GOON_SURFACE_CHECK',context.Source)):CreateSurface(2,3,Fire)"
 // data "TargetConditions" "not Self() and not Dead()"
 // data "SpellSuccess" "IF(not HasPassive('PotentSpellcasting',context.Source)):DealDamage(LevelMapValue(D8Cantrip),Fire,Magical);IF(HasPassive('PotentSpellcasting',context.Source)):DealDamage(LevelMapValue(D8Cantrip)+(max(0, WisdomModifier)),Fire,Magical)"
 data "SpellSuccess" "IF(not HasPassive('PotentSpellcasting',context.Source)):DealDamage(LevelMapValue(D10Cantrip),Fire,Magical);IF(HasPassive('PotentSpellcasting',context.Source)):DealDamage(LevelMapValue(D10Cantrip)+(max(0, WisdomModifier)),Fire,Magical);IF(HasStatus('BURNING')):SetStatusDuration(BURNING,1,Add);IF(not HasStatus('BURNING')):ApplyStatus(BURNING,100,1)"
@@ -419,16 +419,24 @@ data "TargetConditions" "Character() and not Self()"
 
 // ==================================== Shillelagh ====================================
 // Scales from 1d8 to 1d10 at level 5, and 1d12 at level 10. Works with staff, club, mace, javelin, dart, spear, or trident. Lasts until long rest. Can be cast on allies. Only one Shillelagh can be active at a time, per caster. The wielder can cancel the effect at will (AI will not cancel the effect).
+// TODO: See if I can't figure out a way of always immediately triggering the removal spell in the concertina.
 
 new entry "Shout_Shillelagh"
 type "SpellData"
 // data "SpellType" "Shout"
 data "SpellType" "Target"
-using "Shout_Shillelagh"
+data "Level" "0"
+data "SpellSchool" "Transmutation"
 // data "SpellProperties" "IF(IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs', GetActiveWeapon())):ApplyEquipmentStatus(MainHand, SHILLELAGH, 100, 10);IF(not IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs', GetActiveWeapon()) and IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs', GetActiveWeapon(context.Target, false))):ApplyEquipmentStatus(OffHand, SHILLELAGH, 100, 10);AI_ONLY:IF(not HasStatus('SHILLELAGH',GetActiveWeapon())):ApplyStatus(AI_HELPER_SHILLELAGH,100,-1)"
 data "SpellProperties" "IF(Item() and IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs|Maces|Javelins|Darts|Spears|Tridents')):ApplyStatus(SHILLELAGH,100,-1);IF(not Item() and IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs|Maces|Javelins|Darts|Spears|Tridents', GetActiveWeapon())):ApplyEquipmentStatus(MainHand,SHILLELAGH,100,-1);IF(not IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs|Maces|Javelins|Darts|Spears|Tridents', GetActiveWeapon()) and IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs|Maces|Javelins|Darts|Spears|Tridents', GetActiveWeapon(context.Target, false))):ApplyEquipmentStatus(OffHand,SHILLELAGH,100,-1);AI_ONLY:IF(not HasStatus('SHILLELAGH',GetActiveWeapon())):ApplyStatus(AI_HELPER_SHILLELAGH,100,-1)"
+data "TargetCeiling" "0"
+data "TargetFloor" ".25"
+data "TargetRadius" "1.5"
 // data "TargetConditions" "Self()"
 data "TargetConditions" "Character() or Item()"
+data "Icon" "Spell_Abjuration_Transmutation_Shillelagh"
+// Shillelagh
+data "DisplayName" "h88189f48ga78cg4a13ga52fg9c789a31c49e;1"
 // Your staff or club becomes magical: it deals [1], and uses your <LSTag Tooltip="SpellcastingAbilityModifier">Spellcasting Ability</LSTag> for <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag>.
 // data "Description" "hebb3bf5dg7eeeg44b7g9c75gd7ac6b4e3ce3;6"
 // Your staff, club, mace, javelin, dart, spear, or trident becomes magical: it deals [1], and uses your &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability&lt;/LSTag&gt; for &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt;.
@@ -438,44 +446,72 @@ data "DescriptionParams" "DealDamage(1d8,Bludgeoning);DealDamage(1d10,Bludgeonin
 data "TooltipDamageList" "DealDamage(LevelMapValue(GoonShillelagh)+SpellCastingAbilityModifier, Bludgeoning)"
 // data "TooltipStatusApply" "ApplyStatus(SHILLELAGH, 100, 10)"
 data "TooltipStatusApply" "ApplyStatus(SHILLELAGH, 100, -1)"
+data "CastSound" "Spell_Cast_Buff_Shillelagh_L0"
+data "TargetSound" "Spell_Impact_Buff_Shillelagh_L0"
+data "VocalComponentSound" "Vocal_Component_EnchantWeapon"
+// data "PreviewCursor" ""
+data "PreviewCursor" "Cast"
+data "CastTextEvent" "Cast"
+// data "AlternativeCastTextEvents" ""
+data "AlternativeCastTextEvents" "CastOffhand"
+data "UseCosts" "BonusActionPoint:1"
+// data "SpellAnimation" "8b8bb757-21ce-4e02-a2f3-97d55cf2f90b,,;,,;35b644cf-5c13-4407-9dc1-23bf4309216e,,;823e3ddf-c670-41ef-b7b4-9f4a4e38300b,,;7bb52cd4-0b1c-4926-9165-fa92b75876a3,,;,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
+data "SpellAnimation" "03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;dada6495-752c-4f30-a503-f05b8c811e2b,,;8ce53f9b-b559-49cd-9607-1991545060d7,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;,,;,,"
+data "VerbalIntent" "Buff"
+data "WeaponTypes" "Melee"
+data "SpellFlags" "HasVerbalComponent;IsMelee;IsSpell;HasSomaticComponent"
+data "SpellAnimationIntentType" "Aggressive"
 // data "RequirementConditions" "IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs', GetItemInEquipmentSlot(EquipmentSlot.MeleeMainHand)) or IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs', GetItemInEquipmentSlot(EquipmentSlot.MeleeOffHand))"
-data "RequirementConditions" "IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs|Maces|Javelins|Darts|Spears|Tridents')"
-// data "RequirementEvents" "OnEquip;OnUnequip" <- Something to edit?!
+// data "RequirementConditions" "IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs|Maces|Javelins|Darts|Spears|Tridents')"
+// data "RequirementEvents" "OnEquip;OnUnequip"
+data "PrepareEffect" "e8109f4b-2439-4424-9bc8-743270220f47"
+data "CastEffect" "53c9d361-0fc1-4d72-a70b-bc2611d538f0"
+data "Sheathing" "Melee"
+// data "MaximumTargets" ""
 data "MaximumTargets" "1"
+// data "HitAnimationType" ""
+data "HitAnimationType" "None"
 
 new entry "SHILLELAGH"
 type "StatusData"
 data "StatusType" "BOOST"
 using "SHILLELAGH"
+// Creature's weapon is magical and deals [1]. &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; use the wielder's &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability Modifier&lt;/LSTag&gt;. Damage increases from [1], to [2] at level 5, and from [2], to [3] at level 10.
+data "Description" "hab375000gaeb1g47dfg9d34ga2a778b28194;1"
 // data "DescriptionParams" "DealDamage(1d8+SpellCastingAbility, Bludgeoning)"
-data "DescriptionParams" "DealDamage(LevelMapValue(GoonShillelagh)+SpellCastingAbilityModifier, Bludgeoning)"
+data "DescriptionParams" "DealDamage(1d8,Bludgeoning);DealDamage(1d10,Bludgeoning);DealDamage(1d12,Bludgeoning)"
 // data "Boosts" "WeaponProperty(Magical);WeaponDamageDieOverride(1d8);WeaponAttackRollAbilityOverride(SpellCastingAbility);Attribute(InventoryBound)"
 data "Boosts" "WeaponProperty(Magical);WeaponDamageTypeOverride(Bludgeoning);WeaponAttackRollAbilityOverride(SpellCastingAbility);IF(not CharacterLevelGreaterThan(4,GetOwner(context.Source))):WeaponDamageDieOverride(1d8);IF(CharacterLevelGreaterThan(4,GetOwner(context.Source)) and not CharacterLevelGreaterThan(9,GetOwner(context.Source))):WeaponDamageDieOverride(1d10);IF(CharacterLevelGreaterThan(9,GetOwner(context.Source))):WeaponDamageDieOverride(1d12)"
+// data "RemoveConditions" ""
 data "RemoveConditions" "HasStatus('GOON_SHILLELAGH_REMOVAL_TECHNICAL')"
+// data "RemoveEvents" ""
 data "RemoveEvents" "OnStatusApplied"
-data "Passives" "Goon_Remove_Shillelagh_Passive"
+// data "Passives" ""
+// data "Passives" "Goon_Remove_Shillelagh_Passive"
+// data "IsUnique" ""
+data "IsUnique" "1"
 
 // Custom entries for handling removal
 new entry "Goon_Remove_Shillelagh_Passive"
 type "PassiveData"
-data "DisplayName" "h871c4f36g3d7fg4798ga7ecg05fd146c364c;1"
 data "Properties" "IsHidden"
-data "BoostContext" "OnStatusApply;OnStatusRemove;OnEquip;OnCreate;OnInventoryChanged;OnCast"
+data "BoostContext" "OnStatusApplied;OnStatusApply;OnStatusRemoved;OnStatusRemove;OnEquip;OnCreate;OnInventoryChanged;OnCast"
 data "BoostConditions" "HasStatus('SHILLELAGH',GetItemInEquipmentSlot(EquipmentSlot.MeleeMainHand,context.Source)) or HasStatus('SHILLELAGH',GetItemInEquipmentSlot(EquipmentSlot.MeleeOffHand,context.Source))"
 data "Boosts" "UnlockSpell(Goon_Shout_Remove_Shillelagh)"
 
 new entry "Goon_Shout_Remove_Shillelagh"
 type "SpellData"
 data "SpellType" "Shout"
-data "SpellProperties" "AI_IGNORE:IF(GetItemInEquipmentSlot(EquipmentSlot.MeleeMainHand)):ApplyStatus(GOON_SHILLELAGH_REMOVAL_TECHNICAL,100,0);AI_IGNORE:IF(GetItemInEquipmentSlot(EquipmentSlot.MeleeOffHand)):ApplyStatus(GOON_SHILLELAGH_REMOVAL_TECHNICAL,100,0);"
+data "SpellProperties" "AI_IGNORE:ApplyEquipmentStatus(MainHand,GOON_SHILLELAGH_REMOVAL_TECHNICAL,100,0);AI_IGNORE:ApplyEquipmentStatus(OffHand,GOON_SHILLELAGH_REMOVAL_TECHNICAL,100,0)"
 data "Icon" "Spell_Abjuration_Transmutation_Shillelagh"
 data "DisplayName" "h871c4f36g3d7fg4798ga7ecg05fd146c364c;1"
 data "Description" "h1ee9b7a0ge6a5g407bgb29cgbe27ad5d4221;1"
 data "CastSound" "Spell_Cast_Buff_Shillelagh_L0"
 data "TargetSound" "Spell_Impact_Buff_Shillelagh_L0"
+data "SpellAnimation" "8b8bb757-21ce-4e02-a2f3-97d55cf2f90b,,;,,;35b644cf-5c13-4407-9dc1-23bf4309216e,,;823e3ddf-c670-41ef-b7b4-9f4a4e38300b,,;7bb52cd4-0b1c-4926-9165-fa92b75876a3,,;,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
 data "SpellFlags" "Temporary"
-data "CastEffect" "2b103056-1f6e-4071-a0fe-8fbc697abfb9"
-data "TargetEffect" "676c75da-d477-4230-83fc-dae283c67ee1"
+data "PrepareEffect" "e8109f4b-2439-4424-9bc8-743270220f47"
+data "CastEffect" "53c9d361-0fc1-4d72-a70b-bc2611d538f0"
 data "RequirementConditions" "Player(context.Source)"
 
 new entry "GOON_SHILLELAGH_REMOVAL_TECHNICAL"
@@ -483,33 +519,21 @@ type "StatusData"
 data "StatusType" "BOOST"
 data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
 
+// ==================================== Shocking Grasp ====================================
 
 
 
+// ==================================== Thaumatergy ====================================
 
 
 
+// ==================================== Thorn Whip ====================================
 
 
 
+// ==================================== True Strike ====================================
 
 
 
-
-new entry "Target_Jump_Githyanki"
-type "SpellData"
-data "SpellType" "Target"
-using "Target_Jump_Githyanki"
-data "Level" "0"
-data "SpellSchool" "None"
-data "Cooldown" "OncePerShortRest"
-data "SpellFlags" "IsMelee"
-
-new entry "Target_MistyStep_Githyanki"
-type "SpellData"
-data "SpellType" "Target"
-using "Target_MistyStep_Githyanki"
-data "SpellSchool" "None"
-data "Cooldown" "OncePerShortRest"
-data "SpellFlags" "HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold"
+// ==================================== Vicious Mockery ====================================
 
