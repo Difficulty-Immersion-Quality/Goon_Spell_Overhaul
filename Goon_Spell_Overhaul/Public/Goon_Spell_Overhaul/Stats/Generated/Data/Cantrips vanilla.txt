@@ -520,8 +520,22 @@ data "StatusType" "BOOST"
 data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
 
 // ==================================== Shocking Grasp ====================================
+// Increased damage from 1d8 to 1d10. Overhauled the surface interactions to be more consistent with other spells. Can now target corpses.
 
-
+new entry "Target_ShockingGrasp"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_ShockingGrasp"
+// data "SpellProperties" "GROUND:SurfaceChange(Electrify)"
+data "SpellProperties" "ApplyStatus(SELF,GOON_SURFACE_CHECK,100,0);GROUND:IF(not HasStatus('GOON_SURFACE_CHECK',context.Source)):SurfaceChange(Electrify);TARGET:IF(InSurface('SurfaceWater') or InSurface('SurfaceBlood') or InSurface('SurfaceSewer') or InSurface('SurfaceAlcohol') or InSurface('SurfaceDeepwater') or InSurface('WaterCloud')):SurfaceChange(Electrify)"
+// data "SpellSuccess" "ApplyStatus(SHOCKING_GRASP,100,1);DealDamage(LevelMapValue(D8Cantrip),Lightning,Magical)"
+data "SpellSuccess" "ApplyStatus(SHOCKING_GRASP,100,1);DealDamage(LevelMapValue(D10Cantrip),Lightning,Magical)"
+// data "TargetConditions" "not Self() and not Dead()"
+data "TargetConditions" "not Self()"
+// data "DescriptionParams" "DealDamage(LevelMapValue(D8Cantrip),Lightning)"
+data "DescriptionParams" "DealDamage(LevelMapValue(D10Cantrip),Lightning)"
+// data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip),Lightning)"
+data "TooltipDamageList" "DealDamage(LevelMapValue(D10Cantrip),Lightning)"
 
 // ==================================== Thaumatergy ====================================
 
