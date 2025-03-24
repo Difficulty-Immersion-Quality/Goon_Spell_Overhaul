@@ -14,9 +14,17 @@
                     <attribute id="Level7" type="LSString" value="1d10"/>
                     <attribute id="Level8" type="LSString" value="1d10"/>
                     <attribute id="Level9" type="LSString" value="1d10"/>
-                    <attribute id="Level10" type="LSString" value="1d12"/>
+                    <attribute id="Level10" type="LSString" value="1d10"/>
                     <attribute id="Level11" type="LSString" value="1d12"/>
                     <attribute id="Level12" type="LSString" value="1d12"/>
+                    <attribute id="Level13" type="LSString" value="1d12"/>
+                    <attribute id="Level14" type="LSString" value="1d12"/>
+                    <attribute id="Level15" type="LSString" value="1d12"/>
+                    <attribute id="Level16" type="LSString" value="1d12"/>
+                    <attribute id="Level17" type="LSString" value="2d6"/>
+                    <attribute id="Level18" type="LSString" value="2d6"/>
+                    <attribute id="Level19" type="LSString" value="2d6"/>
+                    <attribute id="Level20" type="LSString" value="2d6"/>
                     <attribute id="Name" type="FixedString" value="GoonShillelagh"/>
                     <attribute id="UUID" type="guid" value="65e0f371-6acb-4b72-b24c-2f4d2a16653b"/>
                 </node>

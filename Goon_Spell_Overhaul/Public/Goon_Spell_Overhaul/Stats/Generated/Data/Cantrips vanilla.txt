@@ -437,7 +437,7 @@ using "Target_SacredFlame"
 data "TargetConditions" "Character() and not Self()"
 
 // ==================================== Shillelagh ====================================
-// Scales from 1d8 to 1d10 at level 5, and 1d12 at level 10. Works with staff, club, mace, javelin, dart, spear, or trident. Lasts until long rest. Can be cast on allies. Only one Shillelagh can be active at a time, per caster. The wielder can cancel the effect at will (AI will not cancel the effect).
+// Scales from 1d8 to 1d10 at level 5, 1d12 at level 11, and 2d6 at level 17. Works with staff, club, mace, javelin, dart, spear, or trident. Lasts until long rest. Can be cast on allies. Only one Shillelagh can be active at a time, per caster. The wielder can cancel the effect at will (AI will not cancel the effect).
 
 new entry "Shout_Shillelagh"
 type "SpellData"
@@ -460,7 +460,7 @@ data "DisplayName" "h88189f48ga78cg4a13ga52fg9c789a31c49e;1"
 // Your staff, club, mace, javelin, dart, spear, or trident becomes magical: it deals [1], and uses your &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability&lt;/LSTag&gt; for &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt;.
 data "Description" "h9e33ef27g4b4eg46c6gb365g6694c23fb2f0;1"
 // data "DescriptionParams" "DealDamage(1d8+SpellCastingAbilityModifier, Bludgeoning)"
-data "DescriptionParams" "DealDamage(1d8,Bludgeoning);DealDamage(1d10,Bludgeoning);DealDamage(1d12,Bludgeoning)"
+data "DescriptionParams" "DealDamage(1d8,Bludgeoning);DealDamage(1d10,Bludgeoning);DealDamage(1d12,Bludgeoning);DealDamage(2d6,Bludgeoning)"
 data "TooltipDamageList" "DealDamage(LevelMapValue(GoonShillelagh)+SpellCastingAbilityModifier, Bludgeoning)"
 // data "TooltipStatusApply" "ApplyStatus(SHILLELAGH, 100, 10)"
 data "TooltipStatusApply" "ApplyStatus(SHILLELAGH, 100, -1)"
@@ -680,10 +680,10 @@ type "SpellData"
 data "SpellType" "Target"
 using "Target_TrueStrike"
 data "SpellRoll" "not SavingThrow(Ability.Intelligence, SourceSpellDC())"
-data "SpellSuccess" "ApplyStatus(TRUE_STRIKE,100,1);ApplyStatus(SELF,TRUE_STRIKE_OWNER,100,1);IF(not CharacterLevelGreaterThan(4,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,2);IF(CharacterLevelGreaterThan(4,context.Source) and not CharacterLevelGreaterThan(8,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,3);IF(CharacterLevelGreaterThan(8,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,4)"
+data "SpellSuccess" "ApplyStatus(TRUE_STRIKE,100,1);ApplyStatus(SELF,TRUE_STRIKE_OWNER,100,1);IF(not CharacterLevelGreaterThan(4,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,2);IF(CharacterLevelGreaterThan(4,context.Source) and not CharacterLevelGreaterThan(8,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,3);IF(CharacterLevelGreaterThan(8,context.Source) and not CharacterLevelGreaterThan(13,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,4);IF(CharacterLevelGreaterThan(13,context.Source) and not CharacterLevelGreaterThan(17,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,5);IF(CharacterLevelGreaterThan(17,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,6)"
 // data "SpellProperties" "ApplyStatus(TRUE_STRIKE,100,2);ApplyStatus(SELF,TRUE_STRIKE_OWNER,100,2)"
 data "SpellProperties" ""
-data "SpellFail" "IF(not CharacterLevelGreaterThan(4,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,1);IF(CharacterLevelGreaterThan(4,context.Source) and not CharacterLevelGreaterThan(8,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,2);IF(CharacterLevelGreaterThan(8,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,2);ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)"
+data "SpellFail" "IF(not CharacterLevelGreaterThan(4,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,1);IF(CharacterLevelGreaterThan(4,context.Source) and not CharacterLevelGreaterThan(8,context.Source) and not CharacterLevelGreaterThan(13,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,2);IF(CharacterLevelGreaterThan(8,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,2);IF(CharacterLevelGreaterThan(13,context.Source) and not CharacterLevelGreaterThan(17,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,3);IF(CharacterLevelGreaterThan(17,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,3);ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)"
 // Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on your next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;.
 // data "Description" "he014b03bg6138g431dga1ecg45e4ebba4869;2"
 // If the target creature fails an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, the caster gains &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt;, on their next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; against the target. Additionally, their &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt; is reduced equal to your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt;, or half of your your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt; on a successful save. Whenever the target is attacked this effect and its duration is reduced by 1.
