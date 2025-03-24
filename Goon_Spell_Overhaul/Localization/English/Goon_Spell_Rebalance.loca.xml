@@ -12,8 +12,8 @@
     <!-- Sacred Flame -->
 	<content contentuid="h910058dcg21d0g4f89ga09cg47bd468ece71" version="1">Engulf a target in a flame-like radiance. If the target is a Fey, Fiend, or Undead, they take an additional [1].</content>
     <!-- Shillelagh -->
-	<content contentuid="h9e33ef27g4b4eg46c6gb365g6694c23fb2f0" version="1">Your staff, club, mace, javelin, dart, spear, or trident becomes magical: it deals [1], and uses your &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability&lt;/LSTag&gt; for &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt;. Damage begins at [1], and increases to [2] at level 5, then again from [2] to [3] at level 10.</content>
-	<content contentuid="hab375000gaeb1g47dfg9d34ga2a778b28194" version="1">Creature's weapon is magical and deals [1]. &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; use the wielder's &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability Modifier&lt;/LSTag&gt;. Damage begins at [1], and increases to [2] at level 5, then again from [2] to [3] at level 10.</content>
+	<content contentuid="h9e33ef27g4b4eg46c6gb365g6694c23fb2f0" version="1">Your staff, club, mace, javelin, dart, spear, or trident becomes magical: it deals [1], and uses your &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability&lt;/LSTag&gt; for &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Damage begins at [1], and increases to [2] at level 5, then again to [3] at level 10.</content>
+	<content contentuid="hab375000gaeb1g47dfg9d34ga2a778b28194" version="1">Creature's weapon is magical and deals [1]. &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; use the wielder's &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability Modifier&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Damage begins at [1], and increases to [2] at level 5, then again to [3] at level 10.</content>
 	<content contentuid="h871c4f36g3d7fg4798ga7ecg05fd146c364c" version="1">Dismiss Shillelagh</content>
 	<content contentuid="h1ee9b7a0ge6a5g407bgb29cgbe27ad5d4221" version="1">Dispel your equipped weapon's Shillelagh enchantment.</content>
 
