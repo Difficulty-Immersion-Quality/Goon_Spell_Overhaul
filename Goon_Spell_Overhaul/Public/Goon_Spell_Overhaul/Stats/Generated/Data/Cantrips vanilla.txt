@@ -261,6 +261,7 @@ data "UseCosts" "BonusActionPoint:1"
 
 // ==================================== Poison Spray ====================================
 // Change school from Conjuration to Necromancy, per 2024. Turn into a cone instead of a single target projectile. Reduce damage die from 1d12 to 1d10. Now creates a poison surface too.
+// TODO: Probably just have it closer to 2024 version, but with surface creation, poison cloud or something
 
 new entry "Projectile_PoisonSpray"
 type "SpellData"
@@ -654,19 +655,20 @@ using "Target_ThornWhip"
 data "TargetConditions" "not Self() and (Item() or Character() or Dead())"
 
 // ==================================== True Strike ====================================
-// Now a bonus action. Advantage is now only granted if the target fails an Intelligence saving throw, using the caster's spell DC. The target always has their AC reduced by 3, but the effect descends by 1 each time they are attacked; similar to Frenzied Strain.
+// Now a bonus action. Advantage is now only granted if the target fails an Intelligence saving throw, using the caster's spell DC. The target always has their AC reduced by by the caster's proficiency bonus, but the effect descends by 1 each time they are attacked; similar to Frenzied Strain.
 
 new entry "Target_TrueStrike"
 type "SpellData"
 data "SpellType" "Target"
 using "Target_TrueStrike"
-data "SpellRoll" "not SavingThrow(Ability.Intelligence, SourceSpellDC())
-data "SpellSuccess" "ApplyStatus(TRUE_STRIKE,100,1);ApplyStatus(SELF,TRUE_STRIKE_OWNER,100,1)"
+data "SpellRoll" "not SavingThrow(Ability.Intelligence, SourceSpellDC())"
+data "SpellSuccess" "ApplyStatus(TRUE_STRIKE,100,1);ApplyStatus(SELF,TRUE_STRIKE_OWNER,100,1);IF(not CharacterLevelGreaterThan(4,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,2);IF(CharacterLevelGreaterThan(4,context.Source) and not CharacterLevelGreaterThan(8,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,3);IF(CharacterLevelGreaterThan(8,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,4)"
 // data "SpellProperties" "ApplyStatus(TRUE_STRIKE,100,2);ApplyStatus(SELF,TRUE_STRIKE_OWNER,100,2)"
-data "SpellProperties" "ApplyStatus(GOON_TRUE_STRIKE,100,3)"
+data "SpellProperties" ""
+data "SpellFail" "IF(not CharacterLevelGreaterThan(4,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,1);IF(CharacterLevelGreaterThan(4,context.Source) and not CharacterLevelGreaterThan(8,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,2);IF(CharacterLevelGreaterThan(8,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,2);ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)"
 // Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on your next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;.
 // data "Description" "he014b03bg6138g431dga1ecg45e4ebba4869;2"
-// The target creature has their &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt; reduced by 3, whenever they are attacked this effect is reduced by 1. Additionally, if the target fails an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, the caster gains &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt;, on their next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; against the target.
+// If the target creature fails an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, the caster gains &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt;, on their next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; against the target. Additionally, their &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt; is reduced equal to your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt;, or half of your your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt; on a successful save. Whenever the target is attacked this effect and its duration is reduced by 1.
 data "Description" "h7f444266g81afg4e0eg95d8g90b8876bf040;1"
 // data "TooltipStatusApply" "ApplyStatus(TRUE_STRIKE,100,2)"
 data "TooltipStatusApply" "ApplyStatus(TRUE_STRIKE,100,1);ApplyStatus(GOON_TRUE_STRIKE,100,1)"
@@ -684,7 +686,7 @@ data "Description" "h9a4f4618g7ae6g4741g9519gb03d2851d055;1"
 data "Icon" "Spell_Divination_TrueStrike"
 data "StackId" "GOON_TRUE_STRIKE"
 data "StackType" "Additive"
-data "Boosts" "ArmourClass(-1)"
+data "Boosts" "AC(-1)"
 data "StatusPropertyFlags" "FreezeDuration;MultiplyEffectsByDuration"
 data "Passives" "Goon_True_Strike"
 
