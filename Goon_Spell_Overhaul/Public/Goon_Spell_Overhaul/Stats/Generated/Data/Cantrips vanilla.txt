@@ -187,7 +187,7 @@ data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;DisableComb
 data "OnApplyFunctors" "IF(SavingThrow(Ability.Wisdom, SourceSpellDC())):RemoveStatus(FRIENDS)"
 
 // ==================================== Guidance ====================================
-// Lasts until long rest, still requires concentration. This makes it more effective for non-dialogue checks while exploring, as you don't have to cast it constantly. Also increase the range to 9m and remove the Melee spell property. Targetting enemies allowed.
+// Lasts until long rest, still requires concentration. This makes it more effective for non-dialogue checks while exploring, as you don't have to cast it constantly. Also increase the range to 9m and remove the Melee spell property. Targetting enemies allowed. VFX and SFX now only stay for 1 round.
 
 new entry "Target_Guidance"
 type "SpellData"
@@ -210,6 +210,24 @@ type "SpellData"
 data "SpellType" "Projectile"
 using "Target_Guidance"
 data "TargetConditions" "Character() and Ally()"
+
+new entry "GUIDANCE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "GUIDANCE"
+data "OnApplyFunctors" "ApplyStatus(GOON_GUIDANCE_FX,100,1)"
+// data "SoundLoop" "Spell_Status_Guidance_MO"
+data "SoundLoop" ""
+// data "ManagedStatusEffectGroup" "6435c10a-c67d-4f79-8813-b84b0762f92b"
+data "ManagedStatusEffectGroup" ""
+
+new entry "GOON_GUIDANCE_FX"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
+data "SoundLoop" "Spell_Status_Guidance_MO"
+data "ManagedStatusEffectType" "Positive"
+data "ManagedStatusEffectGroup" "6435c10a-c67d-4f79-8813-b84b0762f92b"
 
 // ==================================== Light ====================================
 // Make it a bonus action.
@@ -375,13 +393,13 @@ new entry "RESISTANCE"
 type "StatusData"
 data "StatusType" "BOOST"
 using "RESISTANCE"
-data "OnApplyFunctors" "ApplyStatus(GOON_RESISTANCE_VFX,100,1)"
+data "OnApplyFunctors" "ApplyStatus(GOON_RESISTANCE_FX,100,1)"
 // data "StatusEffect" "95231805-3d66-4061-9cf6-8cbbc48d6732"
 data "StatusEffect" ""
 // data "ManagedStatusEffectGroup" "6435c10a-c67d-4f79-8813-b84b0762f92b"
 data "ManagedStatusEffectGroup" ""
 
-new entry "GOON_RESISTANCE_VFX"
+new entry "GOON_RESISTANCE_FX"
 type "StatusData"
 data "StatusType" "BOOST"
 data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
