@@ -419,7 +419,6 @@ data "TargetConditions" "Character() and not Self()"
 
 // ==================================== Shillelagh ====================================
 // Scales from 1d8 to 1d10 at level 5, and 1d12 at level 10. Works with staff, club, mace, javelin, dart, spear, or trident. Lasts until long rest. Can be cast on allies. Only one Shillelagh can be active at a time, per caster. The wielder can cancel the effect at will (AI will not cancel the effect).
-// TODO: See if I can't figure out a way of always immediately triggering the removal spell in the concertina.
 
 new entry "Shout_Shillelagh"
 type "SpellData"
@@ -428,7 +427,7 @@ data "SpellType" "Target"
 data "Level" "0"
 data "SpellSchool" "Transmutation"
 // data "SpellProperties" "IF(IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs', GetActiveWeapon())):ApplyEquipmentStatus(MainHand, SHILLELAGH, 100, 10);IF(not IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs', GetActiveWeapon()) and IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs', GetActiveWeapon(context.Target, false))):ApplyEquipmentStatus(OffHand, SHILLELAGH, 100, 10);AI_ONLY:IF(not HasStatus('SHILLELAGH',GetActiveWeapon())):ApplyStatus(AI_HELPER_SHILLELAGH,100,-1)"
-data "SpellProperties" "IF(Item() and IsWeaponOfProficiencyGroup('Clubs|Greatclubs|Quarterstaffs|Maces|Javelins|Darts|Spears|Tridents')):ApplyStatus(SHILLELAGH,100,-1);IF(not Item() and IsWeaponOfProficiencyGroup('Clubs|Greatclubs|Quarterstaffs|Maces|Javelins|Darts|Spears|Tridents', GetActiveWeapon())):ApplyEquipmentStatus(MainHand,SHILLELAGH,100,-1);IF(not IsWeaponOfProficiencyGroup('Clubs|Greatclubs|Quarterstaffs|Maces|Javelins|Darts|Spears|Tridents', GetActiveWeapon()) and IsWeaponOfProficiencyGroup('Clubs|Greatclubs|Quarterstaffs|Maces|Javelins|Darts|Spears|Tridents', GetActiveWeapon(context.Target, false))):ApplyEquipmentStatus(OffHand,SHILLELAGH,100,-1);AI_ONLY:IF(not HasStatus('SHILLELAGH',GetActiveWeapon())):ApplyStatus(AI_HELPER_SHILLELAGH,100,-1)"
+data "SpellProperties" "IF(Item() and IsWeaponOfProficiencyGroup('Clubs|Greatclubs|Quarterstaffs|Maces|Javelins|Darts|Spears|Tridents')):ApplyStatus(SHILLELAGH,100,-1);IF(Self() and not Item() and IsWeaponOfProficiencyGroup('Clubs|Greatclubs|Quarterstaffs|Maces|Javelins|Darts|Spears|Tridents', GetActiveWeapon())):ApplyEquipmentStatus(MainHand,SHILLELAGH,100,-1);IF(Self() and not Item() IsWeaponOfProficiencyGroup('Clubs|Greatclubs|Quarterstaffs|Maces|Javelins|Darts|Spears|Tridents', GetActiveWeapon()) and Self() and not Item() IsWeaponOfProficiencyGroup('Clubs|Greatclubs|Quarterstaffs|Maces|Javelins|Darts|Spears|Tridents', GetActiveWeapon(context.Target, false))):ApplyEquipmentStatus(OffHand,SHILLELAGH,100,-1);IF(not Self() and IsWeaponOfProficiencyGroup('Clubs|Greatclubs|Quarterstaffs|Maces|Javelins|Darts|Spears|Tridents', GetActiveWeapon(context.Target))):ApplyEquipmentStatus(MainHand,SHILLELAGH,100,-1);IF(not Self() and IsWeaponOfProficiencyGroup('Clubs|Greatclubs|Quarterstaffs|Maces|Javelins|Darts|Spears|Tridents', GetActiveWeapon(context.Target, false))):ApplyEquipmentStatus(OffHand,SHILLELAGH,100,-1);AI_ONLY:IF(not HasStatus('SHILLELAGH',GetActiveWeapon())):ApplyStatus(AI_HELPER_SHILLELAGH,100,-1)"
 data "TargetCeiling" "0"
 data "TargetFloor" ".25"
 data "TargetRadius" "1.5"
