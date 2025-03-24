@@ -538,12 +538,32 @@ data "DescriptionParams" "DealDamage(LevelMapValue(D10Cantrip),Lightning)"
 data "TooltipDamageList" "DealDamage(LevelMapValue(D10Cantrip),Lightning)"
 
 // ==================================== Thaumatergy ====================================
-
-
+// No changes for now.
 
 // ==================================== Thorn Whip ====================================
+// Adjustable pull targeting, with increased range on the pull. Can target everything but self. Increased damage from 1d6 to 1d10.
+// Bleeding could be interesting here?
 
+new entry "Target_ThornWhip"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_ThornWhip"
+data "SpellRoll" "Attack(AttackType.MeleeSpellAttack)"
+// data "SpellSuccess" "TARGET:IF(not Grounded() and TargetSizeEqualOrSmaller(Size.Large)):Force(-3, OriginToEntity, Neutral, false, true); DealDamage(LevelMapValue(D6Cantrip),Piercing,Magical);"
+data "SpellSuccess" "TARGET:IF(not Grounded() and TargetSizeEqualOrSmaller(Size.Large)):Force(-5, OriginToTarget, Neutral); DealDamage(LevelMapValue(D10Cantrip),Piercing,Magical);"
+// data "TargetConditions" "not Self() and (Item() or Character() or Dead())"
+data "TargetConditions" "not Self()"
+// data "DescriptionParams" "Distance(3)"
+data "DescriptionParams" "Distance(5)"
+// data "TooltipDamageList" "DealDamage(LevelMapValue(D6Cantrip),Piercing);"
+data "TooltipDamageList" "DealDamage(LevelMapValue(D10Cantrip),Piercing)"
+data "CombatAIOverrideSpell" "Target_ThornWhip_AI"
 
+new entry "Target_ThornWhip_AI"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Target_ThornWhip"
+data "TargetConditions" "not Self() and (Item() or Character() or Dead())"
 
 // ==================================== True Strike ====================================
 
