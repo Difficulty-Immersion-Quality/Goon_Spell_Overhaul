@@ -264,7 +264,7 @@ data "SpellFlags" "HasHighGroundRangeExtension;CannotTargetCharacter;CannotTarge
 data "Cooldown" ""
 
 // ==================================== Minor Illusion ====================================
-// Costs a bonus action, illusions last until long rest.
+// Costs a bonus action, illusions last until long rest. You can only have one summoned at a time, per vanilla.
 
 new entry "Target_MinorIllusion"
 type "SpellData"
@@ -319,7 +319,7 @@ data "TargetEffect" "41c997d7-a298-482c-befb-bdedc4c78d3e"
 data "SpellFlags" "HasSomaticComponent;HasVerbalComponent;IsSpell;IsHarmful;CanAreaDamageEvade"
 
 // ==================================== Produce Flame ====================================
-// Summoning costs a bonus action, and dismissing is free. There is no longer a free hurl on the turn you summon the flame. Hurling the flame does not dismiss the status. Added cantrip scaling to the tooltip. Interacts with surfaces and applies burning same as Fire Bolt. In addition, creates its own fire surface if targetting the ground. Damage increased to 1d10 from 1d8. Targetting corpses allowed.
+// Added cantrip scaling to the tooltip, as it should have been. Summoning costs a bonus action, and dismissing is free. There is no longer a free hurl on the turn you summon the flame. Hurling the flame does not dismiss the status. Interacts with surfaces and applies burning same as Fire Bolt. In addition, creates its own fire surface if targetting the ground. Damage increased to 1d10 from 1d8. Targetting corpses allowed.
 
 new entry "Shout_ProduceFlame"
 type "SpellData"
@@ -362,7 +362,7 @@ using "Projectile_ProduceFlame_Hurl"
 data "TargetConditions" "not Self() and not Dead()"
 
 // ==================================== Ray of Frost ====================================
-// Only change a surface if the caster targets the surface directly, or if the target is standing on an appropriate surface. Damage increased from 1d8 to 1d10. Targetting corpses allowed.
+// Only change a surface if the caster targets the surface directly, or if the target is standing on an appropriate surface. Damage increased to 1d10 from 1d8. Targetting corpses allowed.
 
 new entry "Projectile_RayOfFrost"
 type "SpellData"
@@ -408,7 +408,7 @@ data "ManagedStatusEffectType" "Positive"
 data "ManagedStatusEffectGroup" "6435c10a-c67d-4f79-8813-b84b0762f92b"
 
 // ==================================== Sacred Flame ====================================
-// Now a a 1d10 instead of 1d8. On a success applies Holy Fire to Fiends, Fey and Undead; mirror's Fire Bolt and Produce Flame. Interacts with surfaces same as Fire Bolt and Produce Flame. Targetting objects and corpses allowed.
+// Damage increased to 1d10 from 1d8. On a success applies Holy Fire to Fiends, Fey and Undead; mirror's Fire Bolt and Produce Flame. Interacts with surfaces same as Fire Bolt and Produce Flame. Targetting objects and corpses allowed.
 
 new entry "Target_SacredFlame"
 type "SpellData"
@@ -673,7 +673,7 @@ using "Target_ThornWhip"
 data "TargetConditions" "not Self() and (Item() or Character() or Dead())"
 
 // ==================================== True Strike ====================================
-// Now a bonus action. Advantage is now only granted if the target fails an Intelligence saving throw, using the caster's spell DC. The target always has their AC reduced by by the caster's proficiency bonus, but the effect descends by 1 each time they are attacked; similar to Frenzied Strain.
+// Now costs a bonus action. Advantage is now only granted if the target fails an Intelligence saving throw, using the caster's spell DC. The target always has their AC reduced by the caster's proficiency bonus, and half on a successful save(rounded up). But the effect and its duration is reduced by 1 each time they are attacked.
 
 new entry "Target_TrueStrike"
 type "SpellData"

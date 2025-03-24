@@ -1,5 +1,5 @@
 // ==================================== Other summons ====================================
-// TODO: Figure out a way of making the summon death place a technical on the summoner, to determine cooldown.
+// TODO: Figure out a way of making the summon death place a technical on the summoner, to determine cooldown. Probably more SE for that.
 
 new entry "Target_FindFamiliar"
 type "SpellData"
@@ -8,12 +8,23 @@ using "Target_FindFamiliar"
 // data "Cooldown" "OncePerShortRest"
 data "Cooldown" "OncePerCombat"
 
+new entry "Target_RangersCompanion"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_RangersCompanion"
+// data "Cooldown" "OncePerShortRest"
+data "Cooldown" "OncePerCombat"
+
+// ==================================== Special summons ====================================
+
 new entry "Target_FindFamiliar_Boo"
 type "SpellData"
 data "SpellType" "Target"
 using "Target_FindFamiliar_Boo"
 // data "Cooldown" "OncePerShortRest"
 data "Cooldown" ""
+// data "SpellProperties" "GROUND:Summon(6f65f77f-4583-4dd7-be15-b737d0175061,Permanent,,,'FindFamiliarStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
+data "SpellProperties" "GROUND:Summon(6f65f77f-4583-4dd7-be15-b737d0175061,Permanent,,,'BooStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
 data "Requirements" "!Combat"
 
 new entry "Target_FindFamiliar_Dog"
@@ -34,9 +45,12 @@ using "Target_ConjureIntellectDevour"
 data "Cooldown" ""
 data "Requirements" "!Combat"
 
-new entry "Target_RangersCompanion"
+new entry "Target_FOR_ThayanCellar_SummonQuasit"
 type "SpellData"
 data "SpellType" "Target"
-using "Target_RangersCompanion"
+using "Target_FOR_ThayanCellar_SummonQuasit"
 // data "Cooldown" "OncePerShortRest"
-data "Cooldown" "OncePerCombat"
+data "Cooldown" ""
+// data "SpellProperties" "GROUND:Summon(000c1be8-615a-4324-b59d-1f0f5637df36,  Permanent,,,'FindFamiliarStack',UNSUMMON_ABLE)"
+data "SpellProperties" "GROUND:Summon(000c1be8-615a-4324-b59d-1f0f5637df36,  Permanent,,,'CheekyQuasitStack',UNSUMMON_ABLE)"
+data "Requirements" "!Combat"
