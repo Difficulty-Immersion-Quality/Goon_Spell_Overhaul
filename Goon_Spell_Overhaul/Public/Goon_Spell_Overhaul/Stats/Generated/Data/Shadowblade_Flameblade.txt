@@ -1,5 +1,5 @@
 // ==================================== Shadow Blade ====================================
-// Concentration requirement removed. Lasts until long rest. Damage starts at 1d6, and scales to 5d6. Melee weapon attacks against obscured targets now have Advantage, not just attacks made with the weapon itself. IntrinsicSummonerProficiency added for weapon actions etc. Heavily nerfed damage wise from 5e/2024 counterparts, it's better here.
+// It's a magical weapon, the summoner has innate proficiency with it, it uses the summoner's spell casting ability for attacks. Lasts until long rest. Damage starts at 1d6 and scales to 5d6 with upcasting to level 9 spell slots. Concentration requirement removed. Melee weapon attacks against obscured targets now have Advantage, not just attacks made with the weapon itself.
 
 // Vanilla entries
 new entry "WPN_ShadowBlade"
@@ -143,6 +143,7 @@ data "SpellProperties" "AI_IGNORE:SummonInInventory(66d6cbd5-c231-4fc4-a3b7-80f7
 data "DescriptionParams" "DealDamage(5d6,Psychic)"
 
 // ==================================== Flame Blade ====================================
+// Flame Blade is no longer a spell attack thing, the summoned scimitar functions as a scimitar. It's a magical weapon, the summoner has innate proficiency with it, it uses the summoner's spell casting ability for attacks. Lasts until long rest. Damage starts at 1d6 and scales to 5d6 with upcasting to level 9 spell slots.
 
 new entry "WPN_Scimitar_FlameBlade"
 type "Weapon"
