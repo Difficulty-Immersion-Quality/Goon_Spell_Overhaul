@@ -44,7 +44,7 @@ new entry "Goon_Blade_Ward_Spell"
 type "PassiveData"
 data "Properties" "IsHidden"
 data "StatsFunctorContext" "OnDamaged"
-data "Conditions" "HasDamageEffectFlag(DamageFlags.Hit) and IsDamageTypeBludgeoning() or IsDamageTypePiercing() or IsDamageTypeSlashing()"
+data "Conditions" "IsDamageTypeBludgeoning() or IsDamageTypePiercing() or IsDamageTypeSlashing()"
 data "StatsFunctors" "SetStatusDuration(GOON_BLADE_WARD_SPELL,-1,Add)"
 
 // ==================================== Bone Chill ====================================
