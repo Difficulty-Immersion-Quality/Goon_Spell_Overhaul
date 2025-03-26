@@ -9,7 +9,9 @@
     <!-- Friends -->
 	<content contentuid="h40d4759dga74ag4804gac41g65b19eb68b17" version="1">Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Charisma &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against a non-hostile creature in dialogue. When targetting a hostile creature in combat, they must succeed a &lt;LSTag Tooltip="Wisdom"&gt;Wisdom&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or suffer &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against you.</content>
 	<content contentuid="hd51d6e1bg6d7cg4309ga03bgc0eade9ef864" version="1">The caster of this charm has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against the creature.</content>
-    <!-- Sacred Flame -->
+    <!-- Poison Spray -->
+	<content contentuid="h1be0ac47g18f5g4945g85b9g41ab74c32552" version="1">Project a cone of noxious gas, leaving behind a cloud of poison.</content>
+	<!-- Sacred Flame -->
 	<content contentuid="h910058dcg21d0g4f89ga09cg47bd468ece71" version="1">Engulf a target in a flame-like radiance. If the target is a Fey, Fiend, or Undead, they take an additional [1].</content>
     <!-- Shillelagh -->
 	<content contentuid="h9e33ef27g4b4eg46c6gb365g6694c23fb2f0" version="1">Your staff, club, mace, javelin, dart, spear, or trident becomes magical: it deals [1], and uses your &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability&lt;/LSTag&gt; for &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Damage begins at [1], and increases to [2] at level 5, then again to [3] at level 10.</content>
@@ -17,7 +19,8 @@
 	<content contentuid="h871c4f36g3d7fg4798ga7ecg05fd146c364c" version="1">Dismiss Shillelagh</content>
 	<content contentuid="h1ee9b7a0ge6a5g407bgb29cgbe27ad5d4221" version="1">Dispel your equipped weapon's Shillelagh enchantment.</content>
     <!-- True Strike -->
-	<content contentuid="h7f444266g81afg4e0eg95d8g90b8876bf040" version="1">If the target creature fails an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, the caster gains &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on their next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; against the target.&lt;br&gt;Additionally, the target's &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt; is reduced equal to your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt;, or half of your your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt; on a successful save. Whenever the target is attacked this effect and its duration is reduced by 1.</content>
+	<content contentuid="h7f444266g81afg4e0eg95d8g90b8876bf040" version="1">If the target creature fails an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, the caster gains &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on their next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; against the target.&lt;br&gt;&lt;br&gt;Additionally, the target's &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt; is reduced equal to your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt;, or half of your your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt; on a successful save. Whenever the target is attacked this effect and its duration is reduced by 1.</content>
+	<content contentuid="h6cc73e50gf680g4b25ga7d5g12f31475c508" version="1">Open Defenses</content>
 	<content contentuid="h9a4f4618g7ae6g4741g9519gb03d2851d055" version="1">&lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt; is reduced by the duration of the effect. Whenever the creature is attacked the duration is reduced by 1.</content>
 
 
