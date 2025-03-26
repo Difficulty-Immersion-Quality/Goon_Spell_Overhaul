@@ -148,43 +148,48 @@ data "TargetConditions" "not Self() and not Dead()"
 
 // ==================================== Friends ====================================
 // Now a bonus action. Can be used in combat to give a creature Disadvantage on attack rolls against you; the creature gets to make a Wisdom save against it in combat.
-// TODO: Give her a good testing.
+// TODO: Redesihgn charm spells and all that as a whole, no good trying to do this in a vaccuum
 
-new entry "Target_Friends"
-type "SpellData"
-data "SpellType" "Target"
-using "Target_Friends"
-// data "SpellProperties" "ApplyStatus(FRIENDS,100,10)"
-data "SpellProperties" "ApplyStatus(FRIENDS,100,10);IF(Combat()):ApplyStatus(GOON_FRIENDS_COMBAT_SAVE,100,0);ApplyStatus(SELF,GOON_FRIENDS_TECHNICAL,100,10)"
-// data "TargetConditions" "Character() and not Enemy()  and not Self()"
-data "TargetConditions" "Character() and not Self()"
-// Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Charisma &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against a non-hostile creature.
-// data "Description" "h21bab19cg2de1g46f5g9805g7fb58680f3ff;2"
-// Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Charisma &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against a non-hostile creature in dialogue. When targetting a hostile creature in combat, they must succeed a &lt;LSTag Tooltip="Wisdom"&gt;Wisdom&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or suffer &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against you.
-data "Description" "h40d4759dga74ag4804gac41g65b19eb68b17;1"
-// data "UseCosts" "ActionPoint:1"
-data "UseCosts" "BonusActionPoint:1"
+// new entry "Target_Friends"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_Friends"
+// // data "SpellProperties" "ApplyStatus(FRIENDS,100,10)"
+// data "SpellProperties" "IF(not Combat()):ApplyStatus(FRIENDS,100,10);IF(Combat()):ApplyStatus(GOON_FRIENDS_COMBAT_SAVE,100,0);IF(HasStatus('FRIENDS',context.Target)):ApplyStatus(SELF,GOON_FRIENDS_TECHNICAL,100,10);IF(not HasStatus('FRIENDS',context.Target)):BreakConcentration(SELF)"
+// // data "TargetConditions" "Character() and not Enemy()  and not Self()"
+// data "TargetConditions" "Character() and not Self()"
+// // Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Charisma &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against a non-hostile creature.
+// // data "Description" "h21bab19cg2de1g46f5g9805g7fb58680f3ff;2"
+// // Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Charisma &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against a non-hostile creature in dialogue. When targetting a hostile creature in combat, they must succeed a &lt;LSTag Tooltip="Wisdom"&gt;Wisdom&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or suffer &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against you.
+// data "Description" "h40d4759dga74ag4804gac41g65b19eb68b17;1"
+// // data "UseCosts" "ActionPoint:1"
+// data "UseCosts" "BonusActionPoint:1"
 
-new entry "FRIENDS"
-type "StatusData"
-data "StatusType" "BOOST"
-using "FRIENDS"
-// Has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Charisma &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; directed at the target creature.
-// data "Description" "hf61260e8g3c54g48b7g9ce8gbf362d66d134;2"
-// The caster of this charm has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against the target.
-data "Description" "hd51d6e1bg6d7cg4309ga03bgc0eade9ef864;1"
-// data "Boosts" "Advantage(SourceDialogue,Charisma)"
-data "Boosts" "Advantage(SourceDialogue,Charisma);IF(HasStatus('GOON_FRIENDS_TECHNICAL', context.Source, context.Target)):Disadvantage(AttackRoll)"
+// new entry "FRIENDS"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// using "FRIENDS"
+// // Has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Charisma &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; directed at the target creature.
+// // data "Description" "hf61260e8g3c54g48b7g9ce8gbf362d66d134;2"
+// // The caster of this charm has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against the target. The target 
+// data "Description" "hd51d6e1bg6d7cg4309ga03bgc0eade9ef864;1"
+// // data "Boosts" "Advantage(SourceDialogue,Charisma)"
+// data "Boosts" "Advantage(SourceDialogue,Charisma);IF(HasStatus('GOON_FRIENDS_TECHNICAL', context.Target)):Disadvantage(AttackRoll)"
 
-new entry "GOON_FRIENDS_COMBAT_SAVE"
-type "StatusData"
-data "StatusType" "BOOST"
-// Friends
-data "DisplayName" "h8f8a19a6gb008g490dgb644gb10fe05748fc;1"
-// The caster of this charm has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against the target.
-data "Description" "hd51d6e1bg6d7cg4309ga03bgc0eade9ef864;1"
-data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
-data "OnApplyFunctors" "IF(SavingThrow(Ability.Wisdom, SourceSpellDC())):RemoveStatus(FRIENDS)"
+// new entry "GOON_FRIENDS_COMBAT_SAVE"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// // Friends
+// data "DisplayName" "h8f8a19a6gb008g490dgb644gb10fe05748fc;1"
+// // The caster of this charm has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against the target.
+// data "Description" "hd51d6e1bg6d7cg4309ga03bgc0eade9ef864;1"
+// data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
+// data "OnApplyFunctors" "IF(not SavingThrow(Ability.Wisdom, SourceSpellDC())):ApplyStatus(FRIENDS,100,10)"
+
+// new entry "GOON_FRIENDS_TECHNICAL"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
 
 // ==================================== Guidance ====================================
 // Lasts until long rest, still requires concentration. This makes it more effective for non-dialogue checks while exploring, as you don't have to cast it constantly. Also increase the range to 9m and remove the Melee spell property. Targetting enemies allowed. VFX and SFX now only stay for 1 round.
