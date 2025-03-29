@@ -30,22 +30,31 @@ data "TooltipStatusApply" "ApplyStatus(GOON_BLADE_WARD_SPELL,100,3)"
 // data "UseCosts" "ActionPoint:1"
 data "UseCosts" "BonusActionPoint:1"
 
+new entry "BLADE_WARD"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BLADE_WARD"
+// Has &lt;LSTag Tooltip="Resistant"&gt;Resistance&lt;/LSTag&gt; against Bludgeoning, Piercing, and Slashing damage.
+// data "Description" "hf3d9a553gad9bg4878ga30cg5da8e854cfbf;1"
+// Has Resistance against Bludgeoning, Piercing, and Slashing damage from attacks.
+data "Description" "h7dba990fg4de2g4617g8c42gb69d24df7656;1"
+
 new entry "GOON_BLADE_WARD_SPELL"
 type "StatusData"
 data "StatusType" "BOOST"
 using "BLADE_WARD"
 // Has Resistance against Bludgeoning, Piercing, and Slashing damage.
 // data "Description" "hbaec3368g3f8bg4577g8a7fg6c16b2059f18;4"
-// Has Resistance against Bludgeoning, Piercing, and Slashing damage. The duration of Blade Ward is reduced by 1 turn whenever Bludgeoning, Piercing, or Slashing damage is taken.
+// Has Resistance against Bludgeoning, Piercing, and Slashing damage from attacks. When Bludgeoning, Piercing, or Slashing damage is taken from an attack, the duration of Blade Ward is reduced by 1.
 data "Description" "hf3d9a553gad9bg4878ga30cg5da8e854cfbf;1"
 data "Passives" "Goon_Blade_Ward_Spell"
 
 new entry "Goon_Blade_Ward_Spell"
 type "PassiveData"
 data "Properties" "IsHidden"
-data "StatsFunctorContext" "OnDamaged"
-data "Conditions" "IsDamageTypeBludgeoning() or IsDamageTypePiercing() or IsDamageTypeSlashing()"
-data "StatsFunctors" "SetStatusDuration(GOON_BLADE_WARD_SPELL,-1,Add)"
+// data "StatsFunctorContext" "OnAttacked"
+// data "Conditions" "HasDamageEffectFlag(DamageFlags.Hit) and IsDamageTypeBludgeoning() or IsDamageTypePiercing() or IsDamageTypeSlashing()"
+// data "StatsFunctors" "SetStatusDuration(GOON_BLADE_WARD_SPELL,-1,Add)"
 
 // ==================================== Bone Chill ====================================
 // "Bone Chill" is now named "Chill Touch" and deals both Necrotic and Cold damage. The status effect is now named "Chill of the Grave" instead of "Bone Chilled". Can target objects and corpses.
