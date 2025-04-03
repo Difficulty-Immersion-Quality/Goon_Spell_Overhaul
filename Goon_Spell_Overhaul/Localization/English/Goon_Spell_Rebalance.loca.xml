@@ -17,7 +17,7 @@
 	<!-- "Projectile_PoisonSpray" --> <content contentuid="h1be0ac47g18f5g4945g85b9g41ab74c32552" version="1">Project a cone of noxious gas, leaving behind a cloud of poison.</content>
 
 	<!-- Sacred Flame -->
-	<!-- "Target_SacredFlame" --> <content contentuid="h910058dcg21d0g4f89ga09cg47bd468ece71" version="1">Engulf a target in a flame-like radiance. If the target is a Fey, Fiend, or Undead, they take an additional [1].</content>
+	<!-- "Target_SacredFlame" --> <content contentuid="h910058dcg21d0g4f89ga09cg47bd468ece71" version="1">Engulf a target in a flame-like radiance. If the target is a Fiend, or Undead, they are afflicted with &lt;LSTag Type="Status" Tooltip="BURNING_HOLY"&gt;Holy Fire&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Targeting the ground directly will create a holy fire surface.</content>
 
     <!-- Shillelagh -->
 	<!-- "Shout_Shillelagh" --> <content contentuid="h9e33ef27g4b4eg46c6gb365g6694c23fb2f0" version="1">Your staff, club, mace, javelin, dart, spear, or trident becomes magical: it deals [1], and uses your &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability&lt;/LSTag&gt; for &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Damage begins at [1], and increases to [2] at level 5, then again to [3] at level 10.</content>
