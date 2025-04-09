@@ -116,7 +116,7 @@ using "DANCING_LIGHTS"
 data "IsUnique" "1"
 
 // ==================================== Eldritch Blast ====================================
-// Repelling Blast's toggle actually works. Adjustable push targetting implemented. (Grasp of Hadar support does not need to be added to base entry.) Can target corpses.
+// Adjustable push targetting implemented. (Grasp of Hadar support does not need to be added to base entry.) Can target corpses.
 
 new entry "Projectile_EldritchBlast"
 type "SpellData"
@@ -125,7 +125,7 @@ using "Projectile_EldritchBlast"
 // data "TargetConditions" "not Self() and not Dead()"
 data "TargetConditions" "not Self()"
 // data "SpellSuccess" "DealDamage(1d10,Force,Magical);IF(HasPassive('RepellingBlast',context.Source)):Force(4.5)"
-data "SpellSuccess" "DealDamage(1d10,Force,Magical);IF(HasStatus('REPELLING_BLAST_TRIGGER',context.Source)):Force(4.5,OriginToTarget,Aggressive)"
+data "SpellSuccess" "DealDamage(1d10,Force,Magical);IF(HasPassive('RepellingBlast',context.Source)):Force(4.5,OriginToTarget,Aggressive)"
 data "CombatAIOverrideSpell" "Projectile_EldritchBlast_AI"
 
 new entry "Projectile_EldritchBlast_AI"
