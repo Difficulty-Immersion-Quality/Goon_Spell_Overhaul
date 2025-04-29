@@ -61,6 +61,12 @@ data "SpellType" "Shout"
 using "Shout_ShadowBlade"
 // data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;IsConcentration"
 data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent"
+// data "DescriptionParams" " DealDamage(2d8,Psychic);"
+data "DescriptionParams" "DealDamage(1d6,Psychic)"
+// data "TooltipUpcastDescription" ""
+data "TooltipUpcastDescription" "7bbb79fa-02c7-4f45-a115-1d8e11b96ea0"
+// data "TooltipUpcastDescriptionParams" ""
+data "TooltipUpcastDescriptionParams" "DealDamage(1d6,Psychic);2"
 
 // 5e spells entries
 
