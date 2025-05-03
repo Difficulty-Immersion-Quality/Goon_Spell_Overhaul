@@ -1,0 +1,10 @@
+// ======================================== Curriculum of Strategy: Artistry of War ========================================
+// Added an AI helper to the spell.
+
+new entry "Projectile_CursedTome_CurriculumofStrategy"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_MagicMissile_4"
+using "Projectile_CursedTome_CurriculumofStrategy"
+// data "SpellProperties" "DealDamage(2d6+6,Force);"
+data "SpellProperties" "DealDamage(2d6+6,Force);AI_ONLY:ApplyStatus(AI_HELPER_BUFF_LARGE, 100, 5)"
