@@ -1,0 +1,13 @@
+// ============================ Regenerate ============================
+// Removed non-combat requirement. Last until Long Rest instead of 600 rounds.
+
+new entry "Target_Regenerate"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Regenerate"
+// data "SpellProperties" "RegainHitPoints(4d8+15);ApplyStatus(REGENERATE,100,600);RemoveStatus(CAMP_VOLO_LOBOTOMY);RemoveStatus(HAG_HAGEYED);RemoveStatus(CAMP_VOLO_NEEDLE)"
+data "SpellProperties" "RegainHitPoints(4d8+15);ApplyStatus(REGENERATE,100,-1);RemoveStatus(CAMP_VOLO_LOBOTOMY);RemoveStatus(HAG_HAGEYED);RemoveStatus(CAMP_VOLO_NEEDLE)"
+// data "TooltipStatusApply" "ApplyStatus(REGENERATE,100,600)"
+data "TooltipStatusApply" "ApplyStatus(REGENERATE,100,-1)"
+// data "Requirements" "!Combat"
+data "Requirements" ""
