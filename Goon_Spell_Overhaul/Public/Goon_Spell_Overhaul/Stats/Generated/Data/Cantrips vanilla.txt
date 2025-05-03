@@ -135,7 +135,7 @@ using "Projectile_EldritchBlast"
 data "TargetConditions" "not Self() and not Dead()"
 
 // ==================================== Fire Bolt ====================================
-// Only create a surface if the caster targets the surface directly, or if the target is standing on a flammable surface. Success applies Burning for 1 round, to mirror Ray of Frost. Targetting corpses allowed.
+// Damage reduced from 1d10 to 1d8. Only create a surface if the caster targets the surface directly, or if the target is standing on a flammable surface. Success applies Burning for 1 round, to mirror Ray of Frost. Targetting corpses allowed.
 
 new entry "Projectile_FireBolt"
 type "SpellData"
@@ -146,7 +146,7 @@ data "TargetConditions" "not Self()"
 // data "SpellProperties" "GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt)"
 data "SpellProperties" "ApplyStatus(SELF,GOON_SURFACE_CHECK,100,0);GROUND:IF(not HasStatus('GOON_SURFACE_CHECK',context.Source)):SurfaceChange(Ignite);TARGET:IF(InSurface('SurfaceAlcohol') or InSurface('SurfaceOil') or InSurface('SurfaceGrease') or InSurface('BloodExploding')):SurfaceChange(Ignite);GROUND:IF(not HasStatus('GOON_SURFACE_CHECK',context.Source)):SurfaceChange(Melt);TARGET:IF(InSurface('SurfaceWaterFrozen') or InSurface('SurfaceBloodFrozen')):SurfaceChange(Melt)"
 // data "SpellSuccess" "DealDamage(LevelMapValue(D10Cantrip),Fire,Magical)"
-data "SpellSuccess" "DealDamage(LevelMapValue(D10Cantrip),Fire,Magical);IF(HasStatus('BURNING')):SetStatusDuration(BURNING,1,Add);IF(not HasStatus('BURNING')):ApplyStatus(BURNING,100,1)"
+data "SpellSuccess" "DealDamage(LevelMapValue(D8Cantrip),Fire,Magical);IF(HasStatus('BURNING')):SetStatusDuration(BURNING,1,Add);IF(not HasStatus('BURNING')):ApplyStatus(BURNING,100,1)"
 data "CombatAIOverrideSpell" "Projectile_FireBolt_AI"
 
 new entry "Projectile_FireBolt_AI"
