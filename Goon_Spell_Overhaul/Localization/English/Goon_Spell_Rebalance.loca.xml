@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentList>
+    <!-- CANTRIPS - VANILLA -->
+
     <!-- Blade Ward -->
 	<!-- "Shout_BladeWard" --> <content contentuid="h60442a32g02d3g436eg9868g6017ab4102c5" version="1">Take only half the damage from Bludgeoning, Piercing, and Slashing attacks. The duration of Blade Ward is reduced by 1 whenever the creature takes Bludgeoning, Piercing, or Slashing damage.</content>
 	<!-- "GOON_BLADE_WARD_SPELL" --> <content contentuid="hf3d9a553gad9bg4878ga30cg5da8e854cfbf" version="1">Has Resistance against Bludgeoning, Piercing, and Slashing damage from attacks. When Bludgeoning, Piercing, or Slashing damage is taken from an attack, the duration of Blade Ward is reduced by 1.</content>
@@ -31,8 +33,8 @@
 	<!-- "GOON_TRUE_STRIKE" --> <content contentuid="h9a4f4618g7ae6g4741g9519gb03d2851d055" version="1">&lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt; is reduced by the duration of the effect. Whenever the creature is attacked the duration is reduced by 1.</content>
 
 
-    <!--  -->
-    <!--  -->
-	<!-- "" --> <content contentuid="" version="1"></content>
+    <!-- LEVEL 3 - 5E SPELLS -->
+
+	<!-- "Target_MotivationalSpeech" --> <content contentuid="" version="1">Three creatures in the area gain [1] and have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Wisdom &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;. If hit by an attack, an affected creature has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on its next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; during combat.</content>
 	<!-- "" --> <content contentuid="" version="1"></content>
 </contentList>
