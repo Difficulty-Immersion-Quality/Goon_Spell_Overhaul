@@ -56,6 +56,15 @@ data "Properties" "IsHidden"
 // data "Conditions" "HasDamageEffectFlag(DamageFlags.Hit) and IsDamageTypeBludgeoning() or IsDamageTypePiercing() or IsDamageTypeSlashing()"
 // data "StatsFunctors" "SetStatusDuration(GOON_BLADE_WARD_SPELL,-1,Add)"
 
+// ==================================== Booming Blade ====================================
+
+new entry "Target_BoomingBlade_ClassSpell"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_BoomingBlade"
+using "Target_BoomingBlade_ClassSpell"
+data "DamageType" "Thunder"
+
 // ==================================== Bone Chill ====================================
 // "Bone Chill" is now named "Chill Touch" and deals both Necrotic and Cold damage. The status effect is now named "Chill of the Grave" instead of "Bone Chilled". Can target objects and corpses.
 
