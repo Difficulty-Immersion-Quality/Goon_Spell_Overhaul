@@ -57,6 +57,14 @@ data "Properties" "IsHidden"
 // data "StatsFunctors" "SetStatusDuration(GOON_BLADE_WARD_SPELL,-1,Add)"
 
 // ==================================== Booming Blade ====================================
+// Don't know why the multiple entries, but putting them both her for reference I guess
+
+new entry "Target_BoomingBlade"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_Slash_New"
+using "Target_BoomingBlade"
+data "DamageType" "Thunder"
 
 new entry "Target_BoomingBlade_ClassSpell"
 type "SpellData"
