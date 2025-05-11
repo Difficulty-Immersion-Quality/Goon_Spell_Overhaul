@@ -109,7 +109,6 @@ data "DisplayName" "h1eae12c3g5f79g491fgaa61g1af469829dc7;1"
 
 // ==================================== Dancing Lights ====================================
 // Make Dancing Lights copst a bonus action. Remove the concentration requirement. Make it last until long rest. Only one summon allowed at a time.
-// TODO: Maybe look at changing "Target_DancingLights_DeepRothe" too
 
 new entry "Target_DancingLights"
 type "SpellData"
@@ -125,6 +124,23 @@ data "UseCosts" "BonusActionPoint:1"
 // data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell;HasHighGroundRangeExtension;CannotTargetItems"
 data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;CannotTargetItems"
 data "HitAnimationType" "None"
+
+new entry "Target_DancingLights_DeepRothe"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_DancingLights"
+using "Target_DancingLights_DeepRothe"
+// data "SpellFlags" "IsConcentration"
+data "SpellFlags" ""
+
+// Stop this inheriting of Long Rest duration so nutsack Sorcerous Sundries performers don't murder PCs with infinitely stacking Dancing Lights (It seems that "IsUnique" not being taken into account for the entitiy when cast via script, allowing them to stack.)
+new entry "Target_LOW_EastwayWizards_DancingLights"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_DancingLights"
+using "Target_LOW_EastwayWizards_DancingLights"
+// data "SpellProperties" "GROUND:Summon(2064328c-a090-454f-b3b8-b488bbe64567, -1,,,,DANCING_LIGHTS)"
+data "SpellProperties" "GROUND:Summon(2064328c-a090-454f-b3b8-b488bbe64567, 10,,,,DANCING_LIGHTS)
 
 new entry "DANCING_LIGHTS"
 type "StatusData"
