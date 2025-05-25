@@ -1,5 +1,37 @@
 // ==================================== Shadow Blade ====================================
-// It's a magical weapon, the summoner has innate proficiency with it, it uses the summoner's spell casting ability for attacks. Lasts until long rest. Damage starts at 1d6 and scales to 5d6 with upcasting to level 9 spell slots. Concentration requirement removed. Melee weapon attacks against obscured targets now have Advantage, not just attacks made with the weapon itself.
+// It's a magical weapon, the summoner has innate proficiency with it, it uses the summoner's spell casting ability for attacks. Lasts until long rest. Damage starts at 1d6 and scales to 5d6 with upcasting to level 9 spell slots. Concentration requirement removed.
+// Bug Fix: Advantage against obscured targets is only applied to attacks with Shadow Blade itself.
+// Bug Fix: Shadow Blade Ring no longer needlessly breaks concentration when unequipped. 
+
+// Bug Fix: Shadow Blade Ring no longer needlessly breaks concentration when unequipped. 
+new entry "MAG_SHADOW_BLADE_RING_TECHNICAL"
+type "StatusData"
+data "StatusType" "BOOST"
+using "MAG_SHADOW_BLADE_RING_TECHNICAL"
+// data "OnRemoveFunctors" "IF(HasStatus('MAG_SHADOW_BLADE_OWNER')):BreakConcentration()"
+data "OnRemoveFunctors" ""
+
+// Patch #8 technical fixes so the buffs aren't removed when other weapon statuses are removed (redundant)
+new entry "SHADOWBLADE_TECHNICAL_1"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SHADOWBLADE_TECHNICAL_1"
+// data "RemoveConditions" "not HasStatus('MAG_SHADOW_BLADE_OWNER')"
+data "RemoveConditions" "not HasStatus('MAG_SHADOW_BLADE_OWNER', GetSummoner(context.Source))"
+
+new entry "SHADOWBLADE_TECHNICAL_2"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SHADOWBLADE_TECHNICAL_2"
+// data "RemoveConditions" "not HasStatus('MAG_SHADOW_BLADE_OWNER')"
+data "RemoveConditions" "not HasStatus('MAG_SHADOW_BLADE_OWNER', GetSummoner(context.Source))"
+
+new entry "MAG_SHADOW_BLADE_OWNER"
+type "StatusData"
+data "StatusType" "BOOST"
+using "MAG_SHADOW_BLADE_OWNER"
+// data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead"
 
 // Vanilla entries
 new entry "WPN_ShadowBlade"
@@ -8,12 +40,26 @@ type "Weapon"
 using "WPN_ShadowBlade"
 // data "Damage" "2d8"
 data "Damage" "1d6"
+data "PassivesMainHand" "Goon_ShadowBlade_Passive_Mainhand"
+data "PassivesOffHand" "Goon_ShadowBlade_Passive_Offhand"
 
 new entry "ShadowBlade_Passive"
 type "PassiveData"
 using "ShadowBlade_Passive"
-// data "Boosts" "IF(AttackedWithPassiveSourceWeapon() and not HasObscuredState(ObscuredState.Clear)):Advantage(AttackRoll)"
-data "Boosts" "IF(IsMeleeWeaponAttack() and not HasObscuredState(ObscuredState.Clear)):Advantage(AttackRoll)"
+// data "Boosts" "IF(not HasObscuredState(ObscuredState.Clear) and IsMeleeAttack() and IsWeaponAttack()):Advantage(AttackRoll);"
+data "Boosts" ""
+
+new entry "Goon_ShadowBlade_Passive_Mainhand"
+type "PassiveData"
+using "ShadowBlade_Passive"
+data "Properties" "IsHidden"
+data "Boosts" "IF(IsAttackType(AttackType.MeleeWeaponAttack) and not HasObscuredState(ObscuredState.Clear)):Advantage(AttackRoll)"
+
+new entry "Goon_ShadowBlade_Passive_Offhand"
+type "PassiveData"
+using "ShadowBlade_Passive"
+data "Properties" "IsHidden"
+data "Boosts" "IF(IsAttackType(AttackType.MeleeOffHandWeaponAttack) and not HasObscuredState(ObscuredState.Clear)):Advantage(AttackRoll)"
 
 new entry "SHADOW_BLADE"
 type "StatusData"
@@ -51,36 +97,6 @@ type "StatusData"
 data "StatusType" "BOOST"
 using "SHADOW_BLADE"
 data "Boosts" "Attribute(InventoryBound);IntrinsicSummonerProficiency();WeaponDamageDieOverride(5d6);WeaponAttackRollAbilityOverride(SpellCastingAbility)"
-
-// Stupid ass ring technical that breaks concentration for no reason.
-new entry "MAG_SHADOW_BLADE_RING_TECHNICAL"
-type "StatusData"
-data "StatusType" "BOOST"
-using "MAG_SHADOW_BLADE_RING_TECHNICAL"
-// data "OnRemoveFunctors" "IF(HasStatus('MAG_SHADOW_BLADE_OWNER')):BreakConcentration()"
-data "OnRemoveFunctors" ""
-
-// Patch #8 technical fixes so the buffs aren't removed when other weapon statuses are removed (redundant)
-new entry "SHADOWBLADE_TECHNICAL_1"
-type "StatusData"
-data "StatusType" "BOOST"
-using "SHADOWBLADE_TECHNICAL_1"
-// data "RemoveConditions" "not HasStatus('MAG_SHADOW_BLADE_OWNER')"
-data "RemoveConditions" "not HasStatus('MAG_SHADOW_BLADE_OWNER', GetSummoner(context.Source))"
-
-new entry "SHADOWBLADE_TECHNICAL_2"
-type "StatusData"
-data "StatusType" "BOOST"
-using "SHADOWBLADE_TECHNICAL_2"
-// data "RemoveConditions" "not HasStatus('MAG_SHADOW_BLADE_OWNER')"
-data "RemoveConditions" "not HasStatus('MAG_SHADOW_BLADE_OWNER', GetSummoner(context.Source))"
-
-new entry "MAG_SHADOW_BLADE_OWNER"
-type "StatusData"
-data "StatusType" "BOOST"
-using "MAG_SHADOW_BLADE_OWNER"
-// data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead"
 
 // ==================================== Shadow Blade - Spells ====================================
 
