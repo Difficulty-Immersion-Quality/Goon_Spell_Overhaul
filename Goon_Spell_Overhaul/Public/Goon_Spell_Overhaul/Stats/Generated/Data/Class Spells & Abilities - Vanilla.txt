@@ -1,0 +1,14 @@
+// ==================================== Heart of the Storm ====================================
+// Bug Fix: No longer functions with cantrips.
+
+new entry "Interrupt_HeartOfTheStorm_Lightning"
+type "InterruptData"
+using "Interrupt_HeartOfTheStorm_Lightning"
+// data "Conditions" "Self(context.Source, context.Observer) and IsSpell() and SpellDamageTypeIs(DamageType.Lightning) and not AnyEntityIsItem()"
+data "Conditions" "Self(context.Source, context.Observer) and IsSpell() and not IsCantrip() and SpellDamageTypeIs(DamageType.Lightning) and not AnyEntityIsItem()"
+
+new entry "Interrupt_HeartOfTheStorm_Thunder"
+type "InterruptData"
+using "Interrupt_HeartOfTheStorm_Thunder"
+// data "Conditions" "Self(context.Source, context.Observer) and IsSpell() and SpellDamageTypeIs(DamageType.Thunder) and not AnyEntityIsItem()"
+data "Conditions" "Self(context.Source, context.Observer) and IsSpell() and not IsCantrip() and SpellDamageTypeIs(DamageType.Thunder) and not AnyEntityIsItem()"
