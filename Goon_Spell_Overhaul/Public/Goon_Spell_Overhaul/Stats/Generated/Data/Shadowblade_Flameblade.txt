@@ -3,7 +3,6 @@
 // Bug Fix: Advantage against obscured targets is only applied to attacks with Shadow Blade itself.
 // Bug Fix: Shadow Blade Ring no longer needlessly breaks concentration when unequipped. 
 
-// Bug Fix: Shadow Blade Ring no longer needlessly breaks concentration when unequipped. 
 new entry "MAG_SHADOW_BLADE_RING_TECHNICAL"
 type "StatusData"
 data "StatusType" "BOOST"
