@@ -1,5 +1,6 @@
-// ==================================== Counterspell - Synergy with Abjuration Wizard's "Arcane Ward" based on the spell slot level used / Uses spellcasting modifier instead of Intelligence ====================================
-// Bug Fix: Arcane Ward is fed the appropriate amount of charges based on spell level. This applies to Sorcerer and Warlock versions of the spell too, to accomodate weird multiclassing.
+// ==================================== Counterspell ====================================
+// Bug Fix: Abjuration Wizard's Arcane Ward is fed the appropriate amount of charges based on spell level.
+// Bug Fix: Casting modifier is used instead of defaulting to Intelligence.
 
 new entry "Interrupt_Counterspell_4"
 type "InterruptData"
@@ -148,6 +149,15 @@ using "Target_Counterspell_Failure"
 data "UseCosts" "ReactionActionPoint:1;SpellSlotsGroup:1:1:9"
 data "PowerLevel" "9"
 
+// ==================================== Cursader's Mantle ====================================
+// Changes: Disabled combat log for the aura status being applied/removed to prevent spam.
+
+new entry "CRUSADERS_MANTLE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CRUSADERS_MANTLE"
+data "StatusPropertyFlags" "DisableCombatlog"
+
 // ==================================== Moonbeam - Synergy with Evocation Wizard's "Sculpt Spells" feature / The last spellcasting ability obtained during level up will not be used inappropriately ====================================
 // Both Expansion by Diz and Valdacil's Spell Adjustments by valdacil perpetuate these bugs in their level 7-9 upcasting
 
@@ -279,6 +289,7 @@ using "MOONBEAM_OWNER_9"
 data "Boosts" "UnlockSpell(Target_Moonbeam_Move_9)"
 
 // ==================================== Shield - Synergy with Abjuration Wizard's "Arcane Ward" based on the spell slot level used ====================================
+// Bug Fix: Abjuration Wizard's Arcane Ward is fed the appropriate amount of charges based on spell level. This applies to Sorcerer and Warlock versions of the spell too, to accomodate weird multiclassing.
 
 // Custom entries for level 1 casts
 new entry "Shout_Shield_Wizard_1"
@@ -490,7 +501,7 @@ using "Interrupt_Shield_Warlock_9"
 data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Warlock_9,true,true,true)"
 
 // ============================ Spirit Guardians ============================
-// Reduce damage from d8 to d6.
+// Changes: Damage die reduced from d8 to d6.
 
 // Spells
 new entry "Shout_SpiritGuardians"
