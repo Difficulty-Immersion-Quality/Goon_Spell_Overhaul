@@ -1,4 +1,14 @@
-// ==================================== Heart of the Storm ====================================
+// ==================================== Life Domain Cleric - Blessed Healer ====================================
+// Bug Fix: Blessed Healer now only heals the caster as is specified in the tooltip, instead of all the Cleric's healing sources.
+
+new entry "BlessedHealer"
+type "PassiveData"
+using "BlessedHealer"
+data "Conditions" "IsSpell() and not IsCantrip()"
+// data "StatsFunctors" "RegainHitPoints(SELF,2+SpellPowerLevel)"
+data "StatsFunctors" "IF(not Self(Target)):RegainHitPoints(SELF,2+SpellPowerLevel)"
+
+// ==================================== Storm Sorcery Sorcerer - Heart of the Storm ====================================
 // Bug Fix: No longer functions with cantrips.
 
 new entry "Interrupt_HeartOfTheStorm_Lightning"
