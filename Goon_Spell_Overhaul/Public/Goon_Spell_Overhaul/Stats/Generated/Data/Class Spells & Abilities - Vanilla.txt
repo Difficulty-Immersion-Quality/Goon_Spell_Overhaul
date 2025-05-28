@@ -1,3 +1,26 @@
+// ==================================== Wildheart Barbarian - Primal Stampede ====================================
+// Bug Fix: Now deals melee unarmed damage instead of a flat 1d4, this fixes multiple interactions.
+
+new entry "Rush_Primal_Stampede"
+type "SpellData"
+data "SpellType" "Rush"
+using "Rush_Primal_Stampede"
+// data "SpellSuccess" "DealDamage(1d4+StrengthModifier,Bludgeoning);TARGET:IF(not SavingThrow(Ability.Strength,10+GetModifier(context.Source.Strength))):ApplyStatus(PRONE,100,2)"
+data "SpellSuccess" "DealDamage(UnarmedDamage,Bludgeoning);TARGET:IF(not SavingThrow(Ability.Strength,10+GetModifier(context.Source.Strength))):ApplyStatus(PRONE,100,2)"
+// data "TooltipDamageList" "DealDamage(1d4+StrengthModifier, Bludgeoning)"
+data "TooltipDamageList" "DealDamage(UnarmedDamage,Bludgeoning)"
+
+// ==================================== College of Sword Bard - Slashing Flourish (Melee) ====================================
+// Bug Fix: Tooltip damage now references correctly includes BardicInspiration scaling.
+
+new entry "Zone_BladeFlourish_Slashing"
+type "SpellData"
+data "SpellType" "Zone"
+// using "Zone_Cleave"
+using "Zone_BladeFlourish_Slashing"
+// data "TooltipDamageList" "DealDamage(MainMeleeWeapon+1d6, MainWeaponDamageType)"
+data "TooltipDamageList" "DealDamage(MainMeleeWeapon + LevelMapValue(BardicInspiration), MainMeleeWeaponDamageType)"
+
 // ==================================== Life Domain Cleric - Blessed Healer ====================================
 // Bug Fix: Blessed Healer now only heals the caster as is specified in the tooltip, instead of all the Cleric's healing sources.
 
@@ -8,8 +31,48 @@ data "Conditions" "IsSpell() and not IsCantrip()"
 // data "StatsFunctors" "RegainHitPoints(SELF,2+SpellPowerLevel)"
 data "StatsFunctors" "IF(not Self(Target)):RegainHitPoints(SELF,2+SpellPowerLevel)"
 
+// ==================================== Life Domain Cleric - Disciple of Life ====================================
+// Bug Fix: Description updated to specify that the create must be healed, not just targeted with a healing spell, and that it function's with Warden of Vitality's Restore Vitality ability.
+
+new entry "DiscipleOfLife"
+type "PassiveData"
+using "DiscipleOfLife"
+// Your devotion empowers your healing spells. When casting a healing spell, the target regains additional <LSTag Tooltip="HitPoints">hit points</LSTag> equal to 2 + the spell's level. 
+// data "Description" "hb803dc22g3235g468fgb4c5g4746de773573;1"
+// Your devotion empowers your healing spells. When successfully healing a creature with a healing spell or &lt;LSTag Type="Spell" Tooltip="Shout_AuraOfVitality"&gt;Restore Vitality&lt;/LSTag&gt;, the target regains additional <LSTag Tooltip="HitPoints">hit points</LSTag> equal to 2 + the spell's level.
+data "Description" "h0451c245ga622g4458g8053g5c3b1017b7f6;1"
+
+// ==================================== Circle of Stars Druid - Starry Form: Chalice ====================================
+// Bug Fix: Chalice Healing now uses Wisdom instead of spellcasting modifier.
+// Bug Fix: Chalice Healing now looks for if a spell costs a spellslot instead of arbitrarily looking for a couple of vanilla spells to blacklist.
+
+new entry "StarryForm_Chalice"
+type "PassiveData"
+using "StarryForm_Chalice"
+// data "Conditions" "HealDoneGreaterThan(0) and ((IsSpell() and not IsCantrip()) and not SpellId('Target_AuraOfVitality_Activate') and not SpellId('Target_MAG_HealingWord') and not SpellId('Shout_MAG_HealingWord_Mass'));"
+data "Conditions" "HealDoneGreaterThan(0) and IsSpell() and (HasUseCosts('SpellSlot') or HasUseCosts('WarlockSpellSlot'))"
+
+new entry "Target_StarryForm_Chalice_Heal"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_StarryForm_Chalice_Heal"
+// data "SpellProperties" "RegainHitPoints(LevelMapValue(StarryForm)+SpellCastingAbilityModifier)"
+data "SpellProperties" "RegainHitPoints(LevelMapValue(StarryForm)+WisdomModifier)"
+// data "TooltipDamageList" "RegainHitPoints(LevelMapValue(StarryForm)+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(LevelMapValue(StarryForm)+WisdomModifier)"
+
+// ==================================== Way of Four Elements Monk - Fist of Four Thunders ====================================
+// Bug Fix: Now correctly triggers Martial Arts: Bonus Unarmed Strike.
+
+new entry "Zone_Thunderwave_Monk"
+type "SpellData"
+data "SpellType" "Zone"
+// using "Zone_Thunderwave"
+using "Zone_Thunderwave_Monk"
+data "SpellProperties" "ApplyStatus(SELF,MARTIAL_ARTS_BONUS_UNARMED_STRIKE,100,1)"
+
 // ==================================== Storm Sorcery Sorcerer - Heart of the Storm ====================================
-// Bug Fix: No longer functions with cantrips.
+// Bug Fix: No longer inappropriately functions with cantrips.
 
 new entry "Interrupt_HeartOfTheStorm_Lightning"
 type "InterruptData"
@@ -22,3 +85,14 @@ type "InterruptData"
 using "Interrupt_HeartOfTheStorm_Thunder"
 // data "Conditions" "Self(context.Source, context.Observer) and IsSpell() and SpellDamageTypeIs(DamageType.Thunder) and not AnyEntityIsItem()"
 data "Conditions" "Self(context.Source, context.Observer) and IsSpell() and not IsCantrip() and SpellDamageTypeIs(DamageType.Thunder) and not AnyEntityIsItem()"
+
+// ==================================== Divination School Wizard - Prophecy: Delivering Alms ====================================
+// Bug Fix: The "Divination_Ally_Downed" passive now exists, functionality matching the description implemented.
+
+new entry "Divination_Ally_Downed"
+type "PassiveData"
+using "Divination_Damage_Fire"
+data "Icon" "GenericIcon_Intent_Utility"
+data "StatsFunctorContext" "OnCast"
+data "Conditions" "SpellId('Target_Help') and Ally(context.Target)"
+data "StatsFunctors" "ApplyStatus(SELF,PORTENT,100,1);RemoveStatus(SELF,DIVINATION_ALLY_HELP)"

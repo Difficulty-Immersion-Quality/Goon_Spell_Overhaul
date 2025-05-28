@@ -393,7 +393,21 @@ data "TargetEffect" "41c997d7-a298-482c-befb-bdedc4c78d3e"
 data "DamageType" "Poison"
 
 // ==================================== Produce Flame ====================================
-// Added cantrip scaling to the tooltip, as it should have been. Summoning costs a bonus action, and dismissing is free. There is no longer a free hurl on the turn you summon the flame. Hurling the flame does not dismiss the status. Interacts with surfaces and applies burning same as Fire Bolt. In addition, creates its own fire surface if targetting the ground. Damage increased to 1d10 from 1d8. Targetting corpses allowed.
+// Bug Fix: Now displays cantrip damage scaling on the main spell.
+// Changes: Added cantrip scaling to the tooltip, as it should have been. Summoning costs a bonus action, and dismissing is free. There is no longer a free hurl on the turn you summon the flame. Hurling the flame does not dismiss the status. Interacts with surfaces and applies burning same as Fire Bolt. In addition, creates its own fire surface if targetting the ground. Damage increased to 1d10 from 1d8. Targetting corpses allowed.
+
+// new entry "Shout_ProduceFlame_AsmodeusTiefling"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_ProduceFlame"
+// data "SpellProperties" "ApplyStatus(PRODUCE_FLAME_AsmodeusTiefling,100,-1);ApplyStatus(PRODUCE_FLAME_HURL_FREE_AsmodeusTiefling,100,1)"
+// data "TooltipStatusApply" "ApplyStatus(PRODUCE_FLAME_AsmodeusTiefling,100,-1)"
+
+// new entry "Shout_ProduceFlame_Dismiss_AsmodeusTiefling"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_ProduceFlame_Dismiss"
+// data "SpellProperties" "RemoveStatus(PRODUCE_FLAME_AsmodeusTiefling);RemoveStatus(PRODUCE_FLAME_HURL_AsmodeusTiefling);RemoveStatus(PRODUCE_FLAME_HURL_FREE_AsmodeusTiefling)"
 
 new entry "Shout_ProduceFlame"
 type "SpellData"
@@ -415,6 +429,7 @@ using "Shout_ProduceFlame_Dismiss"
 // data "UseCosts" "ActionPoint:1"
 data "UseCosts" ""
 
+// TODO: Make hurl always create a fire surface
 new entry "Projectile_ProduceFlame_Hurl"
 type "SpellData"
 data "SpellType" "Projectile"
