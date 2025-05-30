@@ -39,26 +39,16 @@ type "Weapon"
 using "WPN_ShadowBlade"
 // data "Damage" "2d8"
 data "Damage" "1d6"
-data "PassivesMainHand" "Goon_ShadowBlade_Passive_Mainhand"
-data "PassivesOffHand" "Goon_ShadowBlade_Passive_Offhand"
 
 new entry "ShadowBlade_Passive"
 type "PassiveData"
 using "ShadowBlade_Passive"
+// You have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against Lightly or Heavily Obscured targets when using this blade.
+// data "Description" "ha672fd65g0fe4g4596g9529gce372c013ca1;6"
+// Your &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; with this blade have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; against Lightly or Heavily Obscured targets.
+data "Description" "h1eec2cd1gc17dg48cdg8982g879f95483b05;1"
 // data "Boosts" "IF(not HasObscuredState(ObscuredState.Clear) and IsMeleeAttack() and IsWeaponAttack()):Advantage(AttackRoll);"
-data "Boosts" ""
-
-new entry "Goon_ShadowBlade_Passive_Mainhand"
-type "PassiveData"
-using "ShadowBlade_Passive"
-data "Properties" "IsHidden"
-data "Boosts" "IF(IsAttackType(AttackType.MeleeWeaponAttack) and not HasObscuredState(ObscuredState.Clear)):Advantage(AttackRoll)"
-
-new entry "Goon_ShadowBlade_Passive_Offhand"
-type "PassiveData"
-using "ShadowBlade_Passive"
-data "Properties" "IsHidden"
-data "Boosts" "IF(IsAttackType(AttackType.MeleeOffHandWeaponAttack) and not HasObscuredState(ObscuredState.Clear)):Advantage(AttackRoll)"
+data "Boosts" "IF(IsAttackType(AttackType.MeleeWeaponAttack) and HasStatus('SHADOWBLADE_TECHNICAL', GetItemInEquipmentSlot(EquipmentSlot.MeleeMainHand, context.Source) and not HasObscuredState(ObscuredState.Clear))):Advantage(AttackRoll);IF(IsAttackType(AttackType.MeleeOffHandWeaponAttack) and HasStatus('SHADOWBLADE_TECHNICAL', GetItemInEquipmentSlot(EquipmentSlot.MeleeOffHand, context.Source) and not HasObscuredState(ObscuredState.Clear))):Advantage(AttackRoll)"
 
 new entry "SHADOW_BLADE"
 type "StatusData"
