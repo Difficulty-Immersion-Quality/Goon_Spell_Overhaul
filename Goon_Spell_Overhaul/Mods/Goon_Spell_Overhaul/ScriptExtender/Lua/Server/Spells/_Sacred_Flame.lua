@@ -1,9 +1,10 @@
 -- Helper function to handle spell on ground targeting
 function OnUsingSpellAtPosition(casterGuid, x, y, z, spell)
     -- Print debug info to track if the listener is being triggered
-    Ext.Utils.Print("[DEBUG] UsingSpellAtPosition triggered: Spell = " .. tostring(spell))
-    Ext.Utils.Print("[DEBUG] Caster GUID: " .. tostring(casterGuid))
-    Ext.Utils.Print("[DEBUG] Position: X = " .. tostring(x) .. ", Y = " .. tostring(y) .. ", Z = " .. tostring(z))
+    
+    -- Ext.Utils.Print("[DEBUG] UsingSpellAtPosition triggered: Spell = " .. tostring(spell))
+    -- Ext.Utils.Print("[DEBUG] Caster GUID: " .. tostring(casterGuid))
+    -- Ext.Utils.Print("[DEBUG] Position: X = " .. tostring(x) .. ", Y = " .. tostring(y) .. ", Z = " .. tostring(z))
 
     -- Check if the spell matches Sacred Flame
     if string.match(spell, "Target_SacredFlame") then
