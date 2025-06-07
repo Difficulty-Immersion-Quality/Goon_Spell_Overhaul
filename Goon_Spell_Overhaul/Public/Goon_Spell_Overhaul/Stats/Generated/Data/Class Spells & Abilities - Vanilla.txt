@@ -44,6 +44,7 @@ data "Description" "h0451c245ga622g4458g8053g5c3b1017b7f6;1"
 
 // ==================================== Tempest Domain Cleric - Destructive Wrath ====================================
 // Bug Fix: Should no longer trigger for spells that do not deal damage.
+// Bug Fix: Works with (some specified) custom polymorphs that do not have casting restrictions.
 // Changes: Destructive Wrath will not trigger prior to damage events, as to not waste it.
 
 new entry "Interrupt_DestructiveWrath"
@@ -63,6 +64,7 @@ data "InterruptContext" "OnPreDamage"
 // data "Cost" "ChannelDivinity:1"
 // data "InterruptDefaultValue" "Ask;Enabled"
 // data "EnableCondition" "not HasStatus('SG_Polymorph') or HasAnyStatus({'SG_Disguise','WILDSHAPE_STARRY_ARCHER_PLAYER','WILDSHAPE_STARRY_CHALICE_PLAYER','WILDSHAPE_STARRY_DRAGON_PLAYER'});"
+data "EnableCondition" "not HasStatus('SG_Polymorph') or Goon_IsUnrestrictedPolymorphStatus()"
 // data "EnableContext" "OnStatusApplied;OnStatusRemoved"
 
 // ==================================== Circle of Stars Druid - Starry Form: Chalice ====================================
