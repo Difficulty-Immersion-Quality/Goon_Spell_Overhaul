@@ -1,0 +1,41 @@
+// ============================ Sword Burst ============================
+// Changes: Increased damage die by a size, from a d6 to d8.
+
+new entry "Shout_SwordBurst"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_SwordBurst"
+// data "SpellSuccess" "IF(not CharacterLevelGreaterThan(12)):DealDamage(LevelMapValue(D6Cantrip),Force,Magical);IF(CharacterLevelGreaterThan(12) and not CharacterLevelGreaterThan(16)):DealDamage(3d6,Force,Magical);IF(CharacterLevelGreaterThan(16)):DealDamage(4d6,Force,Magical)"
+data "SpellSuccess" "IF(not CharacterLevelGreaterThan(12)):DealDamage(LevelMapValue(D8Cantrip),Force,Magical);IF(CharacterLevelGreaterThan(12) and not CharacterLevelGreaterThan(16)):DealDamage(3d8,Force,Magical);IF(CharacterLevelGreaterThan(16)):DealDamage(4d8,Force,Magical)"
+// data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source) and not CharacterLevelGreaterThan(12)):DealDamage((LevelMapValue(D8Cantrip))/2,Force,Magical);IF(HasPassive('PotentCantrip',context.Source) and CharacterLevelGreaterThan(12) and not CharacterLevelGreaterThan(16)):DealDamage(3d6,Force,Magical);IF(HasPassive('PotentCantrip',context.Source) and CharacterLevelGreaterThan(16)):DealDamage(4d6,Force,Magical)"
+data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source) and not CharacterLevelGreaterThan(12)):DealDamage((LevelMapValue(D8Cantrip))/2,Force,Magical);IF(HasPassive('PotentCantrip',context.Source) and CharacterLevelGreaterThan(12) and not CharacterLevelGreaterThan(16)):DealDamage(3d8,Force,Magical);IF(HasPassive('PotentCantrip',context.Source) and CharacterLevelGreaterThan(16)):DealDamage(4d8,Force,Magical)"
+// data "TooltipDamageList" "DealDamage(LevelMapValue(D6Cantrip),Force)"
+data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip),Force)"
+
+// ============================ Thunderclap ============================
+// Changes: Increased damage die by a size, from a d6 to d8.
+
+new entry "Shout_Thunderclap"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Thunderclap"
+// data "SpellSuccess" "IF(not CharacterLevelGreaterThan(16)):DealDamage(LevelMapValue(D6Cantrip),Thunder,Magical);IF(CharacterLevelGreaterThan(16)):DealDamage(4d8,Thunder,Magical)"
+data "SpellSuccess" "IF(not CharacterLevelGreaterThan(16)):DealDamage(LevelMapValue(D8Cantrip),Thunder,Magical);IF(CharacterLevelGreaterThan(16)):DealDamage(4d8,Thunder,Magical)"
+// data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source) and not CharacterLevelGreaterThan(16)):DealDamage((LevelMapValue(D6Cantrip))/2,Thunder,Magical);IF(HasPassive('PotentCantrip',context.Source) and CharacterLevelGreaterThan(16)):DealDamage(4d6/2,Thunder,Magical)"
+data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source) and not CharacterLevelGreaterThan(16)):DealDamage((LevelMapValue(D8Cantrip))/2,Thunder,Magical);IF(HasPassive('PotentCantrip',context.Source) and CharacterLevelGreaterThan(16)):DealDamage(4d8/2,Thunder,Magical)"
+// data "TooltipDamageList" "DealDamage(LevelMapValue(D6Cantrip),Thunder)"
+data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip),Thunder)"
+
+// ============================ Word of Radiance ============================
+// Changes: Increased damage die by a size, from a d6 to d8.
+
+new entry "Shout_WordOfRadiance"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_WordOfRadiance"
+// data "SpellSuccess" "IF(not CharacterLevelGreaterThan(16)):DealDamage(LevelMapValue(D6Cantrip),Radiant,Magical);IF(CharacterLevelGreaterThan(16)):DealDamage(4d6,Radiant,Magical);"
+data "SpellSuccess" "IF(not CharacterLevelGreaterThan(16)):DealDamage(LevelMapValue(D8Cantrip),Radiant,Magical);IF(CharacterLevelGreaterThan(16)):DealDamage(4d8,Radiant,Magical);"
+// data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source) and not CharacterLevelGreaterThan(16)):DealDamage((LevelMapValue(D6Cantrip))/2,Radiant,Magical);IF(HasPassive('PotentCantrip',context.Source) and CharacterLevelGreaterThan(16)):DealDamage(4d6/2,Radiant,Magical)"
+data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source) and not CharacterLevelGreaterThan(16)):DealDamage((LevelMapValue(D8Cantrip))/2,Radiant,Magical);IF(HasPassive('PotentCantrip',context.Source) and CharacterLevelGreaterThan(16)):DealDamage(4d8/2,Radiant,Magical)"
+// data "TooltipDamageList" "DealDamage(LevelMapValue(D6Cantrip),Radiant)"
+data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip),Radiant)"
