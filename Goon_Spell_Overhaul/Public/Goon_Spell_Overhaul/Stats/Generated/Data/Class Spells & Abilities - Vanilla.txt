@@ -42,6 +42,29 @@ using "DiscipleOfLife"
 // Your devotion empowers your healing spells. When successfully healing a creature with a healing spell or &lt;LSTag Type="Spell" Tooltip="Shout_AuraOfVitality"&gt;Restore Vitality&lt;/LSTag&gt;, the target regains additional <LSTag Tooltip="HitPoints">hit points</LSTag> equal to 2 + the spell's level.
 data "Description" "h0451c245ga622g4458g8053g5c3b1017b7f6;1"
 
+// ==================================== Tempest Domain Cleric - Destructive Wrath ====================================
+// Bug Fix: Should no longer trigger for spells that do not deal damage.
+// Changes: Destructive Wrath will not trigger prior to damage events, as to not waste it.
+
+new entry "Interrupt_DestructiveWrath"
+type "InterruptData"
+using "Interrupt_DestructiveWrath"
+// Destructive Wrath
+// data "DisplayName" "h05758e77gf31dg441egbf2ageb5524d521d9;1"
+// When you roll Thunder or Lightning damage, you can use your <LSTag Type="ActionResource" Tooltip="ChannelDivinity
+// data "Description" "he1b97ba6g70adg4212g8293g283d7cec8e51;1"
+// data "Icon" "PassiveFeature_DestructiveWrath"
+// data "InterruptContext" "OnSpellCast"
+data "InterruptContext" "OnPreDamage"
+// data "InterruptContextScope" "Self"
+// data "Container" "YesNoDecision"
+// data "Conditions" "Self(context.Source,context.Observer) and (SpellDamageTypeIs(DamageType.Lightning) or SpellDamageTypeIs(DamageType.Thunder)) and not AnyEntityIsItem()"
+// data "Properties" "ApplyStatus(OBSERVER_OBSERVER,DESTRUCTIVE_WRATH,100,1)"
+// data "Cost" "ChannelDivinity:1"
+// data "InterruptDefaultValue" "Ask;Enabled"
+// data "EnableCondition" "not HasStatus('SG_Polymorph') or HasAnyStatus({'SG_Disguise','WILDSHAPE_STARRY_ARCHER_PLAYER','WILDSHAPE_STARRY_CHALICE_PLAYER','WILDSHAPE_STARRY_DRAGON_PLAYER'});"
+// data "EnableContext" "OnStatusApplied;OnStatusRemoved"
+
 // ==================================== Circle of Stars Druid - Starry Form: Chalice ====================================
 // Bug Fix: Chalice Healing now uses Wisdom instead of spellcasting modifier.
 // Bug Fix: Chalice Healing now looks for if a spell costs a spellslot instead of arbitrarily looking for a couple of vanilla spells to blacklist.
