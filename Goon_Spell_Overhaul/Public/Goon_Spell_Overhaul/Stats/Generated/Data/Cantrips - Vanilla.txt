@@ -58,19 +58,20 @@ data "Properties" "IsHidden"
 
 // ==================================== Booming Blade ====================================
 // Don't know why the multiple entries, but putting them both her for reference I guess
-
-new entry "Target_BoomingBlade"
-type "SpellData"
-data "SpellType" "Target"
-// using "Target_Slash_New"
-using "Target_BoomingBlade"
-data "DamageType" "Thunder"
+// Change base game version to use 5e Spells' version
 
 new entry "Target_BoomingBlade_ClassSpell"
 type "SpellData"
 data "SpellType" "Target"
 // using "Target_BoomingBlade"
-using "Target_BoomingBlade_ClassSpell"
+using "Target_BoomingBlade_5e"
+data "DamageType" "Thunder"
+
+new entry "Target_BoomingBlade"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_Slash_New"
+using "Target_BoomingBlade_5e"
 data "DamageType" "Thunder"
 
 // ==================================== Bone Chill ====================================
@@ -547,7 +548,7 @@ data "Icon" "Spell_Abjuration_Transmutation_Shillelagh"
 data "DisplayName" "h88189f48ga78cg4a13ga52fg9c789a31c49e;1"
 // Your staff or club becomes magical: it deals [5], and uses your <LSTag Tooltip="SpellcastingAbilityModifier">Spellcasting Ability</LSTag> for <LSTag Tooltip="AttackRoll">Attack Rolls</LSTag>.
 // data "Description" "hebb3bf5dg7eeeg44b7g9c75gd7ac6b4e3ce3;6"
-// You target a creature's equipped weapon, or a staff, club, mace, javelin, dart, spear, or trident directly; it becomes magical and deals [5]. The weapon uses the wielder's &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability&lt;/LSTag&gt; for &lt;LSTag Tooltip="AttackRoll"&gt;Attack&lt;/LSTag&gt; and damage rolls.&lt;br&gt;&lt;br&gt;Damage begins at [1], increasing to [2] at level 5, [3] at level 11, and [4] at level 17.
+// You target a creature's equipped weapon, or a staff, club, mace, javelin, dart, spear, or trident directly; it becomes magical and deals[5]. The weapon uses the wielder's &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability&lt;/LSTag&gt; for &lt;LSTag Tooltip="AttackRoll"&gt;Attack&lt;/LSTag&gt; and damage rolls.&lt;br&gt;&lt;br&gt;Damage begins at [1], increasing to [2] at level 5, [3] at level 11, and [4] at level 17.
 data "Description" "h9e33ef27g4b4eg46c6gb365g6694c23fb2f0;1"
 // data "DescriptionParams" "DealDamage(1d8+SpellCastingAbilityModifier, Bludgeoning)"
 data "DescriptionParams" "DealDamage(1d8+SpellCastingAbilityModifier,Bludgeoning);DealDamage(1d10+SpellCastingAbilityModifier,Bludgeoning);DealDamage(1d12+SpellCastingAbilityModifier,Bludgeoning);DealDamage(2d6+SpellCastingAbilityModifier,Bludgeoning);DealDamage(,Bludgeoning)"
