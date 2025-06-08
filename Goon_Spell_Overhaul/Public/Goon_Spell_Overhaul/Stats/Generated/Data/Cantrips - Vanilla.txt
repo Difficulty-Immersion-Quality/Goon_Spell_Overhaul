@@ -150,7 +150,7 @@ using "DANCING_LIGHTS"
 data "IsUnique" "1"
 
 // ==================================== Eldritch Blast ====================================
-// Adjustable push targetting implemented. (Grasp of Hadar support does not need to be added to base entry.) Can target corpses.
+// Adjustable push targetting implemented. Can target corpses.
 
 new entry "Projectile_EldritchBlast"
 type "SpellData"
