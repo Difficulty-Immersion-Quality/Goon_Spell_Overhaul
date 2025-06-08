@@ -1,6 +1,6 @@
 // ==================================== Counterspell ====================================
 // Bug Fix: Abjuration Wizard's Arcane Ward is fed the appropriate amount of charges based on spell level.
-// Bug Fix: Casting modifier is used instead of defaulting to Intelligence.
+// Bug Fix: Not implemented: Casting modifier is used instead of defaulting to Intelligence.
 
 new entry "Interrupt_Counterspell_4"
 type "InterruptData"
