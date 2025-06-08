@@ -1,4 +1,4 @@
-// ==================================== All the Eldritch Blasts from Scarlet Warlock, patched to work with Adjustable Shove-Pull Targeting ====================================
+// ==================================== All the Eldritch Blast variations from Scarlet Warlock ====================================
 // Adjustable push targetting implemented. Can target corpses.
 
 new entry "Projectile_EldritchBlast_Force_Spell"
