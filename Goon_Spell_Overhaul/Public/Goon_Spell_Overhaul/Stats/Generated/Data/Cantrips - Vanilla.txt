@@ -786,7 +786,7 @@ data "SpellProperties" ""
 data "SpellFail" "IF(not CharacterLevelGreaterThan(4,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,1);IF(CharacterLevelGreaterThan(4,context.Source) and not CharacterLevelGreaterThan(8,context.Source) and not CharacterLevelGreaterThan(13,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,2);IF(CharacterLevelGreaterThan(8,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,2);IF(CharacterLevelGreaterThan(13,context.Source) and not CharacterLevelGreaterThan(17,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,3);IF(CharacterLevelGreaterThan(17,context.Source)):ApplyStatus(GOON_TRUE_STRIKE,100,3);ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL,100,0)"
 // Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on your next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;.
 // data "Description" "he014b03bg6138g431dga1ecg45e4ebba4869;2"
-// If the target creature fails an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, the caster gains &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt;, on their next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; against the target. Additionally, their &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt; is reduced equal to your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt;, or half of your your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt; on a successful save. Whenever the target is attacked this effect and its duration is reduced by 1.
+// If the target creature fails an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, the caster gains &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on their next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; against them.&lt;br&gt;&lt;br&gt;Additionally, their &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt; is reduced equal to your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt;, or half of your your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt; (rounded down) on a successful save. Whenever the target is attacked this effect and its duration is reduced by 1.
 data "Description" "h7f444266g81afg4e0eg95d8g90b8876bf040;1"
 // data "TooltipStatusApply" "ApplyStatus(TRUE_STRIKE,100,2)"
 data "TooltipStatusApply" "ApplyStatus(TRUE_STRIKE,100,1);ApplyStatus(GOON_TRUE_STRIKE,100,1)"
@@ -805,7 +805,7 @@ data "Icon" "Spell_Divination_TrueStrike"
 data "StackId" "GOON_TRUE_STRIKE"
 data "StackType" "Additive"
 data "Boosts" "AC(-1)"
-data "StatusPropertyFlags" "FreezeDuration;MultiplyEffectsByDuration"
+data "StatusPropertyFlags" "MultiplyEffectsByDuration"
 data "Passives" "Goon_True_Strike"
 
 new entry "Goon_True_Strike"
