@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentList>
+	<!-- CONDITIONS AND SURFACES -->
+	<!-- "BURNING" --> <content contentuid="h67f4f865g2bf9g4282g9cadg85f6fdea55b1" version="1">Takes [1] per turn for each round of Burning on the target.</content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+
     <!-- CLASS SPELLS AND ABILITIES -->
 
 	<!-- "DiscipleOfLife" --> <content contentuid="h0451c245ga622g4458g8053g5c3b1017b7f6" version="1">Your devotion empowers your healing spells. When successfully healing a creature with a healing spell or &lt;LSTag Type="Spell" Tooltip="Shout_AuraOfVitality"&gt;Restore Vitality&lt;/LSTag&gt;, the target regains additional <LSTag Tooltip="HitPoints">hit points</LSTag> equal to 2 + the spell's level..</content>
