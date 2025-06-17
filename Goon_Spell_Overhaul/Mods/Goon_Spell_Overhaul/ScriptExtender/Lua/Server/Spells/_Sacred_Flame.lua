@@ -15,13 +15,13 @@ function OnUsingSpellAtPosition(casterGuid, x, y, z, spell)
 
         -- Debug check for parameter values
         if type(radius) ~= "number" or type(lifetime) ~= "number" then
-            Ext.Utils.Print("[ERROR] Invalid parameter types for CreateSurfaceAtPosition!")
+            -- Ext.Utils.Print("[ERROR] Invalid parameter types for CreateSurfaceAtPosition!")
             return
         end
 
         -- Create the surface at the targeted position with the specified radius and lifetime
         Osi.CreateSurfaceAtPosition(x, y, z, surfaceType, radius, lifetime)
-        Ext.Utils.Print("[DEBUG] Created SurfaceHolyFire at position!")
+        -- Ext.Utils.Print("[DEBUG] Created SurfaceHolyFire at position!")
     end
 end
 
