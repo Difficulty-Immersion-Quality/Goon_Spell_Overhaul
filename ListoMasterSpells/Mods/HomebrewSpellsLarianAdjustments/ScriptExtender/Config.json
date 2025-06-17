@@ -1,5 +1,0 @@
-{
-    "RequiredVersion": 4,
-	"ModTable": "HomebrewSpellsLarianAdjustments",
-	"FeatureFlags": ["Lua"]
-}
