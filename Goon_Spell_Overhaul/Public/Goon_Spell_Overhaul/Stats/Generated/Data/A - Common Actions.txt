@@ -1,0 +1,8 @@
+// ============================ Shove ============================
+// TODO: See if restrictions on shoving stuff should be changed at all.
+
+// new entry "Target_Shove"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_Shove"
+// data "TargetConditions" "not Self() and CanShoveWeight() and IsMovable() and not Grounded() and not Tagged('GASEOUS_FORM') and not (not Player(context.Source) and Combat(context.Source) and Character() and not (Enemy() or HasStatus('SG_Unconscious'))) and not Tagged('CANT_SHOVE_THROW')"
