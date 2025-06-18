@@ -86,16 +86,6 @@ data "SpellProperties" "RegainHitPoints(LevelMapValue(StarryForm)+WisdomModifier
 // data "TooltipDamageList" "RegainHitPoints(LevelMapValue(StarryForm)+SpellCastingAbilityModifier)"
 data "TooltipDamageList" "RegainHitPoints(LevelMapValue(StarryForm)+WisdomModifier)"
 
-// ==================================== Way of Four Elements Monk - Fist of Four Thunders ====================================
-// Bug Fix: Now correctly triggers Martial Arts: Bonus Unarmed Strike.
-
-new entry "Zone_Thunderwave_Monk"
-type "SpellData"
-data "SpellType" "Zone"
-// using "Zone_Thunderwave"
-using "Zone_Thunderwave_Monk"
-data "SpellProperties" "ApplyStatus(SELF,MARTIAL_ARTS_BONUS_UNARMED_STRIKE,100,1)"
-
 // ==================================== Oathbreaker Paladin - Aura of Hate ====================================
 // Changes: The additional damage works with all melee attacks.
 
