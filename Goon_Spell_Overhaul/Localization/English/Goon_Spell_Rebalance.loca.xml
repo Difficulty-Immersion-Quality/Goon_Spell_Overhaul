@@ -11,33 +11,24 @@
 	<!-- "AURA_OF_HATE_BUFF" --> <content contentuid="hb7b88a5bg94a0g459cga5e4gea0863985113" version="1">Deals an additional [2] with melee attacks while within [1] of the spellcaster.</content>
 
 	<!-- CANTRIPS - VANILLA -->
-
 	<!-- "Shout_BladeWard" --> <content contentuid="h60442a32g02d3g436eg9868g6017ab4102c5" version="1">Take only half the damage from Bludgeoning, Piercing, and Slashing attacks. The duration of Blade Ward is reduced by 1 whenever the creature takes Bludgeoning, Piercing, or Slashing damage.</content>
 	<!-- "GOON_BLADE_WARD_SPELL" --> <content contentuid="hf3d9a553gad9bg4878ga30cg5da8e854cfbf" version="1">Has Resistance against Bludgeoning, Piercing, and Slashing damage from attacks. When Bludgeoning, Piercing, or Slashing damage is taken from an attack, the duration of Blade Ward is reduced by 1.</content>
 	<!-- "BLADE_WARD" --> <content contentuid="hf3d9a553gad9bg4878ga30cg5da8e854cfbf" version="1">Has Resistance against Bludgeoning, Piercing, and Slashing damage from attacks.</content>
-
 	<!-- "Target_ChillTouch" --> <content contentuid="h2e9c2b10g1ebdg47c7gaa08g2dcf6667cbbd" version="1">Chill Touch</content>
 	<!-- "CHILL_TOUCH" --> <content contentuid="h1eae12c3g5f79g491fgaa61g1af469829dc7" version="1">Chill of the Grave</content>
-
 	<!-- "Target_Friends" --> <content contentuid="h40d4759dga74ag4804gac41g65b19eb68b17" version="1">Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Charisma &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against a non-hostile creature in dialogue. When targetting a hostile creature in combat, they must succeed a &lt;LSTag Tooltip="Wisdom"&gt;Wisdom&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or suffer &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against you.</content>
 	<!-- "FRIENDS" --> <content contentuid="hd51d6e1bg6d7cg4309ga03bgc0eade9ef864" version="1">The caster of this charm has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against the creature.</content>
-
 	<!-- "Projectile_PoisonSpray" --> <content contentuid="h1be0ac47g18f5g4945g85b9g41ab74c32552" version="1">Project a cone of noxious gas, leaving behind a cloud of poison.</content>
-
 	<!-- "Target_SacredFlame" --> <content contentuid="h910058dcg21d0g4f89ga09cg47bd468ece71" version="1">Engulf a target in a flame-like radiance. If the target is a Fiend, or Undead, they are afflicted with &lt;LSTag Type="Status" Tooltip="BURNING_HOLY"&gt;Holy Fire&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Targeting the ground directly will create a holy fire surface.</content>
-
 	<!-- "Shout_Shillelagh" --> <content contentuid="h9e33ef27g4b4eg46c6gb365g6694c23fb2f0" version="1">You target a creature's equipped weapon, or a staff, club, mace, javelin, dart, spear, or trident directly; it becomes magical and deals[5]. The weapon uses the wielder's &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability&lt;/LSTag&gt; for &lt;LSTag Tooltip="AttackRoll"&gt;Attack&lt;/LSTag&gt; and damage rolls.&lt;br&gt;&lt;br&gt;Damage begins at [1], increasing to [2] at level 5, [3] at level 11, and [4] at level 17.</content>
 	<!-- "SHILLELAGH" --> <content contentuid="hab375000gaeb1g47dfg9d34ga2a778b28194" version="1">Weapon is magical and deals [5]. &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; use the wielder's &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability Modifier&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Damage begins at [1], increasing to [2] at level 5, [3] at level 11, and [4] at level 17.</content>
 	<!-- "Goon_Shout_Remove_Shillelagh" --> <content contentuid="h871c4f36g3d7fg4798ga7ecg05fd146c364c" version="1">Dismiss Shillelagh</content>
 	<!-- "Goon_Shout_Remove_Shillelagh" --> <content contentuid="h1ee9b7a0ge6a5g407bgb29cgbe27ad5d4221" version="1">Dispel your equipped weapon's Shillelagh enchantment.</content>
-
 	<!-- "Target_TrueStrike" --> <content contentuid="h7f444266g81afg4e0eg95d8g90b8876bf040" version="1">If the target creature fails an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, the caster gains &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on their next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; against them.&lt;br&gt;&lt;br&gt;Additionally, their &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt; is reduced equal to your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt;, or half of your your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt; (rounded down) on a successful save. Whenever the target is attacked this effect and its duration is reduced by 1.</content>
 	<!-- "GOON_TRUE_STRIKE" --> <content contentuid="h6cc73e50gf680g4b25ga7d5g12f31475c508" version="1">Open Defenses</content>
 	<!-- "GOON_TRUE_STRIKE" --> <content contentuid="h9a4f4618g7ae6g4741g9519gb03d2851d055" version="1">&lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt; is reduced by the duration of the effect. Whenever the creature is attacked the duration is reduced by 1.</content>
 
-
     <!-- LEVEL 3 - 5E SPELLS -->
-
 	<!-- "Target_MotivationalSpeech" --> <content contentuid="" version="1">Three creatures in the area gain [1] and have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Wisdom &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;. If hit by an attack, an affected creature has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on its next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; during combat.</content>
 	
 	

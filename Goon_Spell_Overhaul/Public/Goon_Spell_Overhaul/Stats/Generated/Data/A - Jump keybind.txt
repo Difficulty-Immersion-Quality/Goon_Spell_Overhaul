@@ -1,0 +1,64 @@
+// ============================ Jump, Fly, Levitate etc. ============================
+// Changes: Keybind is shared, abilities are assigned priority based on resource costs and benefits.
+// Credit: Original inspiration for this design is from chronos1172 with "Fix Jump-Fly Shortcut". Funnily enough "SpellActionTypePriority" seems entirely unused in vanilla.
+// TODO: Hunt down more spells, including custom ones.
+
+new entry "Projectile_Jump"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_Jump"
+data "SpellActionTypePriority" "1"
+
+new entry "Projectile_Fly"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_Jump"
+using "Projectile_Fly"
+data "SpellActionTypePriority" "2"
+
+new entry "Projectile_TAD_Levitate"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_Fly"
+using "Projectile_TAD_Levitate"
+data "SpellActionTypePriority" "3"
+
+new entry "Projectile_Levitate_Mindflayer_Player"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_Levitate_Mindflayer"
+using "Projectile_Levitate_Mindflayer_Player"
+data "SpellActionTypePriority" "4"
+
+// Has Wildshape SpellFlags
+new entry "Projectile_Fly_Spell"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_Fly"
+using "Projectile_Fly_Spell"
+// data "SpellActionType" ""
+data "SpellActionType" "Jump"
+data "SpellActionTypePriority" "5"
+
+// Shorter range, but no movement cost and ignores difficult terrain
+new entry "Projectile_Fly_WrithingTide_Bee"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_Fly"
+using "Projectile_Fly_WrithingTide_Bee"
+data "SpellActionTypePriority" "6"
+
+new entry "Projectile_Fly_WrithingTide_Bee_Temp"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_Fly_WrithingTide_Bee"
+using "Projectile_Fly_WrithingTide_Bee_Temp"
+data "SpellActionTypePriority" "7"
+
+// Shorter range, but no movement cost and ignores AOO
+new entry "Projectile_Fly_TempestuousMagic"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_Fly"
+using "Projectile_Fly_TempestuousMagic"
+data "SpellActionTypePriority" "8"
