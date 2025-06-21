@@ -1,3 +1,21 @@
+// ==================================== Hellish Rebuke (Myrmidon) ====================================
+// Bug Fix: Now works with more non-hostile and non-spellcasting restricted Polymorphs. (Redundant)
+// Changes: Now checks for all Silenced conditions, not just "SILENCED" itself.
+// Changes: Can now be used by Invisible player characters.
+
+new entry "Interrupt_HellishRebuke_Myrmidon"
+type "InterruptData"
+// using "Interrupt_HellishRebuke"
+using "Interrupt_HellishRebuke_Myrmidon"
+// data "Conditions" "IsAbleToReact(context.Observer) and Enemy(context.Source,context.Observer) and HasFunctor(StatsFunctorType.DealDamage) and IsHit() and not HasStatus('SILENCED',context.Source) and not AnyEntityIsItem() and HasLastAttackTriggered()"
+data "Conditions" "(Player(context.Observer) or not HasStatus('SG_Invisible',context.Observer)) and IsAbleToReact(context.Observer) and Enemy(context.Source,context.Observer) and HasFunctor(StatsFunctorType.DealDamage) and IsHit() and not Goon_HasSilencedCondition() and not AnyEntityIsItem() and HasLastAttackTriggered()"
+// data "Properties" "UseSpell(SWAP,Target_HellishRebuke_Myrmidon,true,true,true)"
+// data "Cost" "ReactionActionPoint:1"
+// data "EnableCondition" "not HasAnyStatus({'SG_Polymorph','SG_Blinded'},{},{'WILDSHAPE_MYRMIDON_FIRE_PLAYER','WILDSHAPE_MYRMIDON_FIRE_PLAYER_12'}) or Tagged('MINDFLAYER') or HasAnyStatus({'SG_Disguise','WILDSHAPE_STARRY_ARCHER_PLAYER','WILDSHAPE_STARRY_CHALICE_PLAYER','WILDSHAPE_STARRY_DRAGON_PLAYER'});"
+data "EnableCondition" "not HasAnyStatus({'SG_Polymorph','SG_Blinded'},{},{'WILDSHAPE_MYRMIDON_FIRE_PLAYER','WILDSHAPE_MYRMIDON_FIRE_PLAYER_12'}) or Goon_IsUnrestrictedPolymorphStatus()"
+// data "EnableContext" "OnStatusApplied;OnStatusRemoved"
+data "InterruptFlags" "InterruptWhileInvisible"
+
 // ==================================== Circle of Stars - Starry Form: Chalice ====================================
 // Bug Fix: Chalice Healing now uses Wisdom as a modifier instead of SpellCastingAbilityModifier (highest mental ability).
 // Bug Fix: Chalice Healing now looks for if a spell costs a spellslot instead of arbitrarily looking for a couple of vanilla spells to blacklist.
