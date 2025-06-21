@@ -1,3 +1,23 @@
+// ==================================== Divine Smite ====================================
+
+new entry "Interrupt_Smite_Divine"
+type "InterruptData"
+using "Interrupt_Smite_Divine"
+data "Conditions" "(Player(context.Observer) or not IsInvisibleState(context.Observer)) and IsAbleToReact(context.Observer) and not Item() and IsMeleeAttack() and not IsDivineSmite() and Self(context.Source,context.Observer) and HasDamageEffectFlag(DamageFlags.Hit) and IsWeaponAttack() and not IsCritical() and not IsKillingBlow() and not AnyEntityIsItem()"
+data "InterruptFlags" "InterruptWhileInvisible"
+
+new entry "Interrupt_Smite_Divine_NPC"
+type "InterruptData"
+using "Interrupt_Smite_Divine_NPC"
+data "Conditions" "(Player(context.Observer) or not IsInvisibleState(context.Observer)) and IsAbleToReact(context.Observer) and not Item() and IsMeleeAttack() and not IsDivineSmite() and Self(context.Source,context.Observer) and HasDamageEffectFlag(DamageFlags.Hit) and IsWeaponAttack() and not IsCritical() and not IsKillingBlow() and not AnyEntityIsItem()"
+data "InterruptFlags" "InterruptWhileInvisible"
+
+new entry "Interrupt_Smite_Divine_Critical"
+type "InterruptData"
+using "Interrupt_Smite_Divine_Critical"
+data "Conditions" "(Player(context.Observer) or not IsInvisibleState(context.Observer)) and IsAbleToReact(context.Observer) and not Item() and IsMeleeAttack() and not IsDivineSmite() and Self(context.Source,context.Observer) and HasDamageEffectFlag(DamageFlags.Hit) and IsWeaponAttack() and IsCritical() and not IsKillingBlow() and not AnyEntityIsItem()"
+data "InterruptFlags" "InterruptWhileInvisible"
+
 // ==================================== Oathbreaker - Aura of Hate ====================================
 // Changes: The additional damage works with all melee attacks.
 
