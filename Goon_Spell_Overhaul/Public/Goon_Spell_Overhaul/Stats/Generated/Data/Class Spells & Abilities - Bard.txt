@@ -1,3 +1,13 @@
+// ==================================== Countercharm ====================================
+// Changes: Now checks for if the character is Deafened, prior to providing buffs.
+
+new entry "COUNTERCHARM_AURA"
+type "StatusData"
+data "StatusType" "BOOST"
+using "COUNTERCHARM_AURA"
+// data "AuraStatuses" "IF(Character() and not Enemy()):ApplyStatus(COUNTERCHARM,100,-1)"
+data "AuraStatuses" "IF(Character() and not Enemy() and not Goon_HasDeafenedCondition()):ApplyStatus(COUNTERCHARM,100,-1)"
+
 // ==================================== College of Swords - Slashing Flourish (Melee) ====================================
 // Bug Fix: Tooltip damage now references correctly includes BardicInspiration scaling. (Fixed in Expansion already.)
 
