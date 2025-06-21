@@ -1,3 +1,41 @@
+// ==================================== Divine Strike ====================================
+// Bug Fix: Icons are now correct.
+// Changes: Can now be used by Invisible player characters.
+
+new entry "Interrupt_DivineStrike_MeleeWeapon"
+type "InterruptData"
+// using "Interrupt_DivineStrike_Cold"
+using "Interrupt_DivineStrike_MeleeWeapon"
+// data "Icon" "Action_DivineStrike_Melee"
+data "Icon" "Action_DivineStrike_Physical_Melee"
+// data "Conditions" "Self(context.Source,context.Observer) and not Self() and IsWeaponAttack() and IsMeleeAttack() and not IsCritical() and not IsKillingBlow() and IsHit() and not IsDivineStrike() and Character() and not AnyEntityIsItem();"
+data "Conditions" "(Player(context.Observer) or not HasStatus('SG_Invisible',context.Observer)) and Self(context.Source,context.Observer) and IsWeaponAttack() and IsMeleeAttack() and not IsCritical() and not IsKillingBlow() and IsHit() and not IsDivineStrike() and Character() and not AnyEntityIsItem()"
+data "InterruptFlags" "InterruptWhileInvisible"
+
+new entry "Interrupt_DivineStrike_MeleeWeapon_Critical"
+type "InterruptData"
+// using "Interrupt_DivineStrike_MeleeWeapon"
+using "Interrupt_DivineStrike_MeleeWeapon_Critical"
+// data "Conditions" "Self(context.Source,context.Observer) and not Self() and IsWeaponAttack() and IsMeleeAttack() and IsCritical() and not IsKillingBlow() and IsHit() and not IsDivineStrike() and Character() and not AnyEntityIsItem();"
+data "Conditions" "(Player(context.Observer) or not HasStatus('SG_Invisible',context.Observer)) and Self(context.Source,context.Observer) and IsWeaponAttack() and IsMeleeAttack() and IsCritical() and not IsKillingBlow() and IsHit() and not IsDivineStrike() and Character() and not AnyEntityIsItem()"
+
+new entry "Interrupt_DivineStrike_RangedWeapon"
+type "InterruptData"
+// using "Interrupt_DivineStrike_Cold"
+using "Interrupt_DivineStrike_RangedWeapon"
+// data "Icon" "Action_DivineStrike_Ranged"
+data "Icon" "Action_DivineStrike_Physical_Ranged"
+// data "Conditions" "Self(context.Source,context.Observer) and not Self() and IsWeaponAttack() and IsRangedAttack() and not IsCritical() and not IsKillingBlow() and IsHit() and not IsDivineStrike() and Character() and not AnyEntityIsItem();"
+data "Conditions" "(Player(context.Observer) or not HasStatus('SG_Invisible',context.Observer)) and Self(context.Source,context.Observer) and IsWeaponAttack() and IsRangedAttack() and not IsCritical() and not IsKillingBlow() and IsHit() and not IsDivineStrike() and Character() and not AnyEntityIsItem()"
+data "InterruptFlags" "InterruptWhileInvisible"
+
+new entry "Interrupt_DivineStrike_RangedWeapon_Critical"
+type "InterruptData"
+// using "Interrupt_DivineStrike_RangedWeapon"
+using "Interrupt_DivineStrike_RangedWeapon_Critical"
+// data "Conditions" "Self(context.Source,context.Observer) and not Self() and IsWeaponAttack() and IsRangedAttack() and IsCritical() and not IsKillingBlow() and IsHit() and not IsDivineStrike() and Character() and not AnyEntityIsItem();"
+data "Conditions" "(Player(context.Observer) or not HasStatus('SG_Invisible',context.Observer)) and Self(context.Source,context.Observer) and IsWeaponAttack() and IsRangedAttack() and IsCritical() and not IsKillingBlow() and IsHit() and not IsDivineStrike() and Character() and not AnyEntityIsItem()"
+
 // ==================================== Life Domain - Blessed Healer ====================================
 // Bug Fix: Blessed Healer now only heals the caster as is specified in the tooltip, instead of all the Cleric's healing sources.
 
