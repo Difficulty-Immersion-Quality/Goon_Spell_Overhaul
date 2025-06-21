@@ -8,3 +8,12 @@ data "StatusType" "DOWNED"
 using "DEATH_WARD_DOWNED"
 // data "OnRemoveFunctors" "ResetCombatTurn();RestoreResource(Movement, 100%, 0);RestoreResource(BonusActionPoint, 100%, 0);RestoreResource(ActionPoint, 100%, 0);RestoreResource(ReactionActionPoint, 100%, 0)"
 data "OnRemoveFunctors" "ResetCombatTurn();RestoreResource(Movement, 100%, 0);RestoreResource(BonusActionPoint, 100%, 0);ApplyStatus(DEATH_WARD_RESTORE,100,1)"
+
+// ==================================== Guardian of Faith ====================================
+// Bug Fix: Now works with more non-hostile and non-spellcasting restricted Polymorphs. (Redundant)
+
+new entry "Interrupt_GuardianOfFaith_Retaliate"
+type "InterruptData"
+using "Interrupt_GuardianOfFaith_Retaliate"
+// data "EnableCondition" "not HasAnyStatus({'SG_Polymorph','SG_Blinded'}) or Tagged('MINDFLAYER') or HasAnyStatus({'SG_Disguise','WILDSHAPE_STARRY_ARCHER_PLAYER','WILDSHAPE_STARRY_CHALICE_PLAYER','WILDSHAPE_STARRY_DRAGON_PLAYER'});"
+data "EnableCondition" "not HasAnyStatus({'SG_Polymorph','SG_Blinded'}) or Goon_IsUnrestrictedPolymorphStatus()"
