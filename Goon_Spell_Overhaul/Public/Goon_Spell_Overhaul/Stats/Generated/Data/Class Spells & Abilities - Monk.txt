@@ -1,4 +1,4 @@
-// ==================================== Way of Four Elements Monk - Blade of Rime ====================================
+// ==================================== Way of Four Elements - Blade of Rime ====================================
 // Changes: Now considered a spell.
 
 new entry "Projectile_BladeOfTheRime"
@@ -9,7 +9,7 @@ using "Projectile_BladeOfTheRime"
 // data "SpellFlags" "HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful"
 data "SpellFlags" "HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful;IsSpell"
 
-// ==================================== Way of Four Elements Monk - Chill of the Mountain ====================================
+// ==================================== Way of Four Elements - Chill of the Mountain ====================================
 // Changes: Now considered a spell.
 
 new entry "Projectile_RayOfFrost_Monk"
@@ -20,7 +20,7 @@ using "Projectile_RayOfFrost_Monk"
 // data "SpellFlags" "HasHighGroundRangeExtension;HasSomaticComponent;RangeIgnoreVerticalThreshold;IsHarmful"
 data "SpellFlags" "HasHighGroundRangeExtension;HasSomaticComponent;RangeIgnoreVerticalThreshold;IsHarmful;IsSpell"
 
-// ==================================== Way of Four Elements Monk - Clench of the North Wind ====================================
+// ==================================== Way of Four Elements - Clench of the North Wind ====================================
 // Changes: Now considered a spell.
 
 new entry "Target_HoldPerson_Monk"
@@ -31,7 +31,7 @@ using "Target_HoldPerson_Monk"
 // data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsConcentration;IsHarmful"
 data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;IsConcentration;IsHarmful;IsSpell"
 
-// ==================================== Way of Four Elements Monk - Embrace of the Inferno ====================================
+// ==================================== Way of Four Elements - Embrace of the Inferno ====================================
 // Changes: Now considered a spell.
 
 new entry "Projectile_ScorchingRay_Monk"
@@ -42,7 +42,7 @@ using "Projectile_ScorchingRay_Monk"
 // data "SpellFlags" "HasHighGroundRangeExtension;HasSomaticComponent;RangeIgnoreVerticalThreshold;IsHarmful"
 data "SpellFlags" "HasHighGroundRangeExtension;HasSomaticComponent;RangeIgnoreVerticalThreshold;IsHarmful;IsSpell"
 
-// ==================================== Way of Four Elements Monk - Fangs of the Fire Snake ====================================
+// ==================================== Way of Four Elements - Fangs of the Fire Snake ====================================
 // Changes: Now considered a spell.
 
 new entry "Projectile_FangsOfTheFireSnake"
@@ -53,7 +53,7 @@ using "Projectile_FangsOfTheFireSnake"
 // data "SpellFlags" "HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful"
 data "SpellFlags" "HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful;IsSpell"
 
-// ==================================== Way of Four Elements Monk - Fist of Four Thunders ====================================
+// ==================================== Way of Four Elements - Fist of Four Thunders ====================================
 // Bug Fix: Now correctly triggers Martial Arts: Bonus Unarmed Strike.
 // Changes: Now considered a spell.
 
@@ -66,7 +66,7 @@ data "SpellProperties" "ApplyStatus(SELF,MARTIAL_ARTS_BONUS_UNARMED_STRIKE,100,1
 // data "SpellFlags" "HasSomaticComponent;AddFallDamageOnLand;IsHarmful"
 data "SpellFlags" "HasSomaticComponent;AddFallDamageOnLand;IsHarmful;IsSpell"
 
-// ==================================== Way of Four Elements Monk - Fist of Unbroken Air ====================================
+// ==================================== Way of Four Elements - Fist of Unbroken Air ====================================
 // Changes: Now considered a spell.
 
 new entry "Target_FistOfUnbrokenAir"
@@ -76,7 +76,7 @@ using "Target_FistOfUnbrokenAir"
 // data "SpellFlags" "IsHarmful;DisableBlood;AddFallDamageOnLand"
 data "SpellFlags" "IsHarmful;DisableBlood;AddFallDamageOnLand;IsSpell"
 
-// ==================================== Way of Four Elements Monk - Flames of the Phoenix ====================================
+// ==================================== Way of Four Elements - Flames of the Phoenix ====================================
 // Changes: Now considered a spell.
 
 new entry "Projectile_Fireball_Monk"
@@ -87,7 +87,7 @@ using "Projectile_Fireball_Monk"
 // data "SpellFlags" "HasSomaticComponent;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful;CanAreaDamageEvade"
 data "SpellFlags" "HasSomaticComponent;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful;CanAreaDamageEvade;IsSpell"
 
-// ==================================== Way of Four Elements Monk - Gong of the Summit ====================================
+// ==================================== Way of Four Elements - Gong of the Summit ====================================
 // Changes: Now considered a spell.
 
 new entry "Target_Shatter_Monk"
@@ -98,7 +98,7 @@ using "Target_Shatter_Monk"
 // data "SpellFlags" "HasHighGroundRangeExtension;HasVerbalComponent;HasSomaticComponent;IsHarmful"
 data "SpellFlags" "HasHighGroundRangeExtension;HasVerbalComponent;HasSomaticComponent;IsHarmful;IsSpell"
 
-// ==================================== Way of Four Elements Monk - Mist Stance ====================================
+// ==================================== Way of Four Elements - Mist Stance ====================================
 // Changes: Now considered a spell.
 
 new entry "Shout_GaseousForm_Monk"
@@ -108,7 +108,7 @@ using "Shout_GaseousForm_Monk"
 // data "SpellFlags" "HasSomaticComponent;IsConcentration"
 data "SpellFlags" "HasSomaticComponent;IsConcentration;IsSpell"
 
-// ==================================== Way of Four Elements Monk - Ride the Wind ====================================
+// ==================================== Way of Four Elements - Ride the Wind ====================================
 // Changes: Now considered a spell.
 
 new entry "Shout_Fly_Monk"
@@ -118,7 +118,7 @@ using "Shout_Fly_Monk"
 // data "SpellFlags" "HasSomaticComponent;IsConcentration"
 data "SpellFlags" "HasSomaticComponent;IsConcentration;IsSpell"
 
-// ==================================== Way of Four Elements Monk - Rush of the Gale Spirits ====================================
+// ==================================== Way of Four Elements - Rush of the Gale Spirits ====================================
 // Changes: Now considered a spell.
 
 new entry "Zone_GustOfWind_Monk"
@@ -129,7 +129,7 @@ using "Zone_GustOfWind_Monk"
 // data "SpellFlags" "HasSomaticComponent;AddFallDamageOnLand"
 data "SpellFlags" "HasSomaticComponent;AddFallDamageOnLand;IsSpell"
 
-// ==================================== Way of Four Elements Monk - Shaping of the Ice ====================================
+// ==================================== Way of Four Elements - Shaping of the Ice ====================================
 // Changes: Now considered a spell.
 
 new entry "Target_ShapeTheFlowingRiver_IceBlock"
@@ -139,7 +139,7 @@ using "Target_ShapeTheFlowingRiver_IceBlock"
 // data "SpellFlags" "HasSomaticComponent"
 data "SpellFlags" "HasSomaticComponent;IsSpell"
 
-// ==================================== Way of Four Elements Monk - Sphere of Elemental Balance ====================================
+// ==================================== Way of Four Elements - Sphere of Elemental Balance ====================================
 // Changes: Now considered a spell.
 
 new entry "Projectile_ChromaticOrb_Monk"
@@ -198,7 +198,7 @@ using "Projectile_ChromaticOrb_Thunder_Monk"
 // data "SpellFlags" "HasHighGroundRangeExtension;HasSomaticComponent;RangeIgnoreVerticalThreshold;IsHarmful"
 data "SpellFlags" "HasHighGroundRangeExtension;HasSomaticComponent;RangeIgnoreVerticalThreshold;IsHarmful;IsSpell"
 
-// ==================================== Way of Four Elements Monk - Sweeping Cinder Strike ====================================
+// ==================================== Way of Four Elements - Sweeping Cinder Strike ====================================
 // Changes: Now considered a spell.
 
 new entry "Zone_BurningHands_Monk"
@@ -209,7 +209,7 @@ using "Zone_BurningHands_Monk"
 // data "SpellFlags" "HasSomaticComponent;IsHarmful;CanAreaDamageEvade"
 data "SpellFlags" "HasSomaticComponent;IsHarmful;CanAreaDamageEvade;IsSpell"
 
-// ==================================== Way of Four Elements Monk - Touch of the Storm ====================================
+// ==================================== Way of Four Elements - Touch of the Storm ====================================
 // Changes: Now considered a spell.
 
 new entry "Target_ShockingGrasp_Monk"
@@ -220,7 +220,7 @@ using "Target_ShockingGrasp_Monk"
 // data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsMelee;IsHarmful;DisableBlood"
 data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsMelee;IsHarmful;DisableBlood;IsSpell"
 
-// ==================================== Way of Four Elements Monk - Water Whip ====================================
+// ==================================== Way of Four Elements - Water Whip ====================================
 // Changes: Now considered a spell.
 
 new entry "Target_WaterWhip"

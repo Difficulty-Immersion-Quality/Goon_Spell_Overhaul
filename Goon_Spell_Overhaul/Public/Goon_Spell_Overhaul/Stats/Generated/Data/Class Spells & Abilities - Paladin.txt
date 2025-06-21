@@ -1,0 +1,24 @@
+// ==================================== Oathbreaker - Aura of Hate ====================================
+// Changes: The additional damage works with all melee attacks.
+
+new entry "AURA_OF_HATE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "AURA_OF_HATE"
+// The paladin and any nearby fiends and undead deal an additional [1] to damage dealt with melee weapons.
+// data "Description" "h1b60bee0geb62g4184ga679g1e7f6de42926;3"
+// The paladin and any nearby fiends and undead deal an additional [1] to damage dealt with melee attacks.
+data "Description" "h8e371248gddd7g40dag8d49g785183b1f9eb;1"
+// data "Boosts" "IF(IsMeleeAttack()):CharacterWeaponDamage(max(1, Cause.CharismaModifier))"
+data "Boosts" "IF(IsMeleeAttack()):DamageBonus(max(1, Cause.CharismaModifier))"
+
+new entry "AURA_OF_HATE_BUFF"
+type "StatusData"
+data "StatusType" "BOOST"
+using "AURA_OF_HATE_BUFF"
+// Deals an additional [2] to damage dealt with melee weapons within [1] of the spellcaster.
+// data "Description" "hb90cac90gf224g4f5dg85aeg85fb08a983d9;3"
+// Deals an additional [2] with melee attacks while within [1] of the spellcaster.
+data "Description" "hb7b88a5bg94a0g459cga5e4gea0863985113;1"
+// data "Boosts" "IF(IsMeleeAttack()):CharacterWeaponDamage(max(1, Cause.CharismaModifier))"
+data "Boosts" "IF(IsMeleeAttack()):DamageBonus(max(1, Cause.CharismaModifier))"

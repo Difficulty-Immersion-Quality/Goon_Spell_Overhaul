@@ -1,0 +1,10 @@
+// ==================================== Divination School - Prophecy: Delivering Alms ====================================
+// Bug Fix: The "Divination_Ally_Downed" passive now exists, functionality matching the description implemented.
+
+new entry "Divination_Ally_Downed"
+type "PassiveData"
+using "Divination_Damage_Fire"
+data "Icon" "GenericIcon_Intent_Utility"
+data "StatsFunctorContext" "OnCast"
+data "Conditions" "SpellId('Target_Help') and Ally(context.Target)"
+data "StatsFunctors" "ApplyStatus(SELF,PORTENT,100,1);RemoveStatus(SELF,DIVINATION_ALLY_HELP)"

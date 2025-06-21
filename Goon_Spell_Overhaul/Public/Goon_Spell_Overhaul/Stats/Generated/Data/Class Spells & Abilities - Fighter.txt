@@ -1,0 +1,78 @@
+// ==================================== Arcane Archer - Arcane Shot: Banishing Arrow ====================================
+// Changes: Extra description added to clarify that Arcane Shots Spell Save DC scales with Intelligence.
+
+new entry "Projectile_ArcaneShot_BanishingArrow"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_ArcaneShot_Parent"
+using "Projectile_ArcaneShot_BanishingArrow"
+// The &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; of Arcane Shots increase with your &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;.
+data "ExtraDescription" "h7de2f790g81a4g42c5gb33agb2a7742b929f;1"
+
+// ==================================== Arcane Archer - Arcane Shot: Beguiling Arrow ====================================
+// Changes: Extra description added to clarify that Arcane Shots Spell Save DC scales with Intelligence.
+
+new entry "Projectile_ArcaneShot_BeguilingArrow"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_ArcaneShot_Parent"
+using "Projectile_ArcaneShot_BeguilingArrow"
+// The &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; of Arcane Shots increase with your &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;.
+data "ExtraDescription" "h7de2f790g81a4g42c5gb33agb2a7742b929f;1"
+
+// ==================================== Arcane Archer - Arcane Shot: Enfeebling Arrow ====================================
+// Changes: Extra description added to clarify that Arcane Shots Spell Save DC scales with Intelligence.
+
+new entry "Projectile_ArcaneShot_EnfeeblingArrow"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_ArcaneShot_Parent"
+using "Projectile_ArcaneShot_EnfeeblingArrow"
+// The &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; of Arcane Shots increase with your &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;.
+data "ExtraDescription" "h7de2f790g81a4g42c5gb33agb2a7742b929f;1"
+
+// ==================================== Arcane Archer - Arcane Shot: Grasping Arrow ====================================
+// Changes: Extra description added to clarify that Arcane Shots Spell Save DC scales with Intelligence.
+
+new entry "Projectile_ArcaneShot_GraspingArrow"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_ArcaneShot_Parent"
+using "Projectile_ArcaneShot_GraspingArrow"
+// The &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; of Arcane Shots increase with your &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;.
+data "ExtraDescription" "h7de2f790g81a4g42c5gb33agb2a7742b929f;1"
+
+// ==================================== Arcane Archer - Arcane Shot: Piercing Arrow ====================================
+// Changes: Extra description added to clarify that Arcane Shots Spell Save DC scales with Intelligence.
+
+new entry "Zone_ArcaneShot_PiercingArrow"
+type "SpellData"
+data "SpellType" "Zone"
+using "Zone_ArcaneShot_PiercingArrow"
+// The &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; of Arcane Shots increase with your &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;.
+data "ExtraDescription" "h7de2f790g81a4g42c5gb33agb2a7742b929f;1"
+data "TooltipOnSave" "f762efbb-f8f1-493e-b248-2de1567b4bd2"
+
+// ==================================== Arcane Archer - Arcane Shot: Seeking Arrow ====================================
+// Changes: Extra description added to clarify that Arcane Shots Spell Save DC scales with Intelligence.
+
+new entry "Projectile_ArcaneShot_SeekingArrow"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_ArcaneShot_Parent"
+using "Projectile_ArcaneShot_SeekingArrow"
+// This arrow always hits its target.
+// data "ExtraDescription" "h30287666ge193g488dgbcd5g5078e1d382b4;1"
+// This arrow always hits its target. The &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; of Arcane Shots increase with your &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;.
+data "ExtraDescription" "h1266ff85g04b0g42e0g8240gc98724306017;1"
+
+// ==================================== Arcane Archer - Arcane Shot: Shadow Arrow ====================================
+// Changes: Extra description added to clarify that Arcane Shots Spell Save DC scales with Intelligence.
+
+new entry "Projectile_ArcaneShot_ShadowArrow"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_ArcaneShot_Parent"
+using "Projectile_ArcaneShot_ShadowArrow"
+// The &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; of Arcane Shots increase with your &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;.
+data "ExtraDescription" "h7de2f790g81a4g42c5gb33agb2a7742b929f;1"

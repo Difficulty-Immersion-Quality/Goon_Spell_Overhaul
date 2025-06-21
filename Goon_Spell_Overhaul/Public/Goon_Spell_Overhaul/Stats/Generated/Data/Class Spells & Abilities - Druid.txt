@@ -1,0 +1,33 @@
+// ==================================== Circle of Stars - Starry Form: Chalice ====================================
+// Bug Fix: Chalice Healing now uses Wisdom as a modifier instead of SpellCastingAbilityModifier (highest mental ability).
+// Bug Fix: Chalice Healing now looks for if a spell costs a spellslot instead of arbitrarily looking for a couple of vanilla spells to blacklist.
+
+new entry "StarryForm_Chalice"
+type "PassiveData"
+using "StarryForm_Chalice"
+// data "Conditions" "HealDoneGreaterThan(0) and ((IsSpell() and not IsCantrip()) and not SpellId('Target_AuraOfVitality_Activate') and not SpellId('Target_MAG_HealingWord') and not SpellId('Shout_MAG_HealingWord_Mass'));"
+data "Conditions" "HealDoneGreaterThan(0) and IsSpell() and (HasUseCosts('SpellSlot') or HasUseCosts('WarlockSpellSlot'))"
+
+new entry "Target_StarryForm_Chalice_Heal"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_StarryForm_Chalice_Heal"
+// data "SpellProperties" "RegainHitPoints(LevelMapValue(StarryForm)+SpellCastingAbilityModifier)"
+data "SpellProperties" "RegainHitPoints(LevelMapValue(StarryForm)+WisdomModifier)"
+// data "TooltipDamageList" "RegainHitPoints(LevelMapValue(StarryForm)+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(LevelMapValue(StarryForm)+WisdomModifier)"
+
+// ==================================== Circle of Stars - Starry Form: Dragon ====================================
+// Bug Fix: Dazzling Breath now uses Wisdom as a modifier instead of SpellCastingAbilityModifier (highest mental ability).
+
+new entry "Zone_StarryForm_Dragon_BreathWeapon"
+type "SpellData"
+data "SpellType" "Zone"
+// using "Zone_BreathWeapon_Acid"
+using "Zone_StarryForm_Dragon_BreathWeapon"
+// data "SpellSuccess" "DealDamage(LevelMapValue(StarryBreath)+SpellCastingAbilityModifier,Radiant,Magical);"
+data "SpellSuccess" "DealDamage(LevelMapValue(StarryBreath)+WisdomModifier,Radiant,Magical)"
+// data "SpellFail" "DealDamage(LevelMapValue(StarryBreath)/2, Radiant,Magical)"
+data "SpellFail" "DealDamage((LevelMapValue(StarryBreath)+WisdomModifier)/2, Radiant,Magical)"
+// data "TooltipDamageList" "DealDamage(LevelMapValue(StarryBreath)+SpellCastingAbilityModifier,Radiant,Magical)"
+data "TooltipDamageList" "DealDamage(LevelMapValue(StarryBreath)+WisdomModifier,Radiant,Magical)"

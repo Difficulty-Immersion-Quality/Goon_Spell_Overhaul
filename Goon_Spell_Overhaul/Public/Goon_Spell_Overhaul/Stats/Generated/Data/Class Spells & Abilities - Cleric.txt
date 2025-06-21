@@ -1,0 +1,43 @@
+// ==================================== Life Domain - Blessed Healer ====================================
+// Bug Fix: Blessed Healer now only heals the caster as is specified in the tooltip, instead of all the Cleric's healing sources.
+
+new entry "BlessedHealer"
+type "PassiveData"
+using "BlessedHealer"
+data "Conditions" "IsSpell() and not IsCantrip()"
+// data "StatsFunctors" "RegainHitPoints(SELF,2+SpellPowerLevel)"
+data "StatsFunctors" "IF(not Self(Target)):RegainHitPoints(SELF,2+SpellPowerLevel)"
+
+// ==================================== Life Domain - Disciple of Life ====================================
+// Bug Fix: Description updated to specify that the create must be healed, not just targeted with a healing spell, and that it function's with Warden of Vitality's Restore Vitality ability.
+
+new entry "DiscipleOfLife"
+type "PassiveData"
+using "DiscipleOfLife"
+// Your devotion empowers your healing spells. When casting a healing spell, the target regains additional <LSTag Tooltip="HitPoints">hit points</LSTag> equal to 2 + the spell's level. 
+// data "Description" "hb803dc22g3235g468fgb4c5g4746de773573;1"
+// Your devotion empowers your healing spells. When successfully healing a creature with a healing spell or &lt;LSTag Type="Spell" Tooltip="Shout_AuraOfVitality"&gt;Restore Vitality&lt;/LSTag&gt;, the target regains additional <LSTag Tooltip="HitPoints">hit points</LSTag> equal to 2 + the spell's level.
+data "Description" "h0451c245ga622g4458g8053g5c3b1017b7f6;1"
+
+// ==================================== Tempest Domain - Destructive Wrath ====================================
+// Bug Fix: No longer triggers for spells that do not deal damage.
+// Bug Fix: Now works with more non-hostile and non-spellcasting restricted Polymorphs.
+// Changes: Destructive Wrath will now trigger when damage is dealt instead of when an eligable spell is cast, as to not waste it.
+// Changes: Can now be used by Invisible player characters.
+
+new entry "Interrupt_DestructiveWrath"
+type "InterruptData"
+using "Interrupt_DestructiveWrath"
+// data "InterruptContext" "OnSpellCast"
+data "InterruptContext" "OnPreDamage"
+// data "InterruptContextScope" "Self"
+// data "Container" "YesNoDecision"
+// data "Conditions" "Self(context.Source,context.Observer) and (SpellDamageTypeIs(DamageType.Lightning) or SpellDamageTypeIs(DamageType.Thunder)) and not AnyEntityIsItem()"
+data "Conditions" "(Player(context.Observer) or not HasStatus('SG_Invisible',context.Observer)) and Self(context.Source,context.Observer) and (SpellDamageTypeIs(DamageType.Lightning) or SpellDamageTypeIs(DamageType.Thunder)) and not AnyEntityIsItem()"
+// data "Properties" "ApplyStatus(OBSERVER_OBSERVER,DESTRUCTIVE_WRATH,100,1)"
+// data "Cost" "ChannelDivinity:1"
+// data "InterruptDefaultValue" "Ask;Enabled"
+// data "EnableCondition" "not HasStatus('SG_Polymorph') or HasAnyStatus({'SG_Disguise','WILDSHAPE_STARRY_ARCHER_PLAYER','WILDSHAPE_STARRY_CHALICE_PLAYER','WILDSHAPE_STARRY_DRAGON_PLAYER'});"
+data "EnableCondition" "not HasStatus('SG_Polymorph') or Goon_IsUnrestrictedPolymorphStatus()"
+// data "EnableContext" "OnStatusApplied;OnStatusRemoved"
+data "InterruptFlags" "InterruptWhileInvisible"
