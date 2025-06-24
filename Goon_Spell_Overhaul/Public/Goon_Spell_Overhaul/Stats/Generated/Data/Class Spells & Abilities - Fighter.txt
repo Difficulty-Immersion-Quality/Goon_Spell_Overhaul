@@ -43,6 +43,7 @@ using "Projectile_ArcaneShot_GraspingArrow"
 data "ExtraDescription" "h7de2f790g81a4g42c5gb33agb2a7742b929f;1"
 
 // ==================================== Arcane Archer - Arcane Shot: Piercing Arrow ====================================
+// Bug Fix: Tooltip now states the target takes half damage on a save.
 // Changes: Extra description added to clarify that Arcane Shots Spell Save DC scales with Intelligence.
 
 new entry "Zone_ArcaneShot_PiercingArrow"
