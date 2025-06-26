@@ -15,7 +15,7 @@
 // data "StackType" "Overwrite"
 // data "TooltipDamage" "DealDamage(10d6,Fire)"
 // data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;InitiateCombat;BringIntoCombat"
-// data "OnApplyRoll" "not SavingThrow(Ability.Dexterity,OwnerSourceSpellDC())"
+// data "OnApplyRoll" "not SavingThrow(Ability.Dexterity,OwnerSourceSpellDC())" //TODO: Wouldn't this implementation have the same redundant saving throw issue? Why isn't the below technical included here instead/in addition?
 // data "OnApplySuccess" "IF(not HasStatus('ATT_PRISMWALL_TECHNICAL')):DealDamage(10d6,Fire,Magical);IF(not HasStatus('ATT_PRISMWALL_TECHNICAL')):ApplyStatus(ATT_WALL_ORANGE,100,1);"
 // data "OnApplyFail" "DealDamage((10d6)/2,Fire,Magical); ApplyStatus(ATT_WALL_ORANGE,100,1)"
 // data "OnTickRoll" ""
