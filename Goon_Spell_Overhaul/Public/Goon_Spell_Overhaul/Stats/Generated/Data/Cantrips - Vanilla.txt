@@ -1,6 +1,4 @@
-// DealDamage(LevelMapValue(D4Cantrip),Radiant,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e) <- "Conditional" handle
-
-
+// Note: DealDamage(LevelMapValue(D4Cantrip),Radiant,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e) <- "Conditional" tooltip for damage, that's not automatic at all.
 
 // ==================================== Acid Splash ====================================
 // 2024 change: Swapped school from Conjuration to Evocation. Creates an acid surface, same as Chromatic Orb.
