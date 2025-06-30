@@ -47,4 +47,10 @@
 	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
+
+	<!-- Common Actions -->
+	<!-- "Shout_Dash" --> <content contentuid="h2a75359bgcb09g45aagbbf8g1c0994bb70f8" version="1">Cover more distance this turn: double your &lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt;.</content>
+	<!-- "DASH" --> <content contentuid="h5e59f401g38feg4baagbf36ga8d3d8479b90" version="1">&lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; is doubled.</content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
 </contentList>
