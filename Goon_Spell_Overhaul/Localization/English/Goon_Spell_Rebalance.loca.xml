@@ -32,6 +32,10 @@
 	<!-- "GOON_TRUE_STRIKE" --> <content contentuid="h6cc73e50gf680g4b25ga7d5g12f31475c508" version="1">Open Defenses</content>
 	<!-- "GOON_TRUE_STRIKE" --> <content contentuid="h9a4f4618g7ae6g4741g9519gb03d2851d055" version="1">&lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt; is reduced by the duration of the effect. Whenever the creature is attacked the duration is reduced by 1.</content>
 
+	<!-- LEVEL 1 - Vanilla -->
+	<!-- "Shout_ExpeditiousRetreat" --> <content contentuid="h235a94bfg1488g4339gaa9agecbb6e05f805" version="1">Gain &lt;LSTag Type="Spell" Tooltip="Shout_Dash"&gt;Dash&lt;/LSTag&gt; immediately and as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt; on each of your turns until this spell ends.</content>
+	<!-- "EXPEDITIOUS_RETREAT" --> <content contentuid="he4966810gdfbcg4cfdgb8fagda4a19648c1e" version="1">&lt;LSTag Type="Spell" Tooltip="Shout_Dash"&gt;Dash&lt;/LSTag&gt; available as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt;.</content>
+
     <!-- LEVEL 3 - 5E SPELLS -->
 	<!-- "Target_MotivationalSpeech" --> <content contentuid="" version="1">Three creatures in the area gain [1] and have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Wisdom &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;. If hit by an attack, an affected creature has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on its next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; during combat.</content>
 	
