@@ -10,7 +10,7 @@ data "SpellSchool" "Evocation"
 data "SpellProperties" "GROUND:CreateSurface(2,2,Acid)"
 
 // ==================================== Blade Ward ====================================
-// Casting Blade Ward is now a bonus action, whenever you take damage from a Bludgeoning, Piercing, or Slashing, the duration of Blade Ward is reduced by 1 turn.
+// Casting Blade Ward is now a bonus action, whenever you take damage from a Bludgeoning, Piercing, or Slashing, the duration of Blade Ward is reduced by 1 turn. Duration scales with Proficiency Bonus. The condition now ticks at the start of turn instead of end of turn, to not waste duration like most other defensive conditions.
 
 new entry "Shout_BladeWard"
 type "SpellData"
