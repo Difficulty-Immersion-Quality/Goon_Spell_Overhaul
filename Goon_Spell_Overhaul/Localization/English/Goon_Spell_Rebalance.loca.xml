@@ -1,10 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentList>
-	<!-- CONDITIONS AND SURFACES -->
-	<!-- "BURNING" --> <content contentuid="h67f4f865g2bf9g4282g9cadg85f6fdea55b1" version="1">Takes [1] per turn for each round of Burning on the target.</content>
-	<!-- "" --> <content contentuid="" version="1"></content>
-	<!-- "" --> <content contentuid="" version="1"></content>
-
     <!-- CLASS SPELLS AND ABILITIES -->
 	<!-- "DiscipleOfLife" --> <content contentuid="h0451c245ga622g4458g8053g5c3b1017b7f6" version="1">Your devotion empowers your healing spells. When successfully healing a creature with a healing spell or &lt;LSTag Type="Spell" Tooltip="Shout_AuraOfVitality"&gt;Restore Vitality&lt;/LSTag&gt;, the target regains additional <LSTag Tooltip="HitPoints">hit points</LSTag> equal to 2 + the spell's level..</content>
 	<!-- "AURA_OF_HATE" --> <content contentuid="h8e371248gddd7g40dag8d49g785183b1f9eb" version="1"> The paladin and any nearby fiends and undead deal an additional [1] to damage dealt with melee attacks.</content>
@@ -15,6 +10,7 @@
 	<!-- "" --> <content contentuid="" version="1"></content>
 
 	<!-- CANTRIPS - VANILLA -->
+	<!-- "Projectile_FireBolt" --> <content contentuid="ha1cfd424g8e33g4f1dga602g1a4b9eaa5fcf" version="1">Hurl a mote of fire that &lt;LSTag Type="Status" Tooltip="BURNING"&gt;Burns&lt;/LSTag&gt; your target for [1] turn.&lt;br&gt;&lt;br&gt;If your target is the ground, create a small Fire surface for [1] turn instead.</content>
 	<!-- "Shout_BladeWard" --> <content contentuid="h60442a32g02d3g436eg9868g6017ab4102c5" version="1">Take only half the damage from Bludgeoning, Piercing, and Slashing attacks. The duration of Blade Ward is reduced by 1 whenever the creature takes Bludgeoning, Piercing, or Slashing damage.</content>
 	<!-- "GOON_BLADE_WARD_SPELL" --> <content contentuid="hf3d9a553gad9bg4878ga30cg5da8e854cfbf" version="1">Has Resistance against Bludgeoning, Piercing, and Slashing damage from attacks. When Bludgeoning, Piercing, or Slashing damage is taken from an attack, the duration of Blade Ward is reduced by 1.</content>
 	<!-- "BLADE_WARD" --> <content contentuid="hf3d9a553gad9bg4878ga30cg5da8e854cfbf" version="1">Has Resistance against Bludgeoning, Piercing, and Slashing damage from attacks.</content>
@@ -23,7 +19,7 @@
 	<!-- "Target_Friends" --> <content contentuid="h40d4759dga74ag4804gac41g65b19eb68b17" version="1">Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Charisma &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against a non-hostile creature in dialogue. When targetting a hostile creature in combat, they must succeed a &lt;LSTag Tooltip="Wisdom"&gt;Wisdom&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or suffer &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against you.</content>
 	<!-- "FRIENDS" --> <content contentuid="hd51d6e1bg6d7cg4309ga03bgc0eade9ef864" version="1">The caster of this charm has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against the creature.</content>
 	<!-- "Projectile_PoisonSpray" --> <content contentuid="h1be0ac47g18f5g4945g85b9g41ab74c32552" version="1">Project a cone of noxious gas, leaving behind a cloud of poison.</content>
-	<!-- "Target_SacredFlame" --> <content contentuid="h910058dcg21d0g4f89ga09cg47bd468ece71" version="1">Engulf a target in a flame-like radiance. If the target is a Fiend, or Undead, they are afflicted with &lt;LSTag Type="Status" Tooltip="BURNING_HOLY"&gt;Holy Fire&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Targeting the ground directly will create a holy fire surface.</content>
+	<!-- "Target_SacredFlame" --> <content contentuid="h910058dcg21d0g4f89ga09cg47bd468ece71" version="1">Engulf a target in a flame-like radiance that burns them with &lt;LSTag Type="Status" Tooltip="BURNING_HOLY"&gt;Holy Fire&lt;/LSTag&gt; for [1] turn.&lt;br&gt;&lt;br&gt;If your target is the ground, create a small Holy Fire surface for [1] turn instead.</content>
 	<!-- "Shout_Shillelagh" --> <content contentuid="h9e33ef27g4b4eg46c6gb365g6694c23fb2f0" version="1">You target a creature's equipped weapon, or a staff, club, mace, javelin, dart, spear, or trident directly; it becomes magical and deals[5]. The weapon uses the wielder's &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability&lt;/LSTag&gt; for &lt;LSTag Tooltip="AttackRoll"&gt;Attack&lt;/LSTag&gt; and damage rolls.&lt;br&gt;&lt;br&gt;Damage begins at [1], increasing to [2] at level 5, [3] at level 11, and [4] at level 17.</content>
 	<!-- "SHILLELAGH" --> <content contentuid="hab375000gaeb1g47dfg9d34ga2a778b28194" version="1">Weapon is magical and deals [5]. &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; use the wielder's &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability Modifier&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Damage begins at [1], increasing to [2] at level 5, [3] at level 11, and [4] at level 17.</content>
 	<!-- "Goon_Shout_Remove_Shillelagh" --> <content contentuid="h871c4f36g3d7fg4798ga7ecg05fd146c364c" version="1">Dismiss Shillelagh</content>
