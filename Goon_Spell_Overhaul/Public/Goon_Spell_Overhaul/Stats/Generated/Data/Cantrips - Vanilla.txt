@@ -17,12 +17,13 @@ type "SpellData"
 using "Shout_BladeWard"
 // Take only half the damage from Bludgeoning, Piercing, and Slashing attacks.
 // data "Description" "h44d589a1g7e6dg4975g9ebcgaa2e193d44e1;6"
-// Take only half the damage from Bludgeoning, Piercing, and Slashing attacks. The duration of Blade Ward is reduced by 1 turn whenever Bludgeoning, Piercing, or Slashing damage is taken. 
+// Gain &lt;LSTag Tooltip="Resistant"&gt;Resistance&lt;/LSTag&gt; against[1],[2], and[3] from &lt;LSTag Tooltip="AttackRoll"&gt;Attacks&lt;/LSTag&gt;, for a duration equal to your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;When[1],[2], or[3] is taken from an attack, the duration of Blade Ward is reduced by 1.
 data "Description" "h60442a32g02d3g436eg9868g6017ab4102c5;1"
+data "DescriptionParams" "DealDamage(,Bludgeoning);DealDamage(,Piercing);DealDamage(,Slashing)"
 // data "SpellProperties" "ApplyStatus(BLADE_WARD,100,2)"
-data "SpellProperties" "ApplyStatus(GOON_BLADE_WARD_SPELL,100,3)"
+data "SpellProperties" "ApplyStatus(GOON_BLADE_WARD_SPELL,100,ProficiencyBonus)"
 // data "TooltipStatusApply" "ApplyStatus(BLADE_WARD,100,2)"
-data "TooltipStatusApply" "ApplyStatus(GOON_BLADE_WARD_SPELL,100,3)"
+data "TooltipStatusApply" "ApplyStatus(GOON_BLADE_WARD_SPELL,100,ProficiencyBonus)"
 // data "UseCosts" "ActionPoint:1"
 data "UseCosts" "BonusActionPoint:1"
 
@@ -30,10 +31,24 @@ new entry "BLADE_WARD"
 type "StatusData"
 data "StatusType" "BOOST"
 using "BLADE_WARD"
+// Blade Ward
+// data "DisplayName" "h95b5ab2fgeef8g4901ga451g443b60887c04;1"
 // Has &lt;LSTag Tooltip="Resistant"&gt;Resistance&lt;/LSTag&gt; against Bludgeoning, Piercing, and Slashing damage.
 // data "Description" "hf3d9a553gad9bg4878ga30cg5da8e854cfbf;1"
-// Has Resistance against Bludgeoning, Piercing, and Slashing damage from attacks.
+// Has &lt;LSTag Tooltip="Resistant"&gt;Resistance&lt;/LSTag&gt; against[1],[2], and[3] from &lt;LSTag Tooltip="AttackRoll"&gt;Attacks&lt;/LSTag&gt;.
 data "Description" "h7dba990fg4de2g4617g8c42gb69d24df7656;1"
+data "DescriptionParams" "DealDamage(,Bludgeoning);DealDamage(,Piercing);DealDamage(,Slashing)"
+// data "Icon" "Spell_Abjuration_BladeWard"
+// data "SoundLoop" "Spell_Status_Buff_MO"
+// data "StackId" "BLADE_WARD"
+// data "TickType" "EndTurn"
+data "TickType" "StartTurn"
+// data "Boosts" "WeaponDamageResistance(Bludgeoning);WeaponDamageResistance(Slashing);WeaponDamageResistance(Piercing)"
+// data "OnApplyFunctors" "AI_ONLY:IF(not HasStatus('BLADE_WARD')):ApplyStatus(AI_HELPER_BLADEWARD,100,2)"
+// data "StatusGroups" "SG_RemoveOnRespec"
+// data "StatusEffect" "c1e8b65e-f8ba-4b9a-ac55-f7edbb328633"
+// data "ManagedStatusEffectType" "Positive"
+// data "ManagedStatusEffectGroup" "6435c10a-c67d-4f79-8813-b84b0762f92b"
 
 new entry "GOON_BLADE_WARD_SPELL"
 type "StatusData"
@@ -41,16 +56,16 @@ data "StatusType" "BOOST"
 using "BLADE_WARD"
 // Has Resistance against Bludgeoning, Piercing, and Slashing damage.
 // data "Description" "hbaec3368g3f8bg4577g8a7fg6c16b2059f18;4"
-// Has Resistance against Bludgeoning, Piercing, and Slashing damage from attacks. When Bludgeoning, Piercing, or Slashing damage is taken from an attack, the duration of Blade Ward is reduced by 1.
+// Has &lt;LSTag Tooltip="Resistant"&gt;Resistance&lt;/LSTag&gt; against[1],[2], and[3] from &lt;LSTag Tooltip="AttackRoll"&gt;Attacks&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;When[1],[2], or[3] is taken from an attack, the duration of Blade Ward is reduced by 1.
 data "Description" "hf3d9a553gad9bg4878ga30cg5da8e854cfbf;1"
 data "Passives" "Goon_Blade_Ward_Spell"
 
 new entry "Goon_Blade_Ward_Spell"
 type "PassiveData"
 data "Properties" "IsHidden"
-// data "StatsFunctorContext" "OnAttacked"
-// data "Conditions" "HasDamageEffectFlag(DamageFlags.Hit) and IsDamageTypeBludgeoning() or IsDamageTypePiercing() or IsDamageTypeSlashing()"
-// data "StatsFunctors" "SetStatusDuration(GOON_BLADE_WARD_SPELL,-1,Add)"
+data "StatsFunctorContext" "OnDamaged"
+data "Conditions" "IsAttack() and IsDamageTypeBludgeoning() or IsDamageTypePiercing() or IsDamageTypeSlashing()"
+data "StatsFunctors" "SetStatusDuration(GOON_BLADE_WARD_SPELL,-1,Add)"
 
 // ==================================== Booming Blade ====================================
 // Don't know why the multiple entries, but putting them both her for reference I guess
@@ -861,6 +876,7 @@ data "SpellFail" "IF(not CharacterLevelGreaterThan(4,context.Source)):ApplyStatu
 // data "Description" "he014b03bg6138g431dga1ecg45e4ebba4869;2"
 // If the target creature fails an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, the caster gains &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on their next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; against them.&lt;br&gt;&lt;br&gt;Additionally, their &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt; is reduced equal to your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt;, or half of your your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt; (rounded down) on a successful save. Whenever the target is attacked this effect and its duration is reduced by 1.
 data "Description" "h7f444266g81afg4e0eg95d8g90b8876bf040;1"
+data "DescriptionParams" ""
 // data "TooltipStatusApply" "ApplyStatus(TRUE_STRIKE,100,2)"
 data "TooltipStatusApply" "ApplyStatus(TRUE_STRIKE,100,1);ApplyStatus(GOON_TRUE_STRIKE,100,1)"
 // data "UseCosts" "ActionPoint:1"
