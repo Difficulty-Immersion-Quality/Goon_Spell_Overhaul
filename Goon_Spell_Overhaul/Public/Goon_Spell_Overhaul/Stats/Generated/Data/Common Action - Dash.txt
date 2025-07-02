@@ -10,7 +10,6 @@ using "Shout_Dash"
 // data "AIFlags" "GrantsResources;UseAsSupportingActionOnly"
 // data "SpellProperties" "IF(HasStatus('DASH_STACKED')):ApplyStatus(DASH_STACKED_2,100,1);IF(not HasStatus('DASH_STACKED_2') and HasStatus('DASH')):ApplyStatus(DASH_STACKED,100,1);IF(not HasStatus('DASH_STACKED_2') and not HasStatus('DASH_STACKED') and not HasStatus('DASH')):ApplyStatus(DASH,100,1)"
 data "SpellProperties" "IF(HasStatus('GOON_DASH_STACKED_8')):ApplyStatus(GOON_DASH_STACKED_9,100,1);IF(HasStatus('GOON_DASH_STACKED_7')):ApplyStatus(GOON_DASH_STACKED_8,100,1);IF(HasStatus('GOON_DASH_STACKED_6')):ApplyStatus(GOON_DASH_STACKED_7,100,1);IF(HasStatus('GOON_DASH_STACKED_5')):ApplyStatus(GOON_DASH_STACKED_6,100,1);IF(HasStatus('GOON_DASH_STACKED_4')):ApplyStatus(GOON_DASH_STACKED_5,100,1);IF(HasStatus('GOON_DASH_STACKED_3')):ApplyStatus(GOON_DASH_STACKED_4,100,1);IF(HasStatus('DASH_STACKED_2')):ApplyStatus(GOON_DASH_STACKED_3,100,1);IF(HasStatus('DASH_STACKED')):ApplyStatus(DASH_STACKED_2,100,1);IF(HasStatus('DASH')):ApplyStatus(DASH_STACKED,100,1);IF(not Goon_HasDashStatus()):ApplyStatus(DASH,100,1)"
-
 // data "TargetConditions" "Self()"
 // data "Icon" "Action_Dash"
 // Dash
