@@ -86,5 +86,9 @@ new entry "WEAPON_BOND"
 type "StatusData"
 data "StatusType" "BOOST"
 using "WEAPON_BOND"
+// Ritually bound to its wielder. &lt;br&gt;&lt;br&gt;The weapon can't be knocked out of the wielder's hand, and automatically returns to the wielder when &lt;LSTag Type="Spell" Tooltip="Throw_Throw"&gt;Thrown&lt;/LSTag&gt;.
+// data "Description" "hbb94f893g8fd0g414fg97dfg28ffbda5c54c;3"
+// Ritually bound to its wielder. &lt;br&gt;&lt;br&gt;The weapon gains the &lt;LSTag Tooltip="Thrown"&gt;Thrown&lt;/LSTag&gt; property, can't be knocked out of the wielder's hand, and automatically returns to the wielder when &lt;LSTag Type="Spell" Tooltip="Throw_Throw"&gt;Thrown&lt;/LSTag&gt;.
+data "Description" "h80265c57geff1g46fegbe9dg082f562211b0;1"
 // data "Boosts" "CannotBeDisarmed();ItemReturnToOwner()"
 data "Boosts" "CannotBeDisarmed();Tag(RETURNING_ITEM);WeaponProperty(Thrown)"

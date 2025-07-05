@@ -6,7 +6,7 @@
 	<!-- "AURA_OF_HATE_BUFF" --> <content contentuid="hb7b88a5bg94a0g459cga5e4gea0863985113" version="1">Deals an additional [2] with melee attacks while within [1] of the spellcaster.</content>
 	<!-- "Projectile_ArcaneShot_BanishingArrow", "Projectile_ArcaneShot_BeguilingArrow", "Projectile_ArcaneShot_EnfeeblingArrow", "Projectile_ArcaneShot_GraspingArrow", "Zone_ArcaneShot_PiercingArrow", "Projectile_ArcaneShot_ShadowArrow" --> <content contentuid="" version="1">The &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; of Arcane Shots increase with your &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;.</content>
 	<!-- "Projectile_ArcaneShot_SeekingArrow" --> <content contentuid="" version="1">This arrow always hits its target. The &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; of Arcane Shots increase with your &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;.</content>
-	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "WEAPON_BOND" --> <content contentuid="h80265c57geff1g46fegbe9dg082f562211b0" version="1">Ritually bound to its wielder. &lt;br&gt;&lt;br&gt;The weapon gains the &lt;LSTag Tooltip="Thrown"&gt;Thrown&lt;/LSTag&gt; property, can't be knocked out of the wielder's hand, and automatically returns to the wielder when &lt;LSTag Type="Spell" Tooltip="Throw_Throw"&gt;Thrown&lt;/LSTag&gt;.</content>
 	<!-- "" --> <content contentuid="" version="1"></content>
 
 	<!-- CANTRIPS - VANILLA -->
