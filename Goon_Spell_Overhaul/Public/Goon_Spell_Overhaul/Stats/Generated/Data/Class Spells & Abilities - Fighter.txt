@@ -77,3 +77,14 @@ data "SpellType" "Projectile"
 using "Projectile_ArcaneShot_ShadowArrow"
 // The &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; of Arcane Shots increase with your &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;.
 data "ExtraDescription" "h7de2f790g81a4g42c5gb33agb2a7742b929f;1"
+
+// ==================================== Eldritch Knight - Weapon Bond ====================================
+// Changes: Bonded weapons gain the Thrown weapon property. 
+// Changes: Native support for Ninjoma's Returning Weapon QoL mod.
+
+new entry "WEAPON_BOND"
+type "StatusData"
+data "StatusType" "BOOST"
+using "WEAPON_BOND"
+// data "Boosts" "CannotBeDisarmed();ItemReturnToOwner()"
+data "Boosts" "CannotBeDisarmed();Tag(RETURNING_ITEM);WeaponProperty(Thrown)"
