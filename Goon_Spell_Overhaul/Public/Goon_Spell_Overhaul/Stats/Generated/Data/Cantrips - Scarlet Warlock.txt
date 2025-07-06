@@ -1,5 +1,6 @@
 // ==================================== All the Eldritch Blast variations from Scarlet Warlock ====================================
-// Adjustable push targetting implemented. Can target corpses.
+// Changes: Adjustable push targetting implemented. Can target corpses.
+// TODO: CombatAIOverride variants.
 
 new entry "Projectile_EldritchBlast_Force_Spell"
 type "SpellData"
