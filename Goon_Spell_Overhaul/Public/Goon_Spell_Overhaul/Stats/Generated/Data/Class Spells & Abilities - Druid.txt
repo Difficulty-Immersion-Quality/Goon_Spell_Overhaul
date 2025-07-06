@@ -1,5 +1,5 @@
 // ==================================== Hellish Rebuke (Myrmidon) ====================================
-// Bug Fix: Now works with more non-hostile and non-spellcasting restricted Polymorphs. (Redundant)
+// Bug Fix: Hellish Rebuke (Myrmidon) Interrupts can be used while under the effects of more non-hostile and non-spellcasting restricted Polymorphs. (Redundant)
 // Changes: Now checks for all Silenced conditions, not just "SILENCED" itself.
 // Changes: Can now be used by Invisible player characters.
 
