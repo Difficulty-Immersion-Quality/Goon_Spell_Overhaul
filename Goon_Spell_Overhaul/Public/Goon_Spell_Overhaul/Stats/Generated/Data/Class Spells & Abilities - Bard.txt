@@ -25,6 +25,7 @@ data "TooltipDamageList" "DealDamage(MainMeleeWeapon + LevelMapValue(BardicInspi
 // Bug Fix: Now works with more non-hostile and non-spellcasting restricted Polymorphs.
 // Changes: Now checks for all Silenced conditions, not just "SILENCED" itself.
 // Changes: Can now be used by Invisible player characters.
+// Changes: Cutting Words condition nows considered a Charm.
 
 new entry "Interrupt_CuttingWords"
 type "InterruptData"
@@ -39,3 +40,9 @@ data "Failure" "ApplyStatus(OBSERVER_OBSERVER,INTERRUPT_CUTTING_WORDS,100,0);IF(
 // data "EnableCondition" "not HasStatus('SG_Polymorph') or HasAnyStatus({'SG_Disguise','WILDSHAPE_STARRY_ARCHER_PLAYER','WILDSHAPE_STARRY_CHALICE_PLAYER','WILDSHAPE_STARRY_DRAGON_PLAYER'});"
 data "EnableCondition" "(not HasStatus('SG_Polymorph') or Goon_IsUnrestrictedPolymorphStatus()) and not HasStatus('SG_Silenced')"
 data "InterruptFlags" "InterruptWhileInvisible"
+
+new entry "CUTTING_WORDS"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CUTTING_WORDS"
+data "StatusGroups" "SG_Charmed"
