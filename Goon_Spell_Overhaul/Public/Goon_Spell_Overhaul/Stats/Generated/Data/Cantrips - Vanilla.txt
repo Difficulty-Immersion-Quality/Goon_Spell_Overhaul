@@ -852,6 +852,8 @@ data "TargetConditions" "not Self()"
 data "DescriptionParams" "Distance(5)"
 // data "TooltipDamageList" "DealDamage(LevelMapValue(D6Cantrip),Piercing);"
 data "TooltipDamageList" "DealDamage(LevelMapValue(D10Cantrip),Piercing)"
+// data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;AddFallDamageOnLand"
+data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;AddFallDamageOnLand;IsHarmful"
 data "CombatAIOverrideSpell" "Target_ThornWhip_AI"
 
 new entry "Target_ThornWhip_AI"
