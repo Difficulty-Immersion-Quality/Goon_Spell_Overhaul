@@ -37,5 +37,5 @@ data "Roll" "not Goon_HasDeafenedCondition(context.Target) and not IsImmuneToSta
 data "Success" "AdjustRoll(OBSERVER_OBSERVER,0-LevelMapValue(BardicInspiration));ApplyStatus(OBSERVER_SOURCE,INTERRUPT_CUTTING_WORDS_TARGET,100,0);ApplyStatus(OBSERVER_OBSERVER,INTERRUPT_CUTTING_WORDS,100,0);IF(not Self(context.Target, context.Observer)):UseSpell(OBSERVER_SOURCE,Target_CuttingWords,true,true,true)"
 data "Failure" "ApplyStatus(OBSERVER_OBSERVER,INTERRUPT_CUTTING_WORDS,100,0);IF(not Self(context.Target, context.Observer)):UseSpell(OBSERVER_SOURCE,Target_CuttingWords,true,true,true)"
 // data "EnableCondition" "not HasStatus('SG_Polymorph') or HasAnyStatus({'SG_Disguise','WILDSHAPE_STARRY_ARCHER_PLAYER','WILDSHAPE_STARRY_CHALICE_PLAYER','WILDSHAPE_STARRY_DRAGON_PLAYER'});"
-data "EnableCondition" "(not HasStatus('SG_Polymorph') or Goon_IsUnrestrictedPolymorphStatus()) and not Goon_HasSilencedCondition()"
+data "EnableCondition" "(not HasStatus('SG_Polymorph') or Goon_IsUnrestrictedPolymorphStatus()) and not HasStatus('SG_Silenced')"
 data "InterruptFlags" "InterruptWhileInvisible"
