@@ -38,7 +38,7 @@ using "PolearmMaster_AttackOfOpportunity"
 // data "Icon" "PassiveFeature_PolearmMaster_AttackOfOpportunity"
 // data "Boosts" "UnlockInterrupt(Interrupt_PolearmMaster)"
 data "Boosts" "UnlockInterrupt(Interrupt_PolearmMaster);UnlockInterrupt(Goon_Interrupt_PolearmMaster_Offhand)"
-data "StatsFunctorContext" "OnTurn;OnAttack"
+data "StatsFunctorContext" "OnEquip;OnTurn;OnAttack"
 data "StatsFunctors" "IF(FightingStyle_Dueling(context.Source) and ((not HasWeaponProperty(WeaponProperties.Reach, GetActiveWeapon(context.Source, true)) and (Tagged('WPN_STAVE', GetActiveWeapon(context.Source, true)) or Tagged('WPN_SPEAR', GetActiveWeapon(context.Source, true)) or Tagged('WPN_GLAIVE', GetActiveWeapon(context.Source, true)) or Tagged('WPN_HALBERD', GetActiveWeapon(context.Source, true)) or Tagged('WPN_JAVELIN', GetActiveWeapon(context.Source, true)) or Tagged('WPN_TRIDENT', GetActiveWeapon(context.Source, true)))))):ApplyEquipmentStatus(MeleeMainHand,GOON_REACH_OVERWRITE,100,1);IF(not FightingStyle_Dueling(context.Source) and HasStatus('GOON_REACH_OVERWRITE',GetActiveWeapon(context.Source, true))):ApplyEquipmentStatus(MeleeMainHand,GOON_REACH_OVERWRITE_CLEANER,100,0)"
 
 new entry "GOON_REACH_OVERWRITE"
@@ -54,6 +54,7 @@ data "RemoveConditions" "StatusId('GOON_REACH_OVERWRITE_CLEANER')"
 new entry "GOON_REACH_OVERWRITE_CLEANER"
 type "StatusData"
 data "StatusType" "BOOST"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;DisableCombatlog;IgnoreResting"
 
 
 new entry "Interrupt_PolearmMaster"
