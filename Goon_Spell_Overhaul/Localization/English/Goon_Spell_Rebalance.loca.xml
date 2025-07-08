@@ -7,6 +7,17 @@
 	<!-- "Projectile_ArcaneShot_BanishingArrow", "Projectile_ArcaneShot_BeguilingArrow", "Projectile_ArcaneShot_EnfeeblingArrow", "Projectile_ArcaneShot_GraspingArrow", "Zone_ArcaneShot_PiercingArrow", "Projectile_ArcaneShot_ShadowArrow" --> <content contentuid="" version="1">The &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; of Arcane Shots increase with your &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;.</content>
 	<!-- "Projectile_ArcaneShot_SeekingArrow" --> <content contentuid="" version="1">This arrow always hits its target. The &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; of Arcane Shots increase with your &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;.</content>
 	<!-- "WEAPON_BOND" --> <content contentuid="h80265c57geff1g46fegbe9dg082f562211b0" version="1">Ritually bound to its wielder. &lt;br&gt;&lt;br&gt;The weapon gains the &lt;LSTag Tooltip="Thrown"&gt;Thrown&lt;/LSTag&gt; property, can't be knocked out of the wielder's hand, and automatically returns to the wielder when &lt;LSTag Type="Spell" Tooltip="Throw_Throw"&gt;Thrown&lt;/LSTag&gt;.</content>
+	<!-- Divine Strike spell containers --> <content contentuid="h7b53070eg4870g4886gb44dg47d1f8d503cb" version="1">Once per turn, deal [1] in addition to your melee weapon's [2], or your ranged weapon's [3] when you make a &lt;LSTag Tooltip="AttackRoll"&gt;Weapon Attack&lt;/LSTag&gt;.</content>
+	<!-- "Target_DivineStrike_Nature_Container" --> <content contentuid="h0f065c9cgac5fg4958g9598gf8c0211b81f6" version="1">Once per turn, deal [1], [4], or [5] in addition to your melee weapon's [2], or your ranged weapon's [3] when you make a &lt;LSTag Tooltip="AttackRoll"&gt;Weapon Attack&lt;/LSTag&gt;.</content>
+	<!-- "Target_DivineStrike_War_Container" --> <content contentuid="ha9ff1eb9gad90g4d42ga9b0g214a435ea56d" version="1">Once per turn, deal [1], in addition to your melee weapon's [2], or [3] in addition to your ranged weapon's [4] when you make a &lt;LSTag Tooltip="AttackRoll"&gt;Weapon Attack&lt;/LSTag&gt;.</content>
+	<!-- Melee Divine Strikes --> <content contentuid="h2359d19fge23cg4bb5g91e7g338a25a88953" version="1">Once per turn, deal [1] in addition to your weapon's [2] when you make a &lt;LSTag Tooltip="MeleeWeaponAttack"&gt;Melee Weapon Attack&lt;/LSTag&gt;.</content>
+	<!-- Ranged Divine Strikes --> <content contentuid="h6a0ce4ecg90fbg4fe8ga8c1gdb3b4451171b" version="1">Once per turn, deal [1] in addition to your weapon's [2] when you make a &lt;LSTag Tooltip="RangedWeaponAttack"&gt;Ranged Weapon Attack&lt;/LSTag&gt;.</content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
 
 	<!-- CANTRIPS - VANILLA -->

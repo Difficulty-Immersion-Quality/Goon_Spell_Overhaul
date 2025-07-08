@@ -1,7 +1,7 @@
 // ==================================== Sneak Attack ====================================
 // Bug Fix: Sneak Attack (Melee) and Sneak Attack (Ranged) no longer expend a Sneak Attack Charge when you miss (they still expend an Action), for cohesion with Interrupt functionality.
+// Bug Fix: Sneak Attack Interrupts can be used while under the effects of more non-hostile and non-spellcasting restricted Polymorphs.
 // Changes: Sneak Attack Interrupts can be used by Invisible players.
-// Changes: Sneak Attack Interrupts can be used while under the effects of more non-hostile and non-spellcasting restricted Polymorphs.
 // Changes: Sneak Attack Interrupts be used in Wildshape.
 // Changes: Sneak Attack is now defaulted to ask, instead of being used automatically.
 // TODO: Make it work for Dex based Wildshape stuff and not like, big brawny bears.

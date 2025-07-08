@@ -22,7 +22,7 @@ data "TooltipDamageList" "DealDamage(MainMeleeWeapon + LevelMapValue(BardicInspi
 // ==================================== College of Lore - Cutting Words ====================================
 // Bug Fix: Now checks for level 15 Bard's d12 Bardic Inspiration for the roll, instead of capping at d10. (// TODO: Forward to Expansion author.)
 // Bug Fix: Can no longer be used while Silenced.
-// Bug Fix: Now works with more non-hostile and non-spellcasting restricted Polymorphs.
+// Bug Fix: Interrupt can be used while under the effects of more non-hostile and non-spellcasting restricted Polymorphs.
 // Changes: Now checks for all Silenced conditions, not just "SILENCED" itself.
 // Changes: Can now be used by Invisible player characters.
 // Changes: Cutting Words condition nows considered a Charm.
