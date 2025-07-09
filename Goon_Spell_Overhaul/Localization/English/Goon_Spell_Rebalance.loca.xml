@@ -1,12 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentList>
     <!-- CLASS SPELLS AND ABILITIES -->
-	<!-- "AURA_OF_HATE" --> <content contentuid="h8e371248gddd7g40dag8d49g785183b1f9eb" version="1"> The paladin and any nearby fiends and undead deal an additional [1] to damage dealt with melee attacks.</content>
-	<!-- "AURA_OF_HATE_BUFF" --> <content contentuid="hb7b88a5bg94a0g459cga5e4gea0863985113" version="1">Deals an additional [2] with melee attacks while within [1] of the spellcaster.</content>
+	<!-- "Shout_AuraOf_Hate" --> <content contentuid="h78b5693cge759g4e86g8160gd23afbcaa0f8" version="1">You and any nearby Fiends and Undead deal an additional [1] with melee &lt;LSTag Tooltip="AttackRoll"&gt;Attacks&lt;/LSTag&gt;.</content>
+	<!-- "AURA_OF_HATE" --> <content contentuid="h8e371248gddd7g40dag8d49g785183b1f9eb" version="1">The Paladin and any nearby Fiends and Undead deal an additional [1] with melee &lt;LSTag Tooltip="AttackRoll"&gt;Attacks&lt;/LSTag&gt;.</content>
+	<!-- "AURA_OF_HATE_BUFF" --> <content contentuid="hb7b88a5bg94a0g459cga5e4gea0863985113" version="1">Deals an additional [2] with melee &lt;LSTag Tooltip="AttackRoll"&gt;Attacks&lt;/LSTag&gt; while within [1] of the spellcaster.</content>
+	<!-- "Shout_AuraOf_Hate", "AURA_OF_HATE", "AURA_OF_HATE_BUFF" --> <content contentuid="h246e33fegca9bg4d1bgb44dgc9312a2da877" version="1">Additional[1] scales with the Paladin's &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;.</content>
+
+
 	<!-- "Projectile_ArcaneShot_BanishingArrow", "Projectile_ArcaneShot_BeguilingArrow", "Projectile_ArcaneShot_EnfeeblingArrow", "Projectile_ArcaneShot_GraspingArrow", "Zone_ArcaneShot_PiercingArrow", "Projectile_ArcaneShot_ShadowArrow" --> <content contentuid="" version="1">The &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; of Arcane Shots increase with your &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;.</content>
 	<!-- "Projectile_ArcaneShot_SeekingArrow" --> <content contentuid="" version="1">This arrow always hits its target. The &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; of Arcane Shots increase with your &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;.</content>
 	<!-- "WEAPON_BOND" --> <content contentuid="h80265c57geff1g46fegbe9dg082f562211b0" version="1">Ritually bound to its wielder. &lt;br&gt;&lt;br&gt;The weapon gains the &lt;LSTag Tooltip="Thrown"&gt;Thrown&lt;/LSTag&gt; property, can't be knocked out of the wielder's hand, and automatically returns to the wielder when &lt;LSTag Type="Spell" Tooltip="Throw_Throw"&gt;Thrown&lt;/LSTag&gt;.</content>
-	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
