@@ -2,7 +2,7 @@
 // Changes: Is now a "Target" spell instead of a "Shout", allowing you to target allies and weapons that aren't equipped.
 // Changes: Scales from 1d8 Bludgeoning Damage to 1d10 Bludgeoning Damage at level 5, 1d12 Bludgeoning Damage at level 11, and 2d6 Bludgeoning Damage at level 17.
 // Changes: Works with Clubs, Greatclubs, Quarterstaffs, Maces, Javelins, Darts, Spears and Tridents.
-// Changes: Lasts until long rest instead of 10 turns, the caster can only have one Shillelagh active at a time.
+// Changes: Lasts permanently instead of 10 turns, the caster can only have one Shillelagh active at a time.
 // Changes: The wielder can cancel the effect at will (AI will not cancel the effect).
 
 new entry "Shout_Shillelagh"
@@ -83,10 +83,11 @@ data "Description" "hab375000gaeb1g47dfg9d34ga2a778b28194;1"
 // data "DescriptionParams" "DealDamage(1d8+SpellCastingAbility, Bludgeoning)"
 data "DescriptionParams" "DealDamage(1d8+SpellCastingAbilityModifier,Bludgeoning);DealDamage(1d10+SpellCastingAbilityModifier,Bludgeoning);DealDamage(1d12+SpellCastingAbilityModifier,Bludgeoning);DealDamage(2d6+SpellCastingAbilityModifier,Bludgeoning);DealDamage(,Bludgeoning)"
 // data "Icon" "Spell_Abjuration_Transmutation_Shillelagh"
+data "StatusPropertyFlags" "IgnoreResting;ApplyToDead"
 // data "StackId" "SHILLELAGH"
 // data "StackPriority" "0"
 // data "Boosts" "WeaponProperty(Magical);WeaponDamageDieOverride(1d8);WeaponAttackRollAbilityOverride(SpellCastingAbility);Attribute(InventoryBound)"
-data "Boosts" "WeaponProperty(Magical);WeaponDamageTypeOverride(Bludgeoning);WeaponAttackRollAbilityOverride(SpellCastingAbility);IF(not CharacterLevelGreaterThan(4,GetOwner(context.Source))):WeaponDamageDieOverride(1d8);IF(CharacterLevelGreaterThan(4,GetOwner(context.Source)) and not CharacterLevelGreaterThan(9,GetOwner(context.Source))):WeaponDamageDieOverride(1d10);IF(CharacterLevelGreaterThan(10,GetOwner(context.Source)) and not CharacterLevelGreaterThan(17,GetOwner(context.Source))):WeaponDamageDieOverride(1d12);IF(CharacterLevelGreaterThan(17,GetOwner(context.Source))):WeaponDamageDieOverride(2d6)"
+data "Boosts" "WeaponProperty(Magical);WeaponDamageTypeOverride(Bludgeoning);WeaponAttackRollAbilityOverride(SpellCastingAbility);IF(not CharacterLevelGreaterThan(4,GetOwner(context.Source))):WeaponDamageDieOverride(1d8);IF(CharacterLevelGreaterThan(4,GetOwner(context.Source)) and not CharacterLevelGreaterThan(10,GetOwner(context.Source))):WeaponDamageDieOverride(1d10);IF(CharacterLevelGreaterThan(10,GetOwner(context.Source)) and not CharacterLevelGreaterThan(16,GetOwner(context.Source))):WeaponDamageDieOverride(1d12);IF(CharacterLevelGreaterThan(16,GetOwner(context.Source))):WeaponDamageDieOverride(2d6)"
 data "RemoveConditions" "HasStatus('GOON_SHILLELAGH_REMOVAL_TECHNICAL') or not HasStatus('GOON_SHILLELAGH_OWNER', GetSummoner(context.Source))"
 data "RemoveEvents" "OnStatusApplied"
 // data "StatusGroups" "SG_RemoveOnRespec"
@@ -179,11 +180,13 @@ data "DescriptionParams" "DealDamage(4d8+SpellCastingAbilityModifier, Bludgeonin
 data "RequirementConditions" "IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs', GetItemInEquipmentSlot(EquipmentSlot.MeleeMainHand)) or IsWeaponOfProficiencyGroup('Clubs|Quarterstaffs', GetItemInEquipmentSlot(EquipmentSlot.MeleeOffHand))"
 data "RequirementEvents" "OnEquip;OnUnequip"
 
-// new entry "SHILLELAGH_DRYAD"
-// type "StatusData"
-// data "StatusType" "BOOST"
+new entry "SHILLELAGH_DRYAD"
+type "StatusData"
+data "StatusType" "BOOST"
 // using "SHILLELAGH"
+using "SHILLELAGH_DRYAD"
 // data "DescriptionParams" "DealDamage(4d8+SpellCastingAbility, Bludgeoning)"
+data "StatusPropertyFlags" ""
 // data "Boosts" "WeaponProperty(Magical);WeaponDamageDieOverride(4d8);WeaponAttackRollAbilityOverride(SpellCastingAbility);Attribute(InventoryBound)"
 
 // ==================================== Phalar Aluve ====================================

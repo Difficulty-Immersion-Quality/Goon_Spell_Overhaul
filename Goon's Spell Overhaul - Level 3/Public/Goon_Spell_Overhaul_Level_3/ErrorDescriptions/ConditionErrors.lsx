@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="3" revision="0" build="0"/>
+    <region id="ConditionErrors">
+        <node id="root">
+            <children>
+                <node id="ConditionErrors">
+                    <!-- Must be near a &lt;LSTag Type="Status" Tooltip="AURA_OF_VITALITY"&gt;Warden of Vitality&lt;/LSTag&gt;. -->
+                    <!-- <attribute id="DisplayName" type="TranslatedString" handle="hc5f231edg8eb5g46d8g87efgde8a1cb81a8c" version="1" /> -->
+                    <!-- Must be near a &lt;LSTag Type="Status" Tooltip="AURA_OF_VITALITY"&gt;Aura of Vitality&lt;/LSTag&gt;. -->
+                    <attribute id="DisplayName" type="TranslatedString" handle="h19695bf7g5fcdg4174g81f1gb22823fef865" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                    <attribute id="Identifier" type="FixedString" value="HasNotAuraOfVitality" />
+                    <attribute id="UUID" type="guid" value="9f706b6a-43cd-4a06-a687-3d0a32f11812" />
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

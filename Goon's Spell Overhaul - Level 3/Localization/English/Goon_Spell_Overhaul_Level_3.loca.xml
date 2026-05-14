@@ -6,6 +6,12 @@
     <!-- LEVEL 3 - VANILLA -->
 	<!-- "Target_Smite_Blinding" --> <content contentuid="h82888909gf34cg4ddeg94d3g3883e31c0b4d" version="1">Evoke a heavenly flare and possibly &lt;LSTag Type="Status" Tooltip="BLINDING_SMITE_BLINDED"&gt;Blind&lt;/LSTag&gt; your target for [1] turns.</content>
 
+	<!-- "Shout_AuraOfVitality", "AURA_OF_VITALITY_AURA", "AURA_OF_VITALITY" --> <content contentuid="hf8622c3fg1d05g4462g8a1ag3430b923fcc0" version="1">Aura of Vitality</content>
+	<!-- "Shout_AuraOfVitality" --> <content contentuid="hb439e198g9763g42d1g87ddg7e38554e5cc1" version="1">Healing energy radiates from you in an aura with a [1] radius. Until the spell ends, the aura moves with you, centered on you.&lt;br&gt;&lt;br&gt;You can use &lt;LSTag Type="Spell" Tooltip="Target_AuraOfVitality_Activate"&gt;Restore Vitality&lt;/LSTag&gt; to cause one creature in the aura (including you) to regain [2].</content>
+	<!-- "AURA_OF_VITALITY" --> <content contentuid="h313f89c6gdb56g43ebg8fffg62527fd9adfc" version="1">Close enough to a friendly caster to be healed with &lt;LSTag Type="Spell" Tooltip="Target_AuraOfVitality_Activate"&gt;Restore Vitality&lt;/LSTag&gt;.</content>
+	<!-- "Target_AuraOfVitality_Activate" --> <content contentuid="hcfc9e13ag66f0g4eb0gb3ceg3d387aae1c84" version="1">Use a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;bonus action&lt;/LSTag&gt; to heal yourself or a nearby ally. </content>
+	<!-- "HasNotAuraOfVitality" --> <content contentuid="h19695bf7g5fcdg4174g81f1gb22823fef865" version="1">Must be near a &lt;LSTag Type="Status" Tooltip="AURA_OF_VITALITY"&gt;Aura of Vitality&lt;/LSTag&gt;.</content>
+
 	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
