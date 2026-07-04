@@ -6,7 +6,7 @@
 // Changes: Deals additional damage at level 17+ per RAW.
 // Changes: No longer interacts with Extra Attack.
 // Changes: Now has a somatic component.
-// Changes: Targetting unrestricted.
+// Changes: Targeting unrestricted.
 // NOTE: Please use Extra Attack Fix SE from Wesslen to prevent it working with Extra Attack inherently, as per RAW.
 
 new entry "Target_BoomingBlade_ClassSpell"
@@ -38,7 +38,6 @@ using "Target_BoomingBlade"
 data "Level" "0"
 data "RequirementEvents" "OnEquip;OnUnequip;OnSourceStatusApplied;OnStatusRemoved"
 // data "SpellRoll" "Attack(AttackType.MeleeWeaponAttack)"
-// ^ Let Extra Attack Fix SE handle the Extra Attack functionality. It's basically irrelevant to do so, but MAYBE a mod will look for strings in spell rolls like a dumbass and not work if I use a custom roll.
 // data "SpellProperties" "GROUND:DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);GROUND:ExecuteWeaponFunctors(MainHand);CastOffhand[GROUND:DealDamage(OffhandMeleeWeapon, OffhandMeleeWeaponDamageType);GROUND:ExecuteWeaponFunctors(OffHand)];IF(not Player(context.Source)):ApplyStatus(SELF,AI_HELPER_EXTRAATTACK,100,1);"
 data "SpellProperties" "GROUND:DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);GROUND:ExecuteWeaponFunctors(MainHand);ApplyStatus(SELF,BOOMINGBLADE_BLOCK,100,1)"
 // data "SpellSuccess" "ApplyStatus(BOOMING_BLADE,100,1);DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand)"
@@ -98,7 +97,8 @@ using "BOOMING_BLADE"
 // Affected entity will take [1] if it willingly moves.
 data "Description" "h91b9554cgef2dg456fgaa8eg7035558abc89;1"
 // data "DescriptionParams" "DealDamage(1d8, Thunder)"
-data "DescriptionParams" "DealDamage(1d8, Thunder,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
+data "DescriptionParams" "DealDamage(1d8,Thunder)"
+data "TooltipDamage" "DealDamage(1d8,Thunder,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
 // data "Icon" "GenericIcon_Intent_Debuff"
 data "Icon" "GenericIcon_Intent_Debuff"
 data "FormatColor" "Air"
@@ -131,7 +131,6 @@ data "StatusEffect" "ca0b3ab3-dac0-47f7-b313-7ca69c85b5b4"
 // type "PassiveData"
 // using "BoomingBlade_Movement_Passive"
 // data "StatsFunctorContext" "OnCast"
-data "StatsFunctorContext" "OnCast;OnProjectileExploded"
 // data "Conditions" "IsMovementSpell()"
 
 new entry "BOOMING_BLADE_DAMAGE"
@@ -146,7 +145,7 @@ data "TooltipDamage" "DealDamage(1d8,Thunder)"
 // data "Passives" ""
 // data "OnApplyFunctors" "DealDamage(1d8, Thunder,Magical);RemoveStatus(SELF, BOOMING_BLADE)"
 // data "OnApplyFunctors" "DealDamage(1d8, Thunder,Magical,,0,,true,true);RemoveStatus(SELF, BOOMING_BLADE)"
-data "OnApplyFunctors" "DealDamage(1d8, Thunder,Magical,,0,,true,false);RemoveStatus(SELF, BOOMING_BLADE)"
+data "OnApplyFunctors" "DealDamage(1d8,Thunder,Magical,,0,,true,true);RemoveStatus(SELF, BOOMING_BLADE)"
 
 // ==================================== Booming Blade - Level 5
 
@@ -156,7 +155,8 @@ data "StatusType" "BOOST"
 // using "BOOMING_BLADE"
 using "BOOMING_BLADE_5"
 // data "DescriptionParams" "DealDamage(2d8, Thunder)"
-data "DescriptionParams" "DealDamage(2d8, Thunder,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
+data "DescriptionParams" "DealDamage(2d8,Thunder)"
+data "TooltipDamage" "DealDamage(2d8,Thunder,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
 // data "Passives" "BoomingBlade_5_Movement_Passive;BoomingBlade_5_MovementSpell_Passive;"
 
 // new entry "BoomingBlade_5_Movement_Passive"
@@ -179,10 +179,10 @@ data "StatusType" "BOOST"
 // using "BOOMING_BLADE_DAMAGE"
 using "BOOMING_BLADE_5_DAMAGE"
 // data "DescriptionParams" "DealDamage(2d8, Thunder)"
-data "TooltipDamage" "DealDamage(2d8,Thunder)"
+data "TooltipDamage" "DealDamage(2d8,Thunder,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
 // data "OnApplyFunctors" "DealDamage(2d8, Thunder,Magical);RemoveStatus(SELF, BOOMING_BLADE_5)"
 // data "OnApplyFunctors" "DealDamage(2d8, Thunder,Magical,,0,,true,true);RemoveStatus(SELF, BOOMING_BLADE_5)"
-data "OnApplyFunctors" "DealDamage(2d8, Thunder,Magical,,0,,true,false);RemoveStatus(SELF, BOOMING_BLADE_5)"
+data "OnApplyFunctors" "DealDamage(2d8,Thunder,Magical,,0,,true,true);RemoveStatus(SELF, BOOMING_BLADE_5)"
 
 // ==================================== Booming Blade - Level 11
 
@@ -192,7 +192,8 @@ data "StatusType" "BOOST"
 // using "BOOMING_BLADE"
 using "BOOMING_BLADE_11"
 // data "DescriptionParams" "DealDamage(3d8, Thunder)"
-data "DescriptionParams" "DealDamage(3d8, Thunder,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
+data "DescriptionParams" "DealDamage(3d8,Thunder)"
+data "TooltipDamage" "DealDamage(3d8,Thunder,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
 // data "Passives" "BoomingBlade_11_Movement_Passive;BoomingBlade_11_MovementSpell_Passive;"
 
 // new entry "BoomingBlade_11_Movement_Passive"
@@ -215,10 +216,10 @@ data "StatusType" "BOOST"
 // using "BOOMING_BLADE_DAMAGE"
 using "BOOMING_BLADE_11_DAMAGE"
 // data "DescriptionParams" "DealDamage(3d8, Thunder)"
-data "TooltipDamage" "DealDamage(3d8,Thunder)"
+data "TooltipDamage" "DealDamage(3d8,Thunder,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
 // data "OnApplyFunctors" "DealDamage(3d8, Thunder,Magical);RemoveStatus(SELF, BOOMING_BLADE_11)"
 // data "OnApplyFunctors" "DealDamage(3d8, Thunder,Magical,,0,,true,true);RemoveStatus(SELF, BOOMING_BLADE_11)"
-data "OnApplyFunctors" "DealDamage(3d8, Thunder,Magical,,0,,true,false);RemoveStatus(SELF, BOOMING_BLADE_11)"
+data "OnApplyFunctors" "DealDamage(3d8,Thunder,Magical,,0,,true,true);RemoveStatus(SELF, BOOMING_BLADE_11)"
 
 // ==================================== Booming Blade - Level 17
 
@@ -226,7 +227,8 @@ new entry "GOON_BOOMING_BLADE_17"
 type "StatusData"
 data "StatusType" "BOOST"
 using "BOOMING_BLADE"
-data "DescriptionParams" "DealDamage(4d8, Thunder,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
+data "DescriptionParams" "DealDamage(4d8,Thunder)"
+data "TooltipDamage" "DealDamage(4d8,Thunder,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
 data "Passives" "Goon_BoomingBlade_17_Movement_Passive;Goon_BoomingBlade_17_MovementSpell_Passive"
 
 new entry "Goon_BoomingBlade_17_Movement_Passive"
@@ -248,8 +250,8 @@ type "StatusData"
 data "StatusType" "BOOST"
 using "BOOMING_BLADE_DAMAGE"
 data "DescriptionParams" "DealDamage(4d8, Thunder)"
-data "TooltipDamage" "DealDamage(4d8,Thunder)"
-data "OnApplyFunctors" "DealDamage(4d8, Thunder,Magical,,0,,true,false);RemoveStatus(SELF, GOON_BOOMING_BLADE_17)"
+data "TooltipDamage" "DealDamage(4d8,Thunder,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
+data "OnApplyFunctors" "DealDamage(4d8,Thunder,Magical,,0,,true,true);RemoveStatus(SELF, GOON_BOOMING_BLADE_17)"
 
 // ==================================== Blasting Blade ???
 
