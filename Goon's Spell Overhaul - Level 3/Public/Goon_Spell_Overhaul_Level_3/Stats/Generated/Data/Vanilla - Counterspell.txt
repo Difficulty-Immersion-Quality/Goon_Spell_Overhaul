@@ -1,6 +1,7 @@
 // ==================================== Counterspell ====================================
 // Bug Fix: Abjuration Wizard's Arcane Ward is fed the appropriate amount of charges based on spell level.
 // Bug Fix: Interrupts can be used while under the effects of more non-hostile and non-spellcasting restricted Polymorphs.
+// Bug Fix: Now uses the caster's spellcasting modifier, instead of defaulting to intelligence.
 // Changes: Can no longer interrupt spells while Blinded.
 // Changes: Can now be used by Invisible player characters.
 // Changes: If the caster is Invisible or Hidden, spells with the "Stealth" flag cannot be interrupted.
