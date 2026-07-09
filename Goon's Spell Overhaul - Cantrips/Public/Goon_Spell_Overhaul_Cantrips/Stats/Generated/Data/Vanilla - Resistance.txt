@@ -67,7 +67,7 @@ using "RESISTANCE"
 // data "Icon" "Spell_Abjuration_Resistance"
 // data "StackId" "RESISTANCE"
 // data "TickType" "StartTurn"
-data "OnApplyFunctors" "ApplyStatus(GOON_RESISTANCE_FX,100,1)"
+data "OnApplyFunctors" "ApplyStatus(GOON_FX_RESISTANCE,100,1)"
 // data "Boosts" "RollBonus(SavingThrow,1d4);RollBonus(DeathSavingThrow,1d4)"
 // data "StatusGroups" "SG_RemoveOnRespec"
 // data "StatusEffect" "95231805-3d66-4061-9cf6-8cbbc48d6732"
@@ -77,23 +77,15 @@ data "ManagedStatusEffectType" ""
 // data "ManagedStatusEffectGroup" "6435c10a-c67d-4f79-8813-b84b0762f92b"
 data "ManagedStatusEffectGroup" ""
 
-// TODO: Maybe annoying reactive VFX, couldn't see an ability equivulent.
-// data "Passives" "Goon_Resistance_FX_Passive"
+// TODO: Maybe annoying reactive VFX. Would list all types of successes as "not" and stuff.
+// data "Passives" "Goon_FX_Resistance_Passive"
 
-// new entry "Goon_Resistance_FX_Passive"
+// new entry "Goon_FX_Resistance_Passive"
 // type "PassiveData"
 // data "Properties" "IsHidden"
 // data "Conditions" "IsSavingThrow()"
 // data "StatsFunctorContext" "OnAttacked;OnStatusApplied;OnStatusRemoved"
-// data "StatsFunctors" "IF(IsLastConditionRollSuccess(ConditionRollType.ConditionSavingThrow)):ApplyStatus(GOON_RESISTANCE_FX,100,1)"
-
-new entry "GOON_RESISTANCE_FX"
-type "StatusData"
-data "StatusType" "BOOST"
-data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
-data "StatusEffect" "95231805-3d66-4061-9cf6-8cbbc48d6732"
-data "ManagedStatusEffectType" "Positive"
-data "ManagedStatusEffectGroup" "6435c10a-c67d-4f79-8813-b84b0762f92b"
+// data "StatsFunctors" "IF(IsLastConditionRollSuccess(ConditionRollType.ConditionSavingThrow)):ApplyStatus(GOON_FX_RESISTANCE,100,1)"
 
 // ==================================== ???
 
